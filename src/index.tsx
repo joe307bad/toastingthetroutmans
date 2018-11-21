@@ -1,11 +1,9 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
-import registerServiceWorker from './registerServiceWorker';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+
+import { Hello } from "./components/Hello";
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root') as HTMLElement
+    <Hello {...{ compiler: "TypeScript", framework: "React" }} />,
+    document.getElementById("example")
 );
-registerServiceWorker();
