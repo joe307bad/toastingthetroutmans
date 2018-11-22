@@ -13,7 +13,7 @@ const Page = ({ offset, gradient, onClick }: any) => (
     </ParallaxLayer>
 
     <ParallaxLayer className="text number" offset={offset} speed={0.3}>
-      <span>0{offset + 1}</span>
+      <span>012312{offset + 1}</span>
     </ParallaxLayer>
   </React.Fragment>
 )
