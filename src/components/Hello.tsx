@@ -1,42 +1,40 @@
-import * as React from "react";
-import { ParallaxLayer, Parallax } from 'react-spring';
+import * as React from 'react'
+import { Parallax, ParallaxLayer } from 'react-spring'
 import './styles.css'
-
-export interface HelloProps { compiler: string; framework: string; }
 
 const Page = ({ offset, gradient, onClick }: any) => (
   <React.Fragment>
-    <ParallaxLayer offset={offset} speed={0.2}>
+    <ParallaxLayer offset={offset} speed={0.2} onClick={onClick}>
       <div className="slopeBegin" />
     </ParallaxLayer>
 
-    <ParallaxLayer offset={offset} speed={0.6}>
+    <ParallaxLayer offset={offset} speed={0.6} onClick={onClick}>
       <div className={`slopeEnd ${gradient}`} />
     </ParallaxLayer>
 
-    <ParallaxLayer offset={offset} speed={0.3}>
+    <ParallaxLayer className="text number" offset={offset} speed={0.3}>
       <span>0{offset + 1}</span>
     </ParallaxLayer>
   </React.Fragment>
 )
 
-// 'HelloProps' describes the shape of props.
-// State is never set so we use the '{}' type.
-export class Hello extends React.Component<HelloProps, {}> {
-    parallax: any;
-    render() {
-        return (
-            <div style={{ background: '#dfdfdf' }}>
-            <Parallax
-              ref={(node: any) => (this.parallax = node)}
-              pages={3}
-              horizontal
-              scrolling={false}>
-              <Page offset={0} gradient="pink"  />
-              <Page offset={1} gradient="teal"  />
-              <Page offset={2} gradient="tomato" />
-            </Parallax>
-          </div>
-        )
-    }
+export class Hello extends React.Component {
+  parallax: any;
+  scroll = (to: any) => this.parallax.scrollTo(to)
+  render() {
+    return (
+      <div style={{ background: '#dfdfdf' }}>
+        <Parallax
+          className="container"
+          ref={(node: any) => (this.parallax = node)}
+          pages={3}
+          horizontal
+          scrolling={false}>
+          <Page offset={0} gradient="pink" onClick={() => this.scroll(1)} />
+          <Page offset={1} gradient="teal" onClick={() => this.scroll(2)} />
+          <Page offset={2} gradient="tomato" onClick={() => this.scroll(0)} />
+        </Parallax>
+      </div>
+    )
+  }
 }
