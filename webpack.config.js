@@ -38,7 +38,7 @@ module.exports = {
             { test: /\.(jpe?g|gif|bmp|mp3|mp4|ogg|wav|eot|ttf|woff|woff2)$/, use: 'file-loader' },
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
-        ]
+        ],
     },
     devServer: {
         contentBase: __dirname + "/src",

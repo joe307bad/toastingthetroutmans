@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { Parallax, ParallaxLayer } from 'react-spring'
+import ParallaxComponent from './parallax-example/parallax';
 import './styles.css'
+import { ThemeProvider } from 'theming';
 
 const Page = ({ offset, gradient, onClick }: any) => (
   <React.Fragment>
@@ -18,23 +20,21 @@ const Page = ({ offset, gradient, onClick }: any) => (
   </React.Fragment>
 )
 
+
+const theme: React.CSSProperties = {
+  color: 'black',
+  background: 'white',
+  backgroundImage: 'https://www.toptal.com/designers/subtlepatterns/patterns/paper_fibers.png'
+};
+
 export class Hello extends React.Component {
   parallax: any;
   scroll = (to: any) => this.parallax.scrollTo(to)
-  render() {
+  render(): JSX.Element {
     return (
-      <div style={{ background: '#dfdfdf' }}>
-        <Parallax
-          className="container"
-          ref={(node: any) => (this.parallax = node)}
-          pages={3}
-          horizontal
-          scrolling={false}>
-          <Page offset={0} gradient="pink" onClick={() => this.scroll(1)} />
-          <Page offset={1} gradient="teal" onClick={() => this.scroll(2)} />
-          <Page offset={2} gradient="tomato" onClick={() => this.scroll(0)} />
-        </Parallax>
-      </div>
+      <ThemeProvider theme={theme}>
+        <ParallaxComponent theme={theme} /> {/* { color: 'black', background: 'white' } */}
+      </ThemeProvider>
     )
   }
 }

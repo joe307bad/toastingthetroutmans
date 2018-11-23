@@ -1,3 +1,9 @@
+body{
+    margin: 0px;
+}
+
+
+
 .container > div > div {
     display: flex;
     align-items: center;
