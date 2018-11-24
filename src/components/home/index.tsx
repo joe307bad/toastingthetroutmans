@@ -1,84 +1,23 @@
-import * as React from 'react'
-import { Parallax, ParallaxLayer } from 'react-spring'
-import { withTheme } from 'theming';
+import * as React from "react";
 
-// Little helpers ...
+import { ITheme } from "../main";
+import { withTheme } from "@callstack/react-theme-provider";
+import { Parallax, ParallaxLayer } from "react-spring";
+
 const url = (name: any, wrap = false) =>
     `${
     wrap ? 'url(' : ''
     }https://awv3node-homepage.surge.sh/build/assets/${name}.svg${
     wrap ? ')' : ''
     }`
-const Pink = ({ children }: any) => (
-    <span style={{ color: '#FF6AC1' }}>{children}</span>
-)
-const Yellow = ({ children }: any) => (
-    <span style={{ color: '#EFF59B' }}>{children}</span>
-)
-const Lightblue = ({ children }: any) => (
-    <span style={{ color: '#9AEDFE' }}>{children}</span>
-)
-const Green = ({ children }: any) => (
-    <span style={{ color: '#57EE89' }}>{children}</span>
-)
-const Blue = ({ children }: any) => (
-    <span style={{ color: '#57C7FF' }}>{children}</span>
-)
-const Gray = ({ children }: any) => (
-    <span style={{ color: '#909090' }}>{children}</span>
-)
 
-const Styles = {
-    content: {
-        height: "500px",
-        textAlign: "center",
-        fontSize: "4rem",
-        color: "#fff"
-    },
-    link: {
-        display: "inline-block",
-        fontSize: "2rem",
-        color: "#fff",
-        marginRight: "10px",
-        opacity: "0.5",
-        cursor: "pointer",
-    },
-    active: {
-        opacity: 1
-    },
-    nav: {
-        position: "fixed",
-        background: '#fff',
-        textAlign: 'center',
-        width: "100%",
-        top: 0,
-        zIndex: 999
-    } as React.CSSProperties
-};
-
-class MenuItem extends React.Component {
-    render() {
-        const { targetInfo, style, ...reset }: any = this.props;
-        let activeStyle = null;
-        if (targetInfo.active) {
-            activeStyle = Styles.active;
-        }
-        return (<div style={{
-            ...Styles.link,
-            ...style,
-            ...activeStyle
-        }} {...reset} />);
-    }
-}
-
-export class ScrollExample extends React.Component<{theme: any}, any> {
-    them: any;
+export class Home extends React.Component<{ theme: ITheme }, any> {
     parallax: any;
     render(): JSX.Element {
         return (
             <div style={{ width: '100%', height: '100%', background: '#253237' }}>
 
-                <div id="nav-parent" style={Styles.nav}>
+                <div id="nav-parent" style={this.props.theme.nav}>
                     <div style={{ background: '#3498DB' }}
                         onClick={() => this.parallax.scrollTo(0)}>
                         test1
@@ -245,5 +184,4 @@ export class ScrollExample extends React.Component<{theme: any}, any> {
     }
 }
 
-
-export default withTheme(ScrollExample);
+export default withTheme(Home);
