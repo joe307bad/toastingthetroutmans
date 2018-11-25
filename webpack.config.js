@@ -15,7 +15,7 @@ module.exports = {
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [".ts", ".tsx", ".js", ".json"],
+        extensions: [".ts", ".tsx", ".js", ".json", ".styl"],
         modules: [
             __dirname + "/node_modules"
         ]
@@ -24,7 +24,18 @@ module.exports = {
     module: {
         rules: [
             { test: /\.html$/, use: 'html-loader' },
-            { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+            {
+                test: /\.styl$/,
+                use: [
+                  'style-loader',
+                  'css-loader?modules&camelCase&localIdentName=[path]__[name]__[local]--[hash:base64:5]',
+                  'stylus-loader',
+                ],
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader!css-loader']
+            },
             // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
             {
                 test: /\.tsx?$/, use: [
@@ -35,7 +46,12 @@ module.exports = {
                     'awesome-typescript-loader'
                 ]
             },
-            { test: /\.(jpe?g|gif|bmp|mp3|mp4|ogg|wav|eot|ttf|woff|woff2)$/, use: 'file-loader' },
+            {
+                test: /\.(jpe?g|gif|bmp|mp3|mp4|ogg|wav|eot|ttf|woff|woff2)$/,
+                use: [{
+                    loader: 'file-loader'
+                }]
+            },
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
         ],
