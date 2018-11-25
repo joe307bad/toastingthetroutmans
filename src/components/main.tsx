@@ -7,23 +7,42 @@ import Home from './home';
 
 export interface ITheme {
     main: React.CSSProperties,
-    nav: React.CSSProperties
+    nav: React.CSSProperties,
+    navChild: React.CSSProperties
 }
+
+const primary = '#582C4D';
+const primary2 = '#A26769';
+const secondary = '#D5B9B2';
+const tertiary = '#BFB5AF';
+const background = '#F2EDE9';
 
 const theme: ITheme = {
     main: {
         backgroundImage: "url(https://www.toptal.com/designers/subtlepatterns/patterns/ricepaper2.png)",
-        height: "100%",
-        width: "100%"
+        overflow: 'hidden',
+        top: 0,
+        left: 0,
+        zIndex: 1
     },
     nav: {
         fontFamily: 'Imperator',
-        position: "fixed",
-        background: '#fff',
+        display: 'flex',
         textAlign: 'center',
-        width: "100%",
-        top: 0,
-        zIndex: 999
+        zIndex: 2,
+        position: 'fixed',
+        width: '978px',
+        left: '50%',
+        marginLeft: '-514px',
+        fontSize: '20px',
+        padding: '10px',
+        color: primary
+    },
+    navChild: {
+        flex: 1,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 }
 
@@ -42,18 +61,34 @@ export class Main extends React.Component<any, any>{
             <ThemeProvider theme={theme}>
                 <div style={theme.main}>
                     <div style={theme.nav}>
-                        <div style={{ background: '#3498DB' }}
+                        <div style={theme.navChild}
                             onClick={() => this.scroll(0)}>
-                            test1
-                    </div>
-                        <div style={{ background: '#3498DB' }}
+                            Engagement
+                        </div>
+                        <div style={theme.navChild}
                             onClick={() => this.scroll(1)}>
-                            test2
-                     </div>
-                        <div style={{ background: '#3498DB' }}
+                            Photos
+                        </div>
+                        <div style={theme.navChild}
                             onClick={() => this.scroll(3)}>
-                            test3
-                     </div>
+                            Bridesmaids
+                        </div>
+                        <div style={theme.navChild}
+                            onClick={() => this.scroll(3)}>
+                            Groomsmen
+                        </div>
+                        <div style={theme.navChild}
+                            onClick={() => this.scroll(3)}>
+                            Venue
+                        </div>
+                        <div style={theme.navChild}
+                            onClick={() => this.scroll(3)}>
+                            Registry
+                        </div>
+                        <div style={theme.navChild}
+                            onClick={() => this.scroll(3)}>
+                            RSVP
+                        </div>
                     </div>
                     <Home
                         {...{

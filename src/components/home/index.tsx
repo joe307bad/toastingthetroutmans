@@ -11,14 +11,6 @@ const url = (name: any, wrap = false) =>
     wrap ? ')' : ''
     }`
 
-const styles: { [node: string]: React.CSSProperties } = {
-    parallaxLayer: {
-       // backgroundImage: 'url("https://www.toptal.com/designers/subtlepatterns/patterns/paper_fibers.png)',
-       // backgroundRepeat: 'repeat',
-       // backgroundSize: 'cover',
-    }
-}
-
 interface IHomeProps {
     theme: ITheme;
     setParallaxContainer: (ref: any) => void;
@@ -138,7 +130,6 @@ export class Home extends React.Component<IHomeProps, any> {
                         backgroundImage: url('clients', true),
                     }}
                 />
-
 
                 <ParallaxLayer
                     offset={0}
