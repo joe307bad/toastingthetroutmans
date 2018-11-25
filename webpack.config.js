@@ -6,8 +6,9 @@ var isProduction = process.argv.indexOf('-p') >= 0 || process.env.NODE_ENV === '
 module.exports = {
     entry: "./src/index.tsx",
     output: {
+        publicPath: '/',
+        path: __dirname + "/dist",
         filename: "bundle.js",
-        path: __dirname + "/dist"
     },
 
     // Enable sourcemaps for debugging webpack's output.
@@ -27,9 +28,9 @@ module.exports = {
             {
                 test: /\.styl$/,
                 use: [
-                  'style-loader',
-                  'css-loader?modules&camelCase&localIdentName=[path]__[name]__[local]--[hash:base64:5]',
-                  'stylus-loader',
+                    'style-loader',
+                    'css-loader?modules&camelCase&localIdentName=[path]__[name]__[local]--[hash:base64:5]',
+                    'stylus-loader',
                 ],
             },
             {
@@ -47,10 +48,17 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(jpe?g|gif|bmp|mp3|mp4|ogg|wav|eot|ttf|woff|woff2)$/,
+                test: /\.(mp3|mp4|ogg|wav|eot|ttf|woff|woff2)$/,
                 use: [{
                     loader: 'file-loader'
                 }]
+            },
+            {
+              test: /\.(jpe?g|png|gif|svg)$/i,
+              loaders: [
+                'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
+                'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
+               ]
             },
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }

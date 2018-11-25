@@ -4,6 +4,11 @@ import { ITheme } from "../main";
 import { withTheme } from "@callstack/react-theme-provider";
 import { Parallax, ParallaxLayer } from "react-spring";
 
+var samAndShaun = require("../../assets/photos/SamAndShaun.png");
+var samAndShaun1 = require("../../assets/photos/SamAndShaun_2_Portrait.jpg");
+var samAndShaun2 = require("../../assets/photos/SamAndShaun_1_Landscape.jpg");
+
+
 const url = (name: any, wrap = false) =>
     `${
     wrap ? 'url(' : ''
@@ -21,10 +26,10 @@ export class Home extends React.Component<IHomeProps, any> {
 
     render(): JSX.Element {
         return (
-            <Parallax 
-            style={this.props.theme.main}
-            ref={(ref: any) => this.props.setParallaxContainer(ref)} 
-            pages={3}>
+            <Parallax
+                style={this.props.theme.main}
+                ref={(ref: any) => this.props.setParallaxContainer(ref)}
+                pages={3}>
                 <ParallaxLayer
                     offset={1}
                     speed={1}
@@ -133,13 +138,60 @@ export class Home extends React.Component<IHomeProps, any> {
 
                 <ParallaxLayer
                     offset={0}
+                    speed={0}
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        paddingTop: '100px'
+                    }}>
+                    <img
+                        style={{
+                            alignSelf: 'flex-start',
+                        }}
+                        src={samAndShaun} />
+                </ParallaxLayer>
+
+                <ParallaxLayer
+                    offset={0.2}
                     speed={0.1}
                     style={{
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                     }}>
-                    <img src={url('server')} style={{ width: '20%' }} />
+                    <img
+                        style={{
+                            width: '300px',
+                            marginRight: '-40%',
+                            transform: 'rotate(10deg)',
+                            backgroundColor: 'white',
+                            padding: '10px',
+                            display: 'block',
+                            boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)'
+                        }}
+                        src={samAndShaun1} />
+                </ParallaxLayer>
+
+                <ParallaxLayer
+                    offset={0.15}
+                    speed={0.2}
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}>
+                    <img
+                        style={{
+                            width: '600px',
+                            marginLeft: '-45%',
+                            transform: 'rotate(-10deg)',
+                            backgroundColor: 'white',
+                            padding: '10px',
+                            display: 'block',
+                            boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)'
+                        }}
+                        src={samAndShaun2} />
                 </ParallaxLayer>
 
                 <ParallaxLayer
