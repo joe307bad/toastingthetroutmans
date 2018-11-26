@@ -1,7 +1,7 @@
+const path = require('path');
+const webpack = require('webpack');
 
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-
-var isProduction = process.argv.indexOf('-p') >= 0 || process.env.NODE_ENV === 'production';
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: "./src/index.tsx",
@@ -10,10 +10,6 @@ module.exports = {
         path: __dirname + "/dist",
         filename: "bundle.js",
     },
-
-    // Enable sourcemaps for debugging webpack's output.
-    devtool: "source-map",
-
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
         extensions: [".ts", ".tsx", ".js", ".json", ".styl"],
@@ -37,15 +33,10 @@ module.exports = {
                 test: /\.css$/,
                 use: ['style-loader!css-loader']
             },
-            // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
             {
-                test: /\.tsx?$/, use: [
-                    !isProduction && {
-                        loader: 'babel-loader',
-                        options: { plugins: ['react-hot-loader/babel'] }
-                    },
-                    'awesome-typescript-loader'
-                ]
+                test: /\.tsx?$/, use: [{
+                    loader: 'awesome-typescript-loader'
+                }]
             },
             {
                 test: /\.(mp3|mp4|ogg|wav|eot|ttf|woff|woff2)$/,
@@ -54,23 +45,22 @@ module.exports = {
                 }]
             },
             {
-              test: /\.(jpe?g|png|gif|svg)$/i,
-              loaders: [
-                'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
-                'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
-               ]
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                loaders: [
+                    'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
+                    'image-webpack-loader?{gifsicle: {interlaced: true}, optipng: {optimizationLevel: 7}, pngquant:{quality: "65-90", speed: 4}, mozjpeg: {quality: 65}}'
+                ]
             },
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
         ],
     },
-    devServer: {
-        contentBase: __dirname + "/src",
-        hot: true
-    },
     plugins: [
         new HtmlWebpackPlugin({
             template: __dirname + '/src/assets/index.html'
+        }),
+        new webpack.DefinePlugin({
+            ENV: JSON.stringify(process.env.NODE_ENV === 'production' ? 'production' : 'development')
         })
     ],
     // When importing a module whose path matches one of the following, just
