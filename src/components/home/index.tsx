@@ -1,12 +1,13 @@
 import * as React from "react";
 
-import { ITheme } from "../main";
+import { ITheme, primary } from "../main";
 import { withTheme } from "@callstack/react-theme-provider";
 import { Parallax, ParallaxLayer } from "react-spring";
 
 var samAndShaun = require("../../assets/photos/SamAndShaun.png");
 var samAndShaun1 = require("../../assets/photos/SamAndShaun_2_Portrait.jpg");
 var samAndShaun2 = require("../../assets/photos/SamAndShaun_1_Landscape.jpg");
+var samAndShaun3 = require("../../assets/photos/SamAndShaun_3_Landscape.jpg");
 
 
 const url = (name: any, wrap = false) =>
@@ -141,41 +142,26 @@ export class Home extends React.Component<IHomeProps, any> {
                     speed={0}
                     style={{
                         display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        paddingTop: '100px'
+                        paddingTop: '100px',
+                        flexFlow: 'column wrap'
                     }}>
                     <img
                         style={{
-                            alignSelf: 'flex-start',
+                            alignSelf: 'center',
                         }}
                         src={samAndShaun} />
+                    <p style={{
+                        fontFamily: "Imperator",
+                        color: primary,
+                        alignSelf: 'center',
+                        fontSize: "30px",
+                        textAlign: "center"
+                    }}>Friday, October 29th 2019<br />Some Random Church in Hershey</p>
                 </ParallaxLayer>
 
                 <ParallaxLayer
                     offset={0.2}
-                    speed={0.1}
-                    style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                    }}>
-                    <img
-                        style={{
-                            width: '300px',
-                            marginRight: '-40%',
-                            transform: 'rotate(10deg)',
-                            backgroundColor: 'white',
-                            padding: '10px',
-                            display: 'block',
-                            boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)'
-                        }}
-                        src={samAndShaun1} />
-                </ParallaxLayer>
-
-                <ParallaxLayer
-                    offset={0.15}
-                    speed={0.2}
+                    speed={0.5}
                     style={{
                         display: 'flex',
                         alignItems: 'center',
@@ -183,8 +169,8 @@ export class Home extends React.Component<IHomeProps, any> {
                     }}>
                     <img
                         style={{
-                            width: '600px',
-                            marginLeft: '-45%',
+                            width: '800px',
+                            marginRight: '40%',
                             transform: 'rotate(-10deg)',
                             backgroundColor: 'white',
                             padding: '10px',
@@ -192,6 +178,27 @@ export class Home extends React.Component<IHomeProps, any> {
                             boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)'
                         }}
                         src={samAndShaun2} />
+                </ParallaxLayer>
+
+                <ParallaxLayer
+                    offset={0.2}
+                    speed={0.3}
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}>
+                    <img
+                        style={{
+                            width: '800px',
+                            marginLeft: '40%',
+                            transform: 'rotate(10deg)',
+                            backgroundColor: 'white',
+                            padding: '10px',
+                            display: 'block',
+                            boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)'
+                        }}
+                        src={samAndShaun3} />
                 </ParallaxLayer>
 
                 <ParallaxLayer

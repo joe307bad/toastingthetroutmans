@@ -11,15 +11,17 @@ export interface ITheme {
     navChild: React.CSSProperties
 }
 
-const primary = '#582C4D';
-const primary2 = '#A26769';
-const secondary = '#D5B9B2';
-const tertiary = '#BFB5AF';
-const background = '#F2EDE9';
+export const primary = '#582C4D';
+export const primary2 = '#A26769';
+export const secondary = '#D5B9B2';
+export const tertiary = '#BFB5AF';
+export const background = '#F2EDE9';
+
+const backgroundImage = "url(https://www.toptal.com/designers/subtlepatterns/patterns/ricepaper2.png)";
 
 const theme: ITheme = {
     main: {
-        backgroundImage: "url(https://www.toptal.com/designers/subtlepatterns/patterns/ricepaper2.png)",
+        backgroundImage: backgroundImage,
         overflow: 'hidden',
         top: 0,
         left: 0,
@@ -35,8 +37,10 @@ const theme: ITheme = {
         left: '50%',
         marginLeft: '-514px',
         fontSize: '20px',
-        padding: '10px',
-        color: primary
+        padding: '20px',
+        color: primary,
+        top: 0,
+        backgroundImage: backgroundImage,
     },
     navChild: {
         flex: 1,
