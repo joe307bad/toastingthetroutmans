@@ -3,6 +3,10 @@ import * as React from "react";
 import { ITheme, primary } from "../main";
 import { withTheme } from "@callstack/react-theme-provider";
 import { Parallax, ParallaxLayer } from "react-spring";
+// @ts-ignore
+import * as ReadingProgress from 'react-reading-progress'
+
+
 
 var samAndShaun = require("../../assets/photos/SamAndShaun.png");
 var samAndShaun1 = require("../../assets/photos/SamAndShaun_2_Portrait.jpg");
@@ -22,14 +26,29 @@ interface IHomeProps {
     setParallaxContainer: (ref: any) => void;
 }
 
+let lastScrollY = 0;
+let ticking = false;
+
 export class Home extends React.Component<IHomeProps, any> {
     parallax: any;
+    parallaxContainer: any;
+
+    componentDidMount(): void {
+        this.parallaxContainer.container.addEventListener('scroll', this.handleScroll);
+    }
+
+    handleScroll(event: any): void {
+        console.log(event);
+    }
 
     render(): JSX.Element {
         return (
             <Parallax
                 style={this.props.theme.main}
-                ref={(ref: any) => this.props.setParallaxContainer(ref)}
+                ref={(ref: any) => {
+                    this.parallaxContainer = ref;
+                    this.props.setParallaxContainer(ref);
+                }}
                 pages={3}>
                 <ParallaxLayer
                     offset={1}
