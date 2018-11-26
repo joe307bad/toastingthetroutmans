@@ -3,7 +3,7 @@
 
 #### Tehnical Features:
 * [React Spring](https://github.com/drcmda/react-spring) for animation and parallax effect
-* [React Responsive](https://github.com/contra/react-responsive) as the framework for managing responsiveness (mobile-first design)
+* [Radium](https://github.com/contra/react-responsive) as the framework for managing inline styles and responsiveness (mobile-first design)
 * [Stylus](https://github.com/stylus/stylus) as a robust, expressive styling language that compiles to CSS
 * [Theming](https://github.com/cssinjs/theming) as the theming solution for React
 * [Typescript](https://www.typescriptlang.org/) for a high level of structure and strong typing

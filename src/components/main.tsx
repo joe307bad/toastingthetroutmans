@@ -4,13 +4,15 @@ import '../assets/fonts/fonts.styl';
 
 import { ThemeProvider } from '@callstack/react-theme-provider';
 import Home from './home';
+import Radium from 'radium';
 
 export interface ITheme {
     main: React.CSSProperties;
     nav: React.CSSProperties;
     navChild: React.CSSProperties;
     currentPageMarker: React.CSSProperties;
-    currentPageMarkerAccent: React.CSSProperties
+    currentPageMarkerAccent: React.CSSProperties;
+    black: React.CSSProperties;
 }
 
 export const primary = '#582C4D';
@@ -66,6 +68,9 @@ const theme: ITheme = {
         left: '50%',
         position: 'relative',
         marginLeft: '-69.9px'
+    },
+    black: {
+        fontSize: 1000
     }
 }
 
@@ -93,50 +98,52 @@ export class Main extends React.Component<any, IMainState>{
     render(): JSX.Element {
         return (
             <ThemeProvider theme={theme}>
-                <div style={theme.main}>
-                    <div style={theme.nav}>
-                        <div style={theme.navChild}
-                            onClick={() => this.scrollTo(0)}>
-                            Engagement
+                <Radium.StyleRoot>
+                    <div style={theme.main}>
+                        <div style={theme.nav}>
+                            <div style={theme.navChild}
+                                onClick={() => this.scrollTo(0)}>
+                                Engagement
                         </div>
-                        <div style={theme.navChild}
-                            onClick={() => this.scrollTo(1)}>
-                            Photos
+                            <div style={theme.navChild}
+                                onClick={() => this.scrollTo(1)}>
+                                Photos
                         </div>
-                        <div style={theme.navChild}
-                            onClick={() => this.scrollTo(3)}>
-                            Bridesmaids
+                            <div style={theme.navChild}
+                                onClick={() => this.scrollTo(3)}>
+                                Bridesmaids
                         </div>
-                        <div style={theme.navChild}
-                            onClick={() => this.scrollTo(3)}>
-                            Groomsmen
+                            <div style={theme.navChild}
+                                onClick={() => this.scrollTo(3)}>
+                                Groomsmen
                         </div>
-                        <div style={theme.navChild}
-                            onClick={() => this.scrollTo(3)}>
-                            Venue
+                            <div style={theme.navChild}
+                                onClick={() => this.scrollTo(3)}>
+                                Venue
                         </div>
-                        <div style={theme.navChild}
-                            onClick={() => this.scrollTo(3)}>
-                            Registry
+                            <div style={theme.navChild}
+                                onClick={() => this.scrollTo(3)}>
+                                Registry
                         </div>
-                        <div style={theme.navChild}
-                            onClick={() => this.scrollTo(3)}>
-                            RSVP
+                            <div style={theme.navChild}
+                                onClick={() => this.scrollTo(3)}>
+                                RSVP
                         </div>
-                        <div style={{ width: '100%' }}></div>
-                        <div style={{
-                            ...theme.currentPageMarker,
-                            left: this.state.currentPageMarkerPosition
-                        }}>
-                            <div style={theme.currentPageMarkerAccent}></div>
+                            <div style={{ width: '100%' }}></div>
+                            <div style={{
+                                ...theme.currentPageMarker,
+                                left: this.state.currentPageMarkerPosition
+                            }}>
+                                <div style={theme.currentPageMarkerAccent}></div>
+                            </div>
                         </div>
+                        <Home
+                            {...{
+                                setParallaxContainer: this.setParallaxContainer.bind(this),
+                                onParallaxScroll: this.onScroll.bind(this)
+                            }} />
                     </div>
-                    <Home
-                        {...{
-                            setParallaxContainer: this.setParallaxContainer.bind(this),
-                            onParallaxScroll: this.onScroll.bind(this)
-                        }} />
-                </div>
+                </Radium.StyleRoot>
             </ThemeProvider>
         )
     }
