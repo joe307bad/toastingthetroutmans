@@ -24,6 +24,7 @@ const url = (name: any, wrap = false) =>
 interface IHomeProps {
     theme: ITheme;
     setParallaxContainer: (ref: any) => void;
+    onParallaxScroll: (currentPosition: number) => void;
 }
 
 let lastScrollY = 0;
@@ -34,11 +35,17 @@ export class Home extends React.Component<IHomeProps, any> {
     parallaxContainer: any;
 
     componentDidMount(): void {
-        this.parallaxContainer.container.addEventListener('scroll', this.handleScroll);
+        this.parallaxContainer.container.addEventListener('scroll', this.handleScroll.bind(this));
     }
 
     handleScroll(event: any): void {
-        console.log(event);
+        var h: any =  this.parallaxContainer.container,
+            b: any = document.body,
+            st: any = 'scrollTop',
+            sh: any = 'scrollHeight';
+
+        var percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight);
+        this.props.onParallaxScroll(percent);
     }
 
     render(): JSX.Element {
@@ -161,10 +168,11 @@ export class Home extends React.Component<IHomeProps, any> {
                     speed={0}
                     style={{
                         display: 'flex',
-                        paddingTop: '100px',
+                        paddingTop: '75px',
                         flexFlow: 'column wrap'
                     }}>
                     <img
+                        width={400}
                         style={{
                             alignSelf: 'center',
                         }}
@@ -173,13 +181,13 @@ export class Home extends React.Component<IHomeProps, any> {
                         fontFamily: "Imperator",
                         color: primary,
                         alignSelf: 'center',
-                        fontSize: "30px",
+                        fontSize: "25px",
                         textAlign: "center"
-                    }}>Friday, October 29th 2019<br />Some Random Church in Hershey</p>
+                    }}>Friday, October 29th 2019<br />St. Margaret Mary Alacoque Church<br />Harrisburg, PA</p>
                 </ParallaxLayer>
 
                 <ParallaxLayer
-                    offset={0.2}
+                    offset={0.25}
                     speed={0.5}
                     style={{
                         display: 'flex',
@@ -188,7 +196,7 @@ export class Home extends React.Component<IHomeProps, any> {
                     }}>
                     <img
                         style={{
-                            width: '800px',
+                            width: '500px',
                             marginRight: '40%',
                             transform: 'rotate(-10deg)',
                             backgroundColor: 'white',
@@ -200,7 +208,7 @@ export class Home extends React.Component<IHomeProps, any> {
                 </ParallaxLayer>
 
                 <ParallaxLayer
-                    offset={0.2}
+                    offset={0.25}
                     speed={0.3}
                     style={{
                         display: 'flex',
@@ -209,7 +217,7 @@ export class Home extends React.Component<IHomeProps, any> {
                     }}>
                     <img
                         style={{
-                            width: '800px',
+                            width: '500px',
                             marginLeft: '40%',
                             transform: 'rotate(10deg)',
                             backgroundColor: 'white',
@@ -233,7 +241,7 @@ export class Home extends React.Component<IHomeProps, any> {
 
                 <ParallaxLayer
                     offset={2}
-                    speed={-0}
+                    speed={0.1}
                     style={{
                         display: 'flex',
                         alignItems: 'center',
