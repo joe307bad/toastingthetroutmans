@@ -1,0 +1,16 @@
+{
+    "extends": [
+        "tslint-microsoft-contrib"
+    ],
+    "rulesDirectory": [
+        "node_modules/tslint-microsoft-contrib",
+        "./src"
+    ],
+    "rules": {
+        "variable-name": [
+            true,
+            "allow-pascal-case"
+        ],
+        "no-relative-imports": false
+    }
+}
