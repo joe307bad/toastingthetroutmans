@@ -23,7 +23,8 @@ export class Main extends React.Component<{}, IMainState> {
         this.parallaxContainer = parallaxContainer;
     }
 
-    public scrollTo = (position: number): void => {
+    public scrollTo = (event: React.SyntheticEvent<HTMLDivElement>): void => {
+        const position: number = Number(event.currentTarget.dataset.position);
         this.parallaxContainer.scrollTo(position);
     }
 
@@ -36,57 +37,64 @@ export class Main extends React.Component<{}, IMainState> {
     public render(): JSX.Element {
 
         return (
-            <ThemeProvider theme={theme.base}>
+            <ThemeProvider theme={theme.Base}>
                 <Radium.StyleRoot>
-                    <div style={theme.base.nav}>
+                    <div style={theme.Base.nav}>
                         <div
                             role='button'
-                            style={theme.base.navChild}
-                            onClick={this.scrollTo.call(this, 0)}>
+                            style={theme.Base.navChild}
+                            data-position={0}
+                            onClick={this.scrollTo}>
                             Engagement
                         </div>
                         <div
                             role='button'
-                            style={theme.base.navChild}
-                            onClick={this.scrollTo.call(this, 1)}>
+                            style={theme.Base.navChild}
+                            data-position={1}
+                            onClick={this.scrollTo}>
                             Photos
                         </div>
                         <div
                             role='button'
-                            style={theme.base.navChild}
-                            onClick={this.scrollTo.call(this, 3)}>
+                            style={theme.Base.navChild}
+                            data-position={2}
+                            onClick={this.scrollTo}>
                             Bridesmaids
                         </div>
                         <div
                             role='button'
-                            style={theme.base.navChild}
-                            onClick={this.scrollTo.call(this, 3)}>
+                            style={theme.Base.navChild}
+                            data-position={0}
+                            onClick={this.scrollTo}>
                             Groomsmen
                         </div>
                         <div
                             role='button'
-                            style={theme.base.navChild}
-                            onClick={this.scrollTo.call(this, 3)}>
+                            style={theme.Base.navChild}
+                            data-position={0}
+                            onClick={this.scrollTo}>
                             Venue
                         </div>
                         <div
                             role='button'
-                            style={theme.base.navChild}
-                            onClick={this.scrollTo.call(this, 0)}>
+                            style={theme.Base.navChild}
+                            data-position={0}
+                            onClick={this.scrollTo}>
                             Registry
                         </div>
                         <div
                             role='button'
-                            style={theme.base.navChild}
-                            onClick={this.scrollTo.call(this, 3)}>
+                            style={theme.Base.navChild}
+                            data-position={0}
+                            onClick={this.scrollTo}>
                             RSVP
                         </div>
                         <div style={{ width: '100%' }}></div>
                         <div style={{
-                            ...theme.base.currentPageMarker,
+                            ...theme.Base.currentPageMarker,
                             left: this.state.currentPageMarkerPosition
                         }}>
-                            <div style={theme.base.currentPageMarkerAccent}></div>
+                            <div style={theme.Base.currentPageMarkerAccent}></div>
                         </div>
                     </div>
                     <Home
@@ -94,7 +102,7 @@ export class Main extends React.Component<{}, IMainState> {
                             setParallaxContainer: this.setParallaxContainer.bind(this),
                             onParallaxScroll: this.onScroll.bind(this)
                         }} />
-                </Radium.StyleRoot>
+                </Radium.StyleRoot>;
             </ThemeProvider>
         );
     }

@@ -26,10 +26,9 @@ class HomeComponent extends React.Component<IHomeProps, object> {
 
     public handleScroll(): void {
         const container: HTMLDivElement = this.parallaxContainer.container;
-        const body: HTMLElement = document.body;
 
         const percent: number =
-            body.scrollTop / (container.scrollHeight - body.clientHeight);
+            container.scrollTop / (container.scrollHeight - container.clientHeight);
         this.props.onParallaxScroll(percent);
     }
 
