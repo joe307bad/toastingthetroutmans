@@ -1,9 +1,13 @@
-import { primary } from '../colors';
-import { ITheme } from '../itheme';
+import { primary } from '../Colors';
+import { ITheme } from '../ITheme';
 
-const backgroundImage = 'url(https://www.toptal.com/designers/subtlepatterns/patterns/ricepaper2.png)';
+const backgroundImage: string
+    = 'url(https://www.toptal.com/designers/subtlepatterns/patterns/ricepaper2.png)';
 
-export const base: ITheme = {
+/**
+ * Base theme styles
+ */
+export const Base: ITheme = {
     main: {
         backgroundImage: backgroundImage,
         overflow: 'hidden',

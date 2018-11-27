@@ -1,6 +1,9 @@
-import mediaQueries from '../../theme/media-queries';
+import mediaQueries from '../../theme/Breakpoints';
 
-const styles = {
+/**
+ * The Styles for the Home Component
+ */
+export const Styles: object = {
     marginTop: 100,
     [mediaQueries.desktop]: {
         backgroundColor: 'black',

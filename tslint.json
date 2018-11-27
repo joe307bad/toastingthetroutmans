@@ -11,6 +11,9 @@
             true,
             "allow-pascal-case"
         ],
-        "no-relative-imports": false
+        "no-relative-imports": false,
+        "linebreak-style": false,
+        "no-unsafe-any": false,
+        "import-name": false
     }
 }

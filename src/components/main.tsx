@@ -1,9 +1,10 @@
 import { ThemeProvider } from '@callstack/react-theme-provider';
+import Radium from 'radium';
 import * as React from 'react';
 
-import radium from 'radium';
 import * as theme from '../theme';
 import { Home } from './home/Home';
+import { TParallaxElement } from './home/TParallaxElement';
 
 interface IMainState {
     currentPageMarkerPosition: string;
@@ -14,20 +15,21 @@ interface IMainState {
  * This component facilities any global parent components and serves as a single entry point
  * for all components
  */
-export class Main extends React.Component<any, IMainState> {
-    public parallax: any;
-    public parallaxContainer: any;
+export class Main extends React.Component<{}, IMainState> {
+    public parallaxContainer: TParallaxElement;
     public state: IMainState = { currentPageMarkerPosition: '0' };
 
-    public setParallaxContainer = (parallaxContainer: any) =>
-        this.parallaxContainer = parallaxContainer
+    public setParallaxContainer = (parallaxContainer: TParallaxElement): void => {
+        this.parallaxContainer = parallaxContainer;
+    }
 
-    public scrollTo = (position: number) =>
-        this.parallaxContainer.scrollTo(position)
+    public scrollTo = (position: number): void => {
+        this.parallaxContainer.scrollTo(position);
+    }
 
-    public onScroll = (currentPosition: number) => {
+    public onScroll = (currentPosition: number): void => {
         this.setState({
-            currentPageMarkerPosition: 'calc(' + ((.857142857143 * currentPosition) * 100).toString() + '%)'
+            currentPageMarkerPosition: `calc(${currentPosition * 100 * 0.857142857143}%)`
         });
     }
 
@@ -35,34 +37,48 @@ export class Main extends React.Component<any, IMainState> {
 
         return (
             <ThemeProvider theme={theme.base}>
-                <radium.StyleRoot>
+                <Radium.StyleRoot>
                     <div style={theme.base.nav}>
-                        <div style={theme.base.navChild}
-                            onClick={() => this.scrollTo(0)}>
+                        <div
+                            role='button'
+                            style={theme.base.navChild}
+                            onClick={this.scrollTo.call(this, 0)}>
                             Engagement
                         </div>
-                        <div style={theme.base.navChild}
-                            onClick={() => this.scrollTo(1)}>
+                        <div
+                            role='button'
+                            style={theme.base.navChild}
+                            onClick={this.scrollTo.call(this, 1)}>
                             Photos
                         </div>
-                        <div style={theme.base.navChild}
-                            onClick={() => this.scrollTo(3)}>
+                        <div
+                            role='button'
+                            style={theme.base.navChild}
+                            onClick={this.scrollTo.call(this, 3)}>
                             Bridesmaids
                         </div>
-                        <div style={theme.base.navChild}
-                            onClick={() => this.scrollTo(3)}>
+                        <div
+                            role='button'
+                            style={theme.base.navChild}
+                            onClick={this.scrollTo.call(this, 3)}>
                             Groomsmen
                         </div>
-                        <div style={theme.base.navChild}
-                            onClick={() => this.scrollTo(3)}>
+                        <div
+                            role='button'
+                            style={theme.base.navChild}
+                            onClick={this.scrollTo.call(this, 3)}>
                             Venue
                         </div>
-                        <div style={theme.base.navChild}
-                            onClick={() => this.scrollTo(3)}>
+                        <div
+                            role='button'
+                            style={theme.base.navChild}
+                            onClick={this.scrollTo.call(this, 0)}>
                             Registry
                         </div>
-                        <div style={theme.base.navChild}
-                            onClick={() => this.scrollTo(3)}>
+                        <div
+                            role='button'
+                            style={theme.base.navChild}
+                            onClick={this.scrollTo.call(this, 3)}>
                             RSVP
                         </div>
                         <div style={{ width: '100%' }}></div>
@@ -78,7 +94,7 @@ export class Main extends React.Component<any, IMainState> {
                             setParallaxContainer: this.setParallaxContainer.bind(this),
                             onParallaxScroll: this.onScroll.bind(this)
                         }} />
-                </radium.StyleRoot>
+                </Radium.StyleRoot>
             </ThemeProvider>
         );
     }

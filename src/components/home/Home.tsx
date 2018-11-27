@@ -2,9 +2,10 @@ import { withTheme } from '@callstack/react-theme-provider';
 import * as React from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring';
 
-import radium from 'radium';
+import Radium from 'radium';
 import { Photos } from '../../assets/photos/Photos';
 import { ITheme, primary } from '../../theme';
+import { TParallaxElement } from './TParallaxElement';
 
 const url: string = 'https://awv3node-homepage.surge.sh/build/assets/satellite.svg';
 
@@ -13,11 +14,6 @@ interface IHomeProps {
     setParallaxContainer(ref: TParallaxElement): void;
     onParallaxScroll(currentPosition: number): void;
 }
-
-type TParallaxElement = Parallax<{}, {}> & {
-    container: HTMLDivElement;
-};
-
 /**
  * Home Component
  */
@@ -29,11 +25,11 @@ class HomeComponent extends React.Component<IHomeProps, object> {
     }
 
     public handleScroll(): void {
-        const h: HTMLDivElement = this.parallaxContainer.container;
-        const b: HTMLElement = document.body;
+        const container: HTMLDivElement = this.parallaxContainer.container;
+        const body: HTMLElement = document.body;
 
         const percent: number =
-            (h.scrollTop || b.scrollTop) / ((h.scrollHeight || b.scrollHeight) - h.clientHeight);
+            body.scrollTop / (container.scrollHeight - body.clientHeight);
         this.props.onParallaxScroll(percent);
     }
 
@@ -267,10 +263,10 @@ class HomeComponent extends React.Component<IHomeProps, object> {
 
     // tslint:disable-next-line:no-any
     private bindRef = (ref: TParallaxElement): void => {
-        this.parallaxContainer = ref as TParallaxElement;
+        this.parallaxContainer = ref;
         this.props.setParallaxContainer(ref);
     }
 }
 
 export const Home: React.ComponentType<Pick<IHomeProps, 'setParallaxContainer' | 'onParallaxScroll'>>
-    = withTheme(radium(HomeComponent));
+    = withTheme(Radium(HomeComponent));
