@@ -1,18 +1,15 @@
 import { withTheme } from '@callstack/react-theme-provider';
 import * as React from 'react';
-import { Parallax, ParallaxLayer } from 'react-spring';
+import { ParallaxLayer } from 'react-spring';
 
 import Radium from 'radium';
 import { Photos } from '../../assets/photos/Photos';
 import { ITheme, primary } from '../../theme';
 import { TParallaxElement } from './TParallaxElement';
 
-const url: string = 'https://awv3node-homepage.surge.sh/build/assets/satellite.svg';
 
 interface IHomeProps {
     theme: ITheme;
-    setParallaxContainer(ref: TParallaxElement): void;
-    onParallaxScroll(currentPosition: number): void;
 }
 /**
  * Home Component
@@ -20,146 +17,17 @@ interface IHomeProps {
 class HomeComponent extends React.Component<IHomeProps, object> {
     public parallaxContainer: TParallaxElement;
 
-    public componentDidMount(): void {
-        this.parallaxContainer.container.addEventListener('scroll', this.handleScroll.bind(this));
-    }
+    // public componentDidMount(): void {
+    //     this.parallaxContainer.container.addEventListener('scroll', this.handleScroll.bind(this));
+    // }
 
-    public handleScroll(): void {
-        const container: HTMLDivElement = this.parallaxContainer.container;
-
-        const percent: number =
-            container.scrollTop / (container.scrollHeight - container.clientHeight);
-        this.props.onParallaxScroll(percent);
-    }
+    // public handleScroll(): void {
+    // }
 
     // tslint:disable-next-line:max-func-body-length
     public render(): JSX.Element {
         return (
-            <Parallax
-                style={this.props.theme.main}
-                ref={this.bindRef}
-                pages={3}>
-                <ParallaxLayer
-                    offset={1}
-                    speed={1}
-                />
-                <ParallaxLayer
-                    offset={2}
-                    speed={1}
-                />
-
-                <ParallaxLayer
-                    offset={0}
-                    speed={0}
-                    factor={3}
-                />
-
-                <ParallaxLayer
-                    offset={1.3}
-                    speed={-0.3}
-                    style={{ pointerEvents: 'none' }}>
-                    <img
-                        alt='Satellite'
-                        src={url}
-                        style={{ width: '15%', marginLeft: '70%' }}
-                    />
-                </ParallaxLayer>
-
-                <ParallaxLayer offset={1} speed={0.8} style={{ opacity: 0.1 }}>
-                    <img
-                        alt='Satellite'
-                        src={url}
-                        style={{ display: 'block', width: '20%', marginLeft: '55%' }}
-                    />
-                    <img
-                        alt='Satellite'
-                        src={url}
-                        style={{ display: 'block', width: '10%', marginLeft: '15%' }}
-                    />
-                </ParallaxLayer>
-
-                <ParallaxLayer offset={1.75} speed={0.5} style={{ opacity: 0.1 }}>
-                    <img
-                        alt='Satellite'
-                        src={url}
-                        style={{ display: 'block', width: '20%', marginLeft: '70%' }}
-                    />
-                    <img
-                        alt='Satellite'
-                        src={url}
-                        style={{ display: 'block', width: '20%', marginLeft: '40%' }}
-                    />
-                </ParallaxLayer>
-
-                <ParallaxLayer offset={1} speed={0.2} style={{ opacity: 0.2 }}>
-                    <img
-                        alt='Satellite'
-                        src={url}
-                        style={{ display: 'block', width: '10%', marginLeft: '10%' }}
-                    />
-                    <img
-                        alt='Satellite'
-                        src={url}
-                        style={{ display: 'block', width: '20%', marginLeft: '75%' }}
-                    />
-                </ParallaxLayer>
-
-                <ParallaxLayer offset={1.6} speed={-0.1} style={{ opacity: 0.4 }}>
-                    <img
-                        alt='Satellite'
-                        src={url}
-                        style={{ display: 'block', width: '20%', marginLeft: '60%' }}
-                    />
-                    <img
-                        alt='Satellite'
-                        src={url}
-                        style={{ display: 'block', width: '25%', marginLeft: '30%' }}
-                    />
-                    <img
-                        alt='Satellite'
-                        src={url}
-                        style={{ display: 'block', width: '10%', marginLeft: '80%' }}
-                    />
-                </ParallaxLayer>
-
-                <ParallaxLayer offset={2.6} speed={0.4} style={{ opacity: 0.6 }}>
-                    <img
-                        alt='Satellite'
-                        src={url}
-                        style={{ display: 'block', width: '20%', marginLeft: '5%' }}
-                    />
-                    <img
-                        alt='Satellite'
-                        src={url}
-                        style={{ display: 'block', width: '15%', marginLeft: '75%' }}
-                    />
-                </ParallaxLayer>
-
-                <ParallaxLayer
-                    offset={2.5}
-                    speed={-0.4}
-                    style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        pointerEvents: 'none'
-                    }}>
-                    <img
-                        alt='Satellite'
-                        src={url}
-                        style={{ width: '60%' }} />
-                </ParallaxLayer>
-
-                <ParallaxLayer
-                    offset={2}
-                    speed={-0.3}
-                    style={{
-                        backgroundSize: '80%',
-                        backgroundPosition: 'center',
-                        backgroundImage: url
-                    }}
-                />
-
+            <div>
                 <ParallaxLayer
                     offset={0}
                     speed={0}
@@ -228,44 +96,17 @@ class HomeComponent extends React.Component<IHomeProps, object> {
                         src={Photos.samAndShaun2} />
                 </ParallaxLayer>
 
-                <ParallaxLayer
-                    offset={1}
-                    speed={0.1}
-                    style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }}>
-                    <img
-                        alt='Satellite'
-                        src={url}
-                        style={{ width: '40%' }} />
-                </ParallaxLayer>
 
-                <ParallaxLayer
-                    offset={2}
-                    speed={0.1}
-                    style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }}>
-                    <img
-                        alt='Satellite'
-                        src={url}
-                        style={{ width: '40%' }} />
-                </ParallaxLayer>
-
-            </Parallax>
+            </div>
         );
     }
 
     // tslint:disable-next-line:no-any
-    private bindRef = (ref: TParallaxElement): void => {
-        this.parallaxContainer = ref;
-        this.props.setParallaxContainer(ref);
-    }
+    // private bindRef = (ref: TParallaxElement): void => {
+    //     this.parallaxContainer = ref;
+    //     this.props.setParallaxContainer(ref);
+    // }
 }
 
-export const Home: React.ComponentType<Pick<IHomeProps, 'setParallaxContainer' | 'onParallaxScroll'>>
+export const Home: React.ComponentType<Pick<IHomeProps, never>>
     = withTheme(Radium(HomeComponent));
