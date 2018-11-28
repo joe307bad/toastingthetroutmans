@@ -15,32 +15,47 @@ export const Base: ITheme = {
         left: 0,
         zIndex: 1
     },
+    moveMainContainerForNavMenu: {
+        left: 200
+    },
+    moveNavMenu: {
+        left: 0
+    },
     nav: {
         fontFamily: 'Imperator',
-        display: 'flex',
         textAlign: 'center',
         zIndex: 2,
         position: 'fixed',
-        width: '978px',
-        left: '50%',
-        marginLeft: '-514px',
         fontSize: '20px',
-        padding: '20px 0 20px 0',
         color: primary,
         top: 0,
-        backgroundImage: backgroundImage,
-        flexFlow: 'row wrap'
+        backgroundColor: 'white',
+        height: '100%',
+        paddingTop: '50px',
+        paddingBottom: '20px',
+        left: -220
+
+        // padding: '20px 0 20px 0',
+        // backgroundImage: backgroundImage,
+        // display: 'flex',
+        // width: '978px',
+        // left: '50%',
+        // marginLeft: '-514px',
+        // flexFlow: 'row wrap'
     },
-    mainContainer: { 
-        maxWidth: 1280, 
-        position: 'relative', 
-        margin: '0 auto' 
+    mainContainer: {
+        maxWidth: 1280,
+        position: 'relative',
+        margin: '0 auto'
     },
     navChild: {
-        flex: 1,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
+        paddingBottom: 30,
+        width: 200
+
+        // flex: 1,
+        // display: 'flex',
+        // alignItems: 'center',
+        // justifyContent: 'center'
     },
     currentPageMarker: {
         transition: 'left 0s ease',

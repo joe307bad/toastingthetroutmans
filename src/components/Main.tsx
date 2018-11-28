@@ -10,6 +10,7 @@ import { Nav } from './nav/Nav';
 
 interface IMainState {
     currentPageMarkerPosition: string;
+    menuOpen: boolean;
 }
 
 /**
@@ -19,7 +20,10 @@ interface IMainState {
  */
 export class Main extends React.Component<{}, IMainState> {
     public parallaxContainer: TParallaxElement;
-    public state: IMainState = { currentPageMarkerPosition: '0' };
+    public state: IMainState = {
+        currentPageMarkerPosition: '0',
+        menuOpen: false
+    };
 
     public componentDidMount(): void {
         this.parallaxContainer.container.addEventListener('scroll', this.onScroll.bind(this));
@@ -45,6 +49,12 @@ export class Main extends React.Component<{}, IMainState> {
         });
     }
 
+    public toggleMenu = (newMenuState: boolean): void => {
+        this.setState({
+            menuOpen: newMenuState
+        });
+    }
+
     // tslint:disable-next-line:max-func-body-length
     public render(): JSX.Element {
         return (
@@ -53,14 +63,18 @@ export class Main extends React.Component<{}, IMainState> {
                     <Nav
                         {...{
                             currentPageMarkerPosition: this.state.currentPageMarkerPosition,
-                            scrollTo: this.scrollTo
+                            scrollTo: this.scrollTo,
+                            toggleMenu: this.toggleMenu
                         }}
                     />
                     <Parallax
                         style={theme.Base.main}
                         ref={this.bindRef}
                         pages={3}>
-                        <main style={theme.Base.mainContainer}>
+                        <main style={{
+                            ...theme.Base.mainContainer,
+                            ...this.state.menuOpen ? theme.Base.moveMainContainerForNavMenu : {},
+                        }}>
                             <Home />
                         </main>
                     </Parallax>

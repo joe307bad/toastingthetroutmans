@@ -8,4 +8,6 @@ export interface ITheme {
     currentPageMarker: React.CSSProperties;
     currentPageMarkerAccent: React.CSSProperties;
     mainContainer: React.CSSProperties;
+    moveMainContainerForNavMenu: React.CSSProperties;
+    moveNavMenu: React.CSSProperties;
 }
