@@ -7,4 +7,5 @@ export interface ITheme {
     navChild: React.CSSProperties;
     currentPageMarker: React.CSSProperties;
     currentPageMarkerAccent: React.CSSProperties;
+    mainContainer: React.CSSProperties;
 }

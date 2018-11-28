@@ -8,7 +8,7 @@ import * as SamAndShaun_3_Landscape from './SamAndShaun_3_Landscape.jpg';
  */
 export const Photos: { [key: string]: string } = {
     samAndShaun: SamAndShaun,
-    samAndShaun1: SamAndShaun_1_Landscape,
-    samAndShaun2: SamAndShaun_2_Portrait,
-    samAndShaun3: SamAndShaun_3_Landscape
+    SamAndShaun_1_Landscape: SamAndShaun_1_Landscape,
+    SamAndShaun_2_Portrait: SamAndShaun_2_Portrait,
+    SamAndShaun_3_Landscape: SamAndShaun_3_Landscape
 };

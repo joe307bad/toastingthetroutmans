@@ -31,6 +31,11 @@ export const Base: ITheme = {
         backgroundImage: backgroundImage,
         flexFlow: 'row wrap'
     },
+    mainContainer: { 
+        maxWidth: 1280, 
+        position: 'relative', 
+        margin: '0 auto' 
+    },
     navChild: {
         flex: 1,
         display: 'flex',
