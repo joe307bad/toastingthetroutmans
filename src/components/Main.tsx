@@ -33,10 +33,8 @@ export class Main extends React.Component<{}, IMainState> {
         this.parallaxContainer = parallaxContainer;
     }
 
-    public scrollTo = (event: React.SyntheticEvent<HTMLDivElement>): void => {
-        const position: number = Number(event.currentTarget.dataset.position);
-        this.parallaxContainer.scrollTo(position);
-    }
+    public scrollTo = (event: React.SyntheticEvent<HTMLDivElement>): void =>
+        this.parallaxContainer.scrollTo(Number(event.currentTarget.dataset.position))
 
     public onScroll = (): void => {
         const container: HTMLDivElement = this.parallaxContainer.container;
@@ -49,11 +47,10 @@ export class Main extends React.Component<{}, IMainState> {
         });
     }
 
-    public toggleMenu = (newMenuState: boolean): void => {
+    public toggleMenu = (newMenuState: boolean): void =>
         this.setState({
             menuOpen: newMenuState
-        });
-    }
+        })
 
     // tslint:disable-next-line:max-func-body-length
     public render(): JSX.Element {
@@ -73,7 +70,7 @@ export class Main extends React.Component<{}, IMainState> {
                         pages={3}>
                         <main style={{
                             ...theme.Base.mainContainer,
-                            ...this.state.menuOpen ? theme.Base.moveMainContainerForNavMenu : {},
+                            ...this.state.menuOpen ? theme.Base.moveMainContainerForNavMenu : {}
                         }}>
                             <Home />
                         </main>
