@@ -33,7 +33,8 @@ export const Base: ITheme = {
         height: '100%',
         paddingTop: '50px',
         paddingBottom: '20px',
-        left: -220
+        left: -200,
+        transition: 'left .5s ease'
 
         // padding: '20px 0 20px 0',
         // backgroundImage: backgroundImage,
@@ -46,7 +47,9 @@ export const Base: ITheme = {
     mainContainer: {
         maxWidth: 1280,
         position: 'relative',
-        margin: '0 auto'
+        margin: '0 auto',
+        left: 0,
+        transition: 'left .5s ease'
     },
     navChild: {
         paddingBottom: 30,
@@ -72,5 +75,12 @@ export const Base: ITheme = {
         left: '50%',
         position: 'relative',
         marginLeft: '-69.9px'
+    },
+    navButton: {
+        position: 'absolute',
+        top: 11,
+        right: -78,
+        WebkitTapHighlightColor: 'rgba(255, 255, 255, 0)',
+        opacity: 0.5
     }
 };

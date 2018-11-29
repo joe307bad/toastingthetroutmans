@@ -1,8 +1,9 @@
 import { withTheme } from '@callstack/react-theme-provider';
 import * as React from 'react';
+import * as hamburger from 'react-animated-burgers';
 
 import { ITheme } from '../../theme';
-import { Base } from '../../theme/styles/Base';
+import { INavItem, NavItems } from './NavItems';
 
 interface INavProps {
     theme: ITheme;
@@ -27,7 +28,14 @@ class NavComponent extends React.Component<INavProps, INavState> {
             ...this.props.theme.nav,
             ...this.state.menuOpen ? this.props.theme.moveNavMenu : {}
         }}>
-            <img
+            <div
+                role='button'
+                style={this.props.theme.navButton}
+                onClick={this.toggleMenu}>
+                <hamburger.HamburgerSpin
+                    isActive={this.state.menuOpen} />
+            </div>
+            {/* <img
                 style={{
                     position: 'absolute',
                     width: 75,
@@ -36,56 +44,17 @@ class NavComponent extends React.Component<INavProps, INavState> {
                 }}
                 onClick={this.toggleMenu}
                 alt='Hamburger'
-                src='https://i.stack.imgur.com/Fw96Z.png' />
-            <div
-                role='button'
-                style={this.props.theme.navChild}
-                data-position={0}
-                onClick={this.props.scrollTo}>
-                Engagement
-                        </div>
-            <div
-                role='button'
-                style={this.props.theme.navChild}
-                data-position={1}
-                onClick={this.props.scrollTo}>
-                Photos
-                        </div>
-            <div
-                role='button'
-                style={this.props.theme.navChild}
-                data-position={2}
-                onClick={this.props.scrollTo}>
-                Bridesmaids
-                        </div>
-            <div
-                role='button'
-                style={this.props.theme.navChild}
-                data-position={0}
-                onClick={this.props.scrollTo}>
-                Groomsmen
-                        </div>
-            <div
-                role='button'
-                style={this.props.theme.navChild}
-                data-position={0}
-                onClick={this.props.scrollTo}>
-                Venue
-                        </div>
-            <div
-                role='button'
-                style={this.props.theme.navChild}
-                data-position={0}
-                onClick={this.props.scrollTo}>
-                Registry
-                        </div>
-            <div
-                role='button'
-                style={this.props.theme.navChild}
-                data-position={0}
-                onClick={this.props.scrollTo}>
-                RSVP
-                        </div>
+                src='https://i.stack.imgur.com/Fw96Z.png' /> */}
+            {NavItems.map((navItem: INavItem, index: number) =>
+                <div
+                    key={index}
+                    role='button'
+                    style={this.props.theme.navChild}
+                    data-position={navItem.position}
+                    onClick={this.props.scrollTo}>
+                    {navItem.title}
+                </div>
+            )}
             <div style={{ width: '100%' }}></div>
             <div style={{
                 ...this.props.theme.currentPageMarker,

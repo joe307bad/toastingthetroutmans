@@ -52,7 +52,6 @@ export class Main extends React.Component<{}, IMainState> {
             menuOpen: newMenuState
         })
 
-    // tslint:disable-next-line:max-func-body-length
     public render(): JSX.Element {
         return (
             <ThemeProvider theme={theme.Base}>

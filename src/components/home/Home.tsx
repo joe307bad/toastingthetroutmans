@@ -11,6 +11,10 @@ import { TParallaxElement } from './TParallaxElement';
 interface IHomeProps {
     theme: ITheme;
 }
+
+// tslint:disable-next-line:no-any
+const RadiumParallaxLayer: any = Radium(ParallaxLayer);
+
 /**
  * Home Component
  */
@@ -19,7 +23,7 @@ class HomeComponent extends React.Component<IHomeProps, object> {
     public render(): JSX.Element {
         return (
             <div>
-                <ParallaxLayer
+                {/* <ParallaxLayer
                     offset={0}
                     speed={0}
                     style={{
@@ -41,9 +45,9 @@ class HomeComponent extends React.Component<IHomeProps, object> {
                         fontSize: '25px',
                         textAlign: 'center'
                     }}>Friday, October 29th 2019<br />St. Margaret Mary Alacoque Church<br />Harrisburg, PA</p>
-                </ParallaxLayer>
-                <ParallaxLayer
-                    offset={0.15}
+                </ParallaxLayer> */}
+                {/* <RadiumParallaxLayer
+                    offset={Styles.SamAndShaun_1_Landscape.parallaxOffset}
                     speed={0.5}
                     style={{
                         display: 'flex',
@@ -54,9 +58,12 @@ class HomeComponent extends React.Component<IHomeProps, object> {
                         alt='Sam and Shaun'
                         src={Photos.SamAndShaun_1_Landscape}
                         style={Styles.SamAndShaun_1_Landscape} />
-                </ParallaxLayer>
-                <ParallaxLayer
-                    offset={0.13}
+                </RadiumParallaxLayer> */}
+                <div style={Styles.SamAndShaun_1_Landscape}>
+                    Hey there
+                </div>
+                {/* <ParallaxLayer
+                    offset={Styles.SamAndShaun_3_Landscape.parallaxOffset}
                     speed={0.3}
                     style={{
                         display: 'flex',
@@ -64,18 +71,10 @@ class HomeComponent extends React.Component<IHomeProps, object> {
                         justifyContent: 'center'
                     }}>
                     <img
-                        style={{
-                            width: '500px',
-                            marginLeft: '40%',
-                            transform: 'rotate(10deg)',
-                            backgroundColor: 'white',
-                            padding: '10px',
-                            display: 'block',
-                            boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)'
-                        }}
                         alt='Sam and Shaun'
-                        src={Photos.SamAndShaun_3_Landscape} />
-                </ParallaxLayer>
+                        src={Photos.SamAndShaun_3_Landscape}
+                        style={Styles.SamAndShaun_3_Landscape} />
+                </ParallaxLayer> */}
             </div>
         );
     }

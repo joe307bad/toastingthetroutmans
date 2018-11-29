@@ -10,4 +10,5 @@ export interface ITheme {
     mainContainer: React.CSSProperties;
     moveMainContainerForNavMenu: React.CSSProperties;
     moveNavMenu: React.CSSProperties;
+    navButton: React.CSSProperties;
 }
