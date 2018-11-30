@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as hamburger from 'react-animated-burgers';
 
-import { ITheme } from '../../theme';
 import { INavItem, NavItems } from './NavItems';
 
 interface INavProps {

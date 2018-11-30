@@ -1,22 +1,46 @@
 import * as React from 'react';
-
+import injectSheet, { ConsistentWith, CSSProperties, StyledComponentProps, Styles, WithSheet } from 'react-jss';
 import { Parallax } from 'react-spring';
-import * as theme from '../theme';
+
 import { Home } from './home/Home';
 import { TParallaxElement } from './home/TParallaxElement';
 import { Nav } from './nav/Nav';
+
+interface IMainProps {
+    classes: Record<MainClasses, string>;
+}
 
 interface IMainState {
     currentPageMarkerPosition: string;
     menuOpen: boolean;
 }
 
+// export const Base: Styles<MainClasses> = {
+//     main: {
+//         backgroundImage: 'url(https://www.toptal.com/designers/subtlepatterns/patterns/ricepaper2.png)',
+//         overflow: 'hidden',
+//         top: 0,
+//         left: 0,
+//         zIndex: 1
+//     }
+// };
+
+export type MainClasses = 'main';
+
+const Base: Styles<MainClasses> = {
+    main: {
+        backgroundColor: 'black'
+    }
+};
+
+//type TMainProps = IWithStyles<keyof typeof Base> & IProps;
+
 /**
  * Main Component
  * This component facilitates any global parent components and serves as a single entry point
  * for all components
  */
-export class Main extends React.Component<{}, IMainState> {
+class MainComponent extends React.Component<IMainProps, {}> {
     public parallaxContainer: TParallaxElement;
     public state: IMainState = {
         currentPageMarkerPosition: '0',
@@ -61,7 +85,7 @@ export class Main extends React.Component<{}, IMainState> {
                     }}
                 />
                 <Parallax
-                    // style={theme.Base.main}
+                    className={this.props.classes.main}
                     ref={this.bindRef}
                     pages={3}>
                     <main style={{
@@ -75,6 +99,9 @@ export class Main extends React.Component<{}, IMainState> {
         );
     }
 }
+
+export const Main: React.ComponentType<Pick<IMainProps, never> & StyledComponentProps<string>>
+    = injectSheet(Base)(MainComponent);
 
 {/* <ParallaxLayer
 offset={1}
