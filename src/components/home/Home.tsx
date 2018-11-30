@@ -1,24 +1,16 @@
-import { withTheme } from '@callstack/react-theme-provider';
 import * as React from 'react';
-import { ParallaxLayer } from 'react-spring';
 
-import Radium from 'radium';
-import { Photos } from '../../assets/photos/Photos';
-import { ITheme, primary } from '../../theme';
 import { Styles } from './Styles';
 import { TParallaxElement } from './TParallaxElement';
 
 interface IHomeProps {
-    theme: ITheme;
+    
 }
-
-// tslint:disable-next-line:no-any
-const RadiumParallaxLayer: any = Radium(ParallaxLayer);
 
 /**
  * Home Component
  */
-class HomeComponent extends React.Component<IHomeProps, object> {
+export class Home extends React.Component<IHomeProps, object> {
     public parallaxContainer: TParallaxElement;
     public render(): JSX.Element {
         return (
@@ -80,5 +72,4 @@ class HomeComponent extends React.Component<IHomeProps, object> {
     }
 }
 
-export const Home: React.ComponentType<Pick<IHomeProps, never>>
-    = withTheme(Radium(HomeComponent));
+// export const Home: HomeComponent = HomeComponent;

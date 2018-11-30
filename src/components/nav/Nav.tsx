@@ -1,4 +1,3 @@
-import { withTheme } from '@callstack/react-theme-provider';
 import * as React from 'react';
 import * as hamburger from 'react-animated-burgers';
 
@@ -6,7 +5,7 @@ import { ITheme } from '../../theme';
 import { INavItem, NavItems } from './NavItems';
 
 interface INavProps {
-    theme: ITheme;
+    // theme: ITheme;
     currentPageMarkerPosition: string;
     scrollTo(event: React.SyntheticEvent<HTMLDivElement>): void;
     toggleMenu(newMenuState: boolean): void;
@@ -20,17 +19,17 @@ interface INavState {
  * Nav Component
  * Responsible for displaying the navigation for the application
  */
-class NavComponent extends React.Component<INavProps, INavState> {
+export class Nav extends React.Component<INavProps, INavState> {
     public state: INavState = { menuOpen: false };
 
     public render(): JSX.Element {
         return <nav style={{
-            ...this.props.theme.nav,
-            ...this.state.menuOpen ? this.props.theme.moveNavMenu : {}
+            // ...this.props.theme.nav,
+            // ...this.state.menuOpen ? this.props.theme.moveNavMenu : {}
         }}>
             <div
                 role='button'
-                style={this.props.theme.navButton}
+                // style={this.props.theme.navButton}
                 onClick={this.toggleMenu}>
                 <hamburger.HamburgerSpin
                     isActive={this.state.menuOpen} />
@@ -49,7 +48,7 @@ class NavComponent extends React.Component<INavProps, INavState> {
                 <div
                     key={index}
                     role='button'
-                    style={this.props.theme.navChild}
+                    // style={this.props.theme.navChild}
                     data-position={navItem.position}
                     onClick={this.props.scrollTo}>
                     {navItem.title}
@@ -57,10 +56,12 @@ class NavComponent extends React.Component<INavProps, INavState> {
             )}
             <div style={{ width: '100%' }}></div>
             <div style={{
-                ...this.props.theme.currentPageMarker,
-                left: this.props.currentPageMarkerPosition
+                // ...this.props.theme.currentPageMarker,
+                // left: this.props.currentPageMarkerPosition
             }}>
-                <div style={this.props.theme.currentPageMarkerAccent}></div>
+                {/* <div style={
+                    // this.props.theme.currentPageMarkerAccent
+                }></div> */}
             </div>
         </nav>;
     }
@@ -77,4 +78,4 @@ class NavComponent extends React.Component<INavProps, INavState> {
     }
 }
 
-export const Nav: React.ComponentType<Pick<INavProps, never>> = withTheme(NavComponent);
+// export const Nav: React.ComponentType<Pick<INavProps, never>> = withTheme(NavComponent);

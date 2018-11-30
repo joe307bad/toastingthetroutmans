@@ -1,5 +1,3 @@
-import { ThemeProvider } from '@callstack/react-theme-provider';
-import Radium from 'radium';
 import * as React from 'react';
 
 import { Parallax } from 'react-spring';
@@ -54,28 +52,26 @@ export class Main extends React.Component<{}, IMainState> {
 
     public render(): JSX.Element {
         return (
-            <ThemeProvider theme={theme.Base}>
-                <Radium.StyleRoot>
-                    <Nav
-                        {...{
-                            currentPageMarkerPosition: this.state.currentPageMarkerPosition,
-                            scrollTo: this.scrollTo,
-                            toggleMenu: this.toggleMenu
-                        }}
-                    />
-                    <Parallax
-                        style={theme.Base.main}
-                        ref={this.bindRef}
-                        pages={3}>
-                        <main style={{
-                            ...theme.Base.mainContainer,
-                            ...this.state.menuOpen ? theme.Base.moveMainContainerForNavMenu : {}
-                        }}>
-                            <Home />
-                        </main>
-                    </Parallax>
-                </Radium.StyleRoot>;
-            </ThemeProvider>
+            <div>
+                <Nav
+                    {...{
+                        currentPageMarkerPosition: this.state.currentPageMarkerPosition,
+                        scrollTo: this.scrollTo,
+                        toggleMenu: this.toggleMenu
+                    }}
+                />
+                <Parallax
+                    // style={theme.Base.main}
+                    ref={this.bindRef}
+                    pages={3}>
+                    <main style={{
+                        // ...theme.Base.mainContainer,
+                        // ...this.state.menuOpen ? theme.Base.moveMainContainerForNavMenu : {}
+                    }}>
+                        <Home />
+                    </main>
+                </Parallax>
+            </div>
         );
     }
 }
