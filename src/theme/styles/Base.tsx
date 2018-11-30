@@ -1,12 +1,29 @@
+import { Styles } from 'react-jss';
+
 import { primary } from '../Colors';
+import { CSSProperties } from 'react';
 
 const backgroundImage: string
     = 'url(https://www.toptal.com/designers/subtlepatterns/patterns/ricepaper2.png)';
 
 /**
+ * Available Properties for the Main styles
+ */
+export type MainClasses =
+    'main' |
+    'moveMainContainerForNavMenu' |
+    'moveNavMenu' |
+    'nav' |
+    'mainContainer' |
+    'navChild' |
+    'currentPageMarker' |
+    'currentPageMarkerAccent' |
+    'navButton';
+
+/**
  * Base theme styles
  */
-export const Base: {} = {
+export const Base: Styles<MainClasses> = {
     main: {
         backgroundImage: backgroundImage,
         overflow: 'hidden',
@@ -59,13 +76,15 @@ export const Base: {} = {
         // alignItems: 'center',
         // justifyContent: 'center'
     },
-    currentPageMarker: {
+    // @ts-ignore
+    currentPageMarker: (props: INavProps): CSSProperties => ({
         transition: 'left 0s ease',
         bottom: 0,
         width: '14.2857142857%',
         textAlign: 'center',
-        position: 'absolute'
-    },
+        position: 'absolute',
+        left: props.currentPageMarkerPosition
+    }),
     currentPageMarkerAccent: {
         marginTop: '10px',
         width: '139.8px',

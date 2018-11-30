@@ -1,10 +1,13 @@
+import cx from 'classnames';
 import * as React from 'react';
 import * as hamburger from 'react-animated-burgers';
+import injectSheet from 'react-jss';
 
+import { Base, MainClasses } from '../../theme';
 import { INavItem, NavItems } from './NavItems';
 
 interface INavProps {
-    // theme: ITheme;
+    classes: Record<MainClasses, string>;
     currentPageMarkerPosition: string;
     scrollTo(event: React.SyntheticEvent<HTMLDivElement>): void;
     toggleMenu(newMenuState: boolean): void;
@@ -18,22 +21,21 @@ interface INavState {
  * Nav Component
  * Responsible for displaying the navigation for the application
  */
-export class Nav extends React.Component<INavProps, INavState> {
+export class NavComponent extends React.Component<INavProps, INavState> {
     public state: INavState = { menuOpen: false };
 
     public render(): JSX.Element {
-        return <nav style={{
-            // ...this.props.theme.nav,
-            // ...this.state.menuOpen ? this.props.theme.moveNavMenu : {}
-        }}>
+        return <nav className={cx(this.props.classes.nav, {
+            [this.props.classes.moveMainContainerForNavMenu]: this.state.menuOpen
+        })}>
             <div
                 role='button'
-                // style={this.props.theme.navButton}
+                className={this.props.classes.navButton}
                 onClick={this.toggleMenu}>
                 <hamburger.HamburgerSpin
                     isActive={this.state.menuOpen} />
             </div>
-            {/* <img
+            <img
                 style={{
                     position: 'absolute',
                     width: 75,
@@ -42,12 +44,12 @@ export class Nav extends React.Component<INavProps, INavState> {
                 }}
                 onClick={this.toggleMenu}
                 alt='Hamburger'
-                src='https://i.stack.imgur.com/Fw96Z.png' /> */}
+                src='https://i.stack.imgur.com/Fw96Z.png' />
             {NavItems.map((navItem: INavItem, index: number) =>
                 <div
                     key={index}
                     role='button'
-                    // style={this.props.theme.navChild}
+                    className={this.props.classes.navChild}
                     data-position={navItem.position}
                     onClick={this.props.scrollTo}>
                     {navItem.title}
@@ -57,7 +59,8 @@ export class Nav extends React.Component<INavProps, INavState> {
             <div style={{
                 // ...this.props.theme.currentPageMarker,
                 // left: this.props.currentPageMarkerPosition
-            }}>
+            }}
+            className={this.props.classes.currentPageMarker}>
                 {/* <div style={
                     // this.props.theme.currentPageMarkerAccent
                 }></div> */}
@@ -77,4 +80,5 @@ export class Nav extends React.Component<INavProps, INavState> {
     }
 }
 
-// export const Nav: React.ComponentType<Pick<INavProps, never>> = withTheme(NavComponent);
+export const Nav: React.ComponentType<Pick<INavProps, never>>
+    = injectSheet(Base)(NavComponent);

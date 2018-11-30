@@ -1,17 +1,14 @@
-import * as React from 'react';
+import { Styles } from 'react-jss';
 
 import { Breakpoints } from '../../theme';
-import { TElementStyles, TParallaxElement } from '../../theme/styles/TElementStyles';
 
-interface IHomeStyles extends React.CSSProperties {
-    SamAndShaun_1_Landscape: TParallaxElement;
-    // SamAndShaun_3_Landscape: TParallaxElement;
-}
+export type HomeClasses =
+    'SamAndShaun_1_Landscape';
 
 /**
  * The Styles for the Home Component
  */
-export const Styles: IHomeStyles = {
+export const HomeStyles: Styles<HomeClasses> = {
     // [Breakpoints.desktop]: {
     //     backgroundColor: 'black',
     //     marginTop: 500

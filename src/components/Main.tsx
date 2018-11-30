@@ -1,7 +1,9 @@
+import cx from 'classnames';
 import * as React from 'react';
-import injectSheet, { ConsistentWith, CSSProperties, StyledComponentProps, Styles, WithSheet } from 'react-jss';
+import injectSheet, { StyledComponentProps } from 'react-jss';
 import { Parallax } from 'react-spring';
 
+import { Base, MainClasses } from '../theme';
 import { Home } from './home/Home';
 import { TParallaxElement } from './home/TParallaxElement';
 import { Nav } from './nav/Nav';
@@ -14,26 +16,6 @@ interface IMainState {
     currentPageMarkerPosition: string;
     menuOpen: boolean;
 }
-
-// export const Base: Styles<MainClasses> = {
-//     main: {
-//         backgroundImage: 'url(https://www.toptal.com/designers/subtlepatterns/patterns/ricepaper2.png)',
-//         overflow: 'hidden',
-//         top: 0,
-//         left: 0,
-//         zIndex: 1
-//     }
-// };
-
-export type MainClasses = 'main';
-
-const Base: Styles<MainClasses> = {
-    main: {
-        backgroundColor: 'black'
-    }
-};
-
-//type TMainProps = IWithStyles<keyof typeof Base> & IProps;
 
 /**
  * Main Component
@@ -88,10 +70,9 @@ class MainComponent extends React.Component<IMainProps, {}> {
                     className={this.props.classes.main}
                     ref={this.bindRef}
                     pages={3}>
-                    <main style={{
-                        // ...theme.Base.mainContainer,
-                        // ...this.state.menuOpen ? theme.Base.moveMainContainerForNavMenu : {}
-                    }}>
+                    <main className={cx(this.props.classes.mainContainer, {
+                        [this.props.classes.moveMainContainerForNavMenu]: this.state.menuOpen
+                    })}>
                         <Home />
                     </main>
                 </Parallax>

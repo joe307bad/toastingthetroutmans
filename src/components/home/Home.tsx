@@ -1,21 +1,25 @@
 import * as React from 'react';
+import injectSheet, { StyledComponentProps } from 'react-jss';
+import { ParallaxLayer } from 'react-spring';
 
-import { Styles } from './Styles';
+import { Photos } from '../../assets/photos/Photos';
+import { primary } from '../../theme';
+import { HomeClasses, HomeStyles } from './HomeStyles';
 import { TParallaxElement } from './TParallaxElement';
 
 interface IHomeProps {
-    
+    classes: Record<HomeClasses, string>;
 }
 
 /**
  * Home Component
  */
-export class Home extends React.Component<IHomeProps, object> {
+export class HomeComponent extends React.Component<IHomeProps, {}> {
     public parallaxContainer: TParallaxElement;
     public render(): JSX.Element {
         return (
             <div>
-                {/* <ParallaxLayer
+                <ParallaxLayer
                     offset={0}
                     speed={0}
                     style={{
@@ -37,9 +41,9 @@ export class Home extends React.Component<IHomeProps, object> {
                         fontSize: '25px',
                         textAlign: 'center'
                     }}>Friday, October 29th 2019<br />St. Margaret Mary Alacoque Church<br />Harrisburg, PA</p>
-                </ParallaxLayer> */}
-                {/* <RadiumParallaxLayer
-                    offset={Styles.SamAndShaun_1_Landscape.parallaxOffset}
+                </ParallaxLayer>
+                <ParallaxLayer
+                    offset={0.5}
                     speed={0.5}
                     style={{
                         display: 'flex',
@@ -49,13 +53,10 @@ export class Home extends React.Component<IHomeProps, object> {
                     <img
                         alt='Sam and Shaun'
                         src={Photos.SamAndShaun_1_Landscape}
-                        style={Styles.SamAndShaun_1_Landscape} />
-                </RadiumParallaxLayer> */}
-                <div style={Styles.SamAndShaun_1_Landscape}>
-                    Hey there
-                </div>
-                {/* <ParallaxLayer
-                    offset={Styles.SamAndShaun_3_Landscape.parallaxOffset}
+                        style={HomeStyles.SamAndShaun_1_Landscape} />
+                </ParallaxLayer>
+                <ParallaxLayer
+                    offset={0.75}
                     speed={0.3}
                     style={{
                         display: 'flex',
@@ -65,11 +66,12 @@ export class Home extends React.Component<IHomeProps, object> {
                     <img
                         alt='Sam and Shaun'
                         src={Photos.SamAndShaun_3_Landscape}
-                        style={Styles.SamAndShaun_3_Landscape} />
-                </ParallaxLayer> */}
+                        style={HomeStyles.SamAndShaun_1_Landscape} />
+                </ParallaxLayer>
             </div>
         );
     }
 }
 
-// export const Home: HomeComponent = HomeComponent;
+export const Home: React.ComponentType<Pick<IHomeProps, never> & StyledComponentProps<string>>
+    = injectSheet(HomeStyles)(HomeComponent);
