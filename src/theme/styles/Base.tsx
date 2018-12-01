@@ -52,8 +52,8 @@ export const Base: Styles<MainClasses> = {
         paddingTop: '50px',
         paddingBottom: '20px',
         left: -200,
-        transition: 'left .5s ease'
-
+        transition: 'left .5s ease',
+        WebkitBoxShadow: 'inset -33px 2px 40px -38px rgba(0,0,0,0.75)'
         // padding: '20px 0 20px 0',
         // backgroundImage: backgroundImage,
         // display: 'flex',
