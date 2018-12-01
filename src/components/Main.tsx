@@ -22,7 +22,7 @@ interface IMainState {
  * This component facilitates any global parent components and serves as a single entry point
  * for all components
  */
-class MainComponent extends React.Component<IMainProps, {}> {
+class MainComponent extends React.Component<IMainProps, IMainState> {
     public parallaxContainer: TParallaxElement;
     public state: IMainState = {
         currentPageMarkerPosition: '0',
@@ -57,21 +57,23 @@ class MainComponent extends React.Component<IMainProps, {}> {
         })
 
     public render(): JSX.Element {
+        const classes: Record<MainClasses, string> = this.props.classes;
         return (
             <div>
                 <Nav
                     {...{
                         currentPageMarkerPosition: this.state.currentPageMarkerPosition,
                         scrollTo: this.scrollTo,
-                        toggleMenu: this.toggleMenu
+                        toggleMenu: this.toggleMenu,
+                        
                     }}
                 />
                 <Parallax
-                    className={this.props.classes.main}
+                    className={classes.main}
                     ref={this.bindRef}
                     pages={3}>
-                    <main className={cx(this.props.classes.mainContainer, {
-                        [this.props.classes.moveMainContainerForNavMenu]: this.state.menuOpen
+                    <main className={cx(classes.mainContainer, {
+                        [classes.moveMainContainerForNavMenu]: this.state.menuOpen
                     })}>
                         <Home />
                     </main>

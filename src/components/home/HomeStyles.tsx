@@ -23,18 +23,18 @@ export const HomeStyles: Styles<HomeClasses> = {
         // boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
         // parallaxOffset: 0.35,
         // marginTop: -400,
-        width: 500,
-        [Breakpoints.mobile]: {
-            border: '20px solid blue'
-        },
-        [Breakpoints.desktop]: {
-            border: '20px solid green'
-            //width: 500
-        },
-        [Breakpoints.tablet]: {
-            border: '20px solid red'
-            //width: 800
-        }
+        // width: 500,
+        // [Breakpoints.mobile]: {
+        //     border: '20px solid blue'
+        // },
+        // [Breakpoints.desktop]: {
+        //     border: '20px solid green'
+        //     //width: 500
+        // },
+        // [Breakpoints.tablet]: {
+        //     border: '20px solid red'
+        //     //width: 800
+        // }
     }
     // SamAndShaun_3_Landscape: {
     //     [Breakpoints.mobile]: {

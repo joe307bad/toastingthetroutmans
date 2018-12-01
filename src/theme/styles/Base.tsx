@@ -1,7 +1,7 @@
-import { Styles } from 'react-jss';
-
 import { primary } from '../Colors';
 import { CSSProperties } from 'react';
+import { INavProps } from '../../components/nav/Nav';
+import { Styles } from 'react-jss';
 
 const backgroundImage: string
     = 'url(https://www.toptal.com/designers/subtlepatterns/patterns/ricepaper2.png)';
@@ -20,6 +20,8 @@ export type MainClasses =
     'currentPageMarkerAccent' |
     'navButton';
 
+// export type Styles<ClassKey extends string = string> = { [P in ClassKey]: CSSProperties | ((...args: any[]) => CSSProperties) }
+
 /**
  * Base theme styles
  */
@@ -32,10 +34,10 @@ export const Base: Styles<MainClasses> = {
         zIndex: 1
     },
     moveMainContainerForNavMenu: {
-        left: 200
+        left: '200px !important'
     },
     moveNavMenu: {
-        left: 0
+        left: '0px !important'
     },
     nav: {
         fontFamily: 'Imperator',

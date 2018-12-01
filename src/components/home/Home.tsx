@@ -40,7 +40,11 @@ export class HomeComponent extends React.Component<IHomeProps, {}> {
                         alignSelf: 'center',
                         fontSize: '25px',
                         textAlign: 'center'
-                    }}>Friday, October 29th 2019<br />St. Margaret Mary Alacoque Church<br />Harrisburg, PA</p>
+                    }}>
+                        Friday, October 29th 2019<br />
+                        St. Margaret Mary Alacoque Church<br />
+                        Harrisburg, PA
+                    </p>
                 </ParallaxLayer>
                 <ParallaxLayer
                     offset={0.5}
