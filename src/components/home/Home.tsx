@@ -1,10 +1,9 @@
 import * as React from 'react';
-import cx from 'classnames';
+
 import injectSheet, { StyledComponentProps } from 'react-jss';
 import { ParallaxLayer } from 'react-spring';
 
 import { Photos } from '../../assets/photos/Photos';
-import { primary } from '../../theme';
 import { HomeClasses, HomeStyles } from './HomeStyles';
 import { TParallaxElement } from './TParallaxElement';
 
@@ -19,11 +18,10 @@ export class HomeComponent extends React.Component<IHomeProps, {}> {
     public parallaxContainer: TParallaxElement;
     public render(): JSX.Element {
         const classes: Record<HomeClasses, string> = this.props.classes;
+
         return (
             <div>
-                <ParallaxLayer
-                    className={classes.TaglineContainer}
-                    offset={0} speed={0}>
+                <ParallaxLayer className={classes.TaglineContainer} offset={0} speed={0}>
                     <img
                         alt='Sam and Shaun'
                         width={400}
@@ -35,31 +33,23 @@ export class HomeComponent extends React.Component<IHomeProps, {}> {
                         Harrisburg, PA
                     </p>
                 </ParallaxLayer>
-                <ParallaxLayer
-                    offset={0.4}
-                    speed={0.5}
-                    style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }}>
+                <ParallaxLayer offset={0.65} speed={0.5}>
+                    <img
+                        alt='Sam and Shaun'
+                        src={Photos.SamAndShaun_4_Landscape}
+                        className={classes.SamAndShaun_4_Landscape} />
+                </ParallaxLayer>
+                {/* <ParallaxLayer offset={0.65} speed={0.5}>
                     <img
                         alt='Sam and Shaun'
                         src={Photos.SamAndShaun_1_Landscape}
-                        style={HomeStyles.SamAndShaun_1_Landscape} />
-                </ParallaxLayer>
-                <ParallaxLayer
-                    offset={0.5}
-                    speed={0.3}
-                    style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }}>
+                        className={classes.SamAndShaun_1_Landscape} />
+                </ParallaxLayer> */}
+                <ParallaxLayer offset={0.5} speed={0.3}>
                     <img
                         alt='Sam and Shaun'
                         src={Photos.SamAndShaun_3_Landscape}
-                        style={HomeStyles.SamAndShaun_3_Landscape} />
+                        className={classes.SamAndShaun_3_Landscape} />
                 </ParallaxLayer>
             </div>
         );
