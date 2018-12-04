@@ -9,7 +9,7 @@ export const Breakpoints: { [key: string]: number } = {
   mobile: 374
 };
 
-export const MediaQueries: { [key: string]: string } = {
+export const MediaQuery: { [key: string]: string } = {
   xl: `@media (min-width: ${Breakpoints.xl}px)`,
   desktop: `@media (min-width: ${Breakpoints.desktop}px)`,
   tablet: `@media (min-width: ${Breakpoints.tablet}px)`,

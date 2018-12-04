@@ -1,7 +1,7 @@
 import { Styles } from 'react-jss';
 
 import { primary } from '../../theme';
-import { Device, MediaQueries } from '../../theme/Breakpoints';
+import { Device, MediaQuery } from '../../theme/Breakpoints';
 
 export type HomeClasses =
     // 'SamAndShaun_1_Landscape' |
@@ -15,17 +15,28 @@ export type HomeClasses =
  * The Styles for the Home Component
  */
 export const HomeStyles: Styles<HomeClasses> = {
-    // [Breakpoints.desktop]: {
-    //     backgroundColor: 'black',
-    //     marginTop: 500
-    // },
+    TaglineContainer: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignContent: 'baseline',
+        justifyContent: 'center',
+        [MediaQuery.desktop]: {
+            flexDirection: 'column',
+            justifyContent: 'start',
+            paddingTop: 100
+        }
+    },
     SamAndShaun: {
         alignSelf: 'center',
         width: '80%',
         paddingTop: 70,
         paddingBottom: 10,
-        [MediaQueries.tablet]: {
+        [MediaQuery.tablet]: {
             width: 500
+        },
+        [MediaQuery.desktop]: {
+            alignSelf: 'center',
+            paddingTop: 0
         }
     },
     Tagline: {
@@ -36,16 +47,13 @@ export const HomeStyles: Styles<HomeClasses> = {
         textAlign: 'center',
         lineHeight: '30px',
         margin: 0,
-        [MediaQueries.tablet]: {
+        [MediaQuery.tablet]: {
             fontSize: 30,
             lineHeight: '40px'
+        },
+        [MediaQuery.desktop]: {
+            alignSelf: 'center'
         }
-    },
-    TaglineContainer: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        alignContent: 'baseline',
-        justifyContent: 'center'
     },
     // SamAndShaun_1_Landscape: {
     //     width: 100,
@@ -81,7 +89,7 @@ export const HomeStyles: Styles<HomeClasses> = {
         marginTop: -20,
         bottom: 0,
         zIndex: 1,
-        [MediaQueries.mobile]: {
+        [MediaQuery.mobile]: {
             marginTop: -60,
             width: 350,
             [Device.iphonex]: {
@@ -100,7 +108,7 @@ export const HomeStyles: Styles<HomeClasses> = {
         display: 'block',
         boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
         zIndex: 2,
-        [MediaQueries.mobile]: {
+        [MediaQuery.mobile]: {
             marginTop: 30,
             width: 350
         }

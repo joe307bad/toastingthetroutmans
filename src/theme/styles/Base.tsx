@@ -1,7 +1,8 @@
-import { primary } from '../Colors';
 import { CSSProperties } from 'react';
-import { INavProps } from '../../components/nav/Nav';
 import { Styles } from 'react-jss';
+import { INavProps } from '../../components/nav/Nav';
+import { MediaQuery } from '../Breakpoints';
+import { primary } from '../Colors';
 
 const backgroundImage: string
     = 'url(https://www.toptal.com/designers/subtlepatterns/patterns/ricepaper2.png)';
@@ -19,8 +20,6 @@ export type MainClasses =
     'currentPageMarker' |
     'currentPageMarkerAccent' |
     'navButton';
-
-// export type Styles<ClassKey extends string = string> = { [P in ClassKey]: CSSProperties | ((...args: any[]) => CSSProperties) }
 
 /**
  * Base theme styles
@@ -53,14 +52,18 @@ export const Base: Styles<MainClasses> = {
         paddingBottom: '20px',
         left: -200,
         transition: 'left .5s ease',
-        WebkitBoxShadow: 'inset -33px 2px 40px -38px rgba(0,0,0,0.75)'
-        // padding: '20px 0 20px 0',
-        // backgroundImage: backgroundImage,
-        // display: 'flex',
-        // width: '978px',
-        // left: '50%',
-        // marginLeft: '-514px',
-        // flexFlow: 'row wrap'
+        WebkitBoxShadow: 'inset -33px 2px 40px -38px rgba(0,0,0,0.75)',
+        [MediaQuery.desktop]: {
+            padding: '20px 0 20px 0',
+            backgroundImage: backgroundImage,
+            display: 'flex',
+            width: '978px',
+            left: '50%',
+            marginLeft: '-514px',
+            flexFlow: 'row wrap',
+            WebkitBoxShadow: 'none',
+            height: 'auto'
+        }
     },
     mainContainer: {
         maxWidth: 1280,
@@ -71,12 +74,15 @@ export const Base: Styles<MainClasses> = {
     },
     navChild: {
         paddingBottom: 30,
-        width: 200
-
-        // flex: 1,
-        // display: 'flex',
-        // alignItems: 'center',
-        // justifyContent: 'center'
+        width: 200,
+        [MediaQuery.desktop]: {
+            flex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            paddingBottom: 0,
+            paddingTop: 5
+        }
     },
     // @ts-ignore
     currentPageMarker: (props: INavProps): CSSProperties => ({
@@ -101,6 +107,9 @@ export const Base: Styles<MainClasses> = {
         top: 11,
         right: -78,
         WebkitTapHighlightColor: 'rgba(255, 255, 255, 0)',
-        opacity: 0.5
+        opacity: 0.5,
+        [MediaQuery.desktop]: {
+            display: 'none'
+        }
     }
 };

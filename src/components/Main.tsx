@@ -58,14 +58,14 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
 
     public render(): JSX.Element {
         const classes: Record<MainClasses, string> = this.props.classes;
+
         return (
             <div>
                 <Nav
                     {...{
                         currentPageMarkerPosition: this.state.currentPageMarkerPosition,
                         scrollTo: this.scrollTo,
-                        toggleMenu: this.toggleMenu,
-                        
+                        toggleMenu: this.toggleMenu
                     }}
                 />
                 <Parallax
