@@ -20,14 +20,17 @@ export const HomeStyles: Styles<HomeClasses> = {
     SamAndShaun: {
         alignSelf: 'center',
         width: '80%',
-        paddingTop: 80
+        paddingTop: 70,
+        paddingBottom: 10
     },
     Tagline: {
         fontFamily: 'Imperator',
         color: primary,
         alignSelf: 'center',
         fontSize: '20px',
-        textAlign: 'center'
+        textAlign: 'center',
+        lineHeight: '30px',
+        margin: 0
     },
     TaglineContainer: {
         display: 'flex',
@@ -44,7 +47,7 @@ export const HomeStyles: Styles<HomeClasses> = {
         display: 'block',
         boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
         parallaxOffset: 0.35,
-        marginTop: -400,
+        marginTop: -350
 
         // [Breakpoints.mobile]: {
         //     border: '20px solid blue'
@@ -67,7 +70,7 @@ export const HomeStyles: Styles<HomeClasses> = {
         display: 'block',
         boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
         parallaxOffset: 0.35,
-        marginTop: -200,
+        marginTop: -100,
         bottom: 0
     }
 };

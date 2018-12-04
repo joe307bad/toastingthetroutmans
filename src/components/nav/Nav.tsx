@@ -26,6 +26,7 @@ export class NavComponent extends React.Component<INavProps, INavState> {
 
     public render(): JSX.Element {
         const classes: Record<MainClasses, string> = this.props.classes;
+
         return <nav className={cx(this.props.classes.nav, {
             [this.props.classes.moveNavMenu]: this.state.menuOpen
         })}>
