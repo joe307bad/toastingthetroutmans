@@ -23,7 +23,10 @@ export const HomeStyles: Styles<HomeClasses> = {
         alignSelf: 'center',
         width: '80%',
         paddingTop: 70,
-        paddingBottom: 10
+        paddingBottom: 10,
+        [MediaQueries.tablet]: {
+            width: 500
+        }
     },
     Tagline: {
         fontFamily: 'Imperator',
@@ -32,7 +35,11 @@ export const HomeStyles: Styles<HomeClasses> = {
         fontSize: '18px',
         textAlign: 'center',
         lineHeight: '30px',
-        margin: 0
+        margin: 0,
+        [MediaQueries.tablet]: {
+            fontSize: 30,
+            lineHeight: '40px'
+        }
     },
     TaglineContainer: {
         display: 'flex',
