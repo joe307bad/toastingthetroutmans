@@ -14,7 +14,7 @@ interface IHomeProps {
 /**
  * Home Component
  */
-export class HomeComponent extends React.Component<IHomeProps, {}> {
+export class HomeComponent extends React.Component<IHomeProps> {
     public parallaxContainer: TParallaxElement;
     public render(): JSX.Element {
         const classes: Record<HomeClasses, string> = this.props.classes;
@@ -56,5 +56,5 @@ export class HomeComponent extends React.Component<IHomeProps, {}> {
     }
 }
 
-export const Home: React.ComponentType<Pick<IHomeProps, never> & StyledComponentProps<string>>
+export const Home: React.ComponentType<Pick<IHomeProps, never> & StyledComponentProps>
     = injectSheet(HomeStyles)(HomeComponent);

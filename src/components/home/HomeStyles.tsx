@@ -55,28 +55,6 @@ export const HomeStyles: Styles<HomeClasses> = {
             alignSelf: 'center'
         }
     },
-    // SamAndShaun_1_Landscape: {
-    //     width: 100,
-    //     marginRight: 0,
-    //     transform: 'rotate(-10deg)',
-    //     backgroundColor: 'white',
-    //     padding: 10,
-    //     boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
-    //     parallaxOffset: 0.35,
-    //     marginTop: -350
-    //     // [Breakpoints.mobile]: {
-    //     //     border: '20px solid blue'
-    //     // },
-    //     // [Breakpoints.desktop]: {
-    //     //     border: '20px solid green'
-    //     //     //width: 500
-    //     // },
-    //     // [Breakpoints.tablet]: {
-    //     //     border: '20px solid red'
-    //     //     //width: 800
-    //     // }
-    // },
-
     SamAndShaun_3_Landscape: {
         width: 200,
         margin: '0 auto',

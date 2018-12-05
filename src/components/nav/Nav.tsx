@@ -1,4 +1,4 @@
-import cx from 'classnames';
+import * as cx from 'classnames';
 import * as React from 'react';
 import * as hamburger from 'react-animated-burgers';
 import injectSheet from 'react-jss';

@@ -1,4 +1,4 @@
-import cx from 'classnames';
+import * as cx from 'classnames';
 import * as React from 'react';
 import injectSheet, { StyledComponentProps } from 'react-jss';
 import { Parallax } from 'react-spring';
@@ -37,8 +37,9 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
         this.parallaxContainer = parallaxContainer;
     }
 
-    public scrollTo = (event: React.SyntheticEvent<HTMLDivElement>): void =>
-        this.parallaxContainer.scrollTo(Number(event.currentTarget.dataset.position))
+    public scrollTo = (event: React.SyntheticEvent<HTMLDivElement>): void => {
+        this.parallaxContainer.scrollTo(Number(event.currentTarget.dataset.position));
+    }
 
     public onScroll = (): void => {
         const container: HTMLDivElement = this.parallaxContainer.container;
@@ -51,10 +52,11 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
         });
     }
 
-    public toggleMenu = (newMenuState: boolean): void =>
+    public toggleMenu = (newMenuState: boolean): void => {
         this.setState({
             menuOpen: newMenuState
-        })
+        });
+    }
 
     public render(): JSX.Element {
         const classes: Record<MainClasses, string> = this.props.classes;
@@ -83,7 +85,7 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
     }
 }
 
-export const Main: React.ComponentType<Pick<IMainProps, never> & StyledComponentProps<string>>
+export const Main: React.ComponentType<Pick<IMainProps, never> & StyledComponentProps>
     = injectSheet(Base)(MainComponent);
 
 {/* <ParallaxLayer
