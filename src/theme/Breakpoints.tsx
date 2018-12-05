@@ -3,8 +3,8 @@
  */
 
 export const Breakpoints: { [key: string]: number } = {
-  xl: 1280,
-  desktop: 1024,
+  xl: 1540,
+  desktop: 1280,
   tablet: 768,
   mobile: 374
 };

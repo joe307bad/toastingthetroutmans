@@ -97,6 +97,16 @@ export const HomeStyles: Styles<HomeClasses> = {
                 marginTop: -120,
                 transform: 'rotate(-5deg)'
             }
+        },
+        [MediaQuery.desktop]: {
+            marginLeft: '10%',
+            marginTop: 70,
+            width: 500
+        },
+        [MediaQuery.xl]: {
+            marginLeft: -100,
+            marginTop: -50,
+            width: 700
         }
     },
     SamAndShaun_4_Landscape: {
@@ -111,6 +121,16 @@ export const HomeStyles: Styles<HomeClasses> = {
         [MediaQuery.mobile]: {
             marginTop: 30,
             width: 350
+        },
+        [MediaQuery.desktop]: {
+            marginRight: '10%',
+            marginTop: -20,
+            width: 500
+        },
+        [MediaQuery.xl]: {
+            marginRight: 0,
+            marginTop: -100,
+            width: 700
         }
     }
 };
