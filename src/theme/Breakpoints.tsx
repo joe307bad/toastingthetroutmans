@@ -17,5 +17,6 @@ export const MediaQuery: { [key: string]: string } = {
 };
 
 export const Device: { [key: string]: string } = {
-  iphonex: '@media (min-height: 812px)'
+  iphonex: '@media (min-height: 812px)',
+  landscape: `@media (max-width: 830px) and (orientation: landscape)`
 };

@@ -16,7 +16,8 @@ export type MainClasses =
     'moveNavMenu' |
     'nav' |
     'mainContainer' |
-    'navChild' |
+    'navItemsContainer' |
+    'navItem' |
     'currentPageMarker' |
     'currentPageMarkerAccent' |
     'navButton';
@@ -43,13 +44,12 @@ export const Base: Styles<MainClasses> = {
         textAlign: 'center',
         zIndex: 2,
         position: 'fixed',
-        fontSize: '20px',
+        fontSize: 20,
         color: primary,
         top: 0,
         backgroundColor: 'white',
         height: '100%',
-        paddingTop: '50px',
-        paddingBottom: '20px',
+        paddingBottom: 20,
         left: -200,
         transition: 'left .5s ease',
         WebkitBoxShadow: 'inset -33px 2px 40px -38px rgba(0,0,0,0.75)',
@@ -57,9 +57,9 @@ export const Base: Styles<MainClasses> = {
             padding: '20px 0 20px 0',
             backgroundImage: backgroundImage,
             display: 'flex',
-            width: '978px',
+            width: 978,
             left: '50%',
-            marginLeft: '-514px',
+            marginLeft: -514,
             flexFlow: 'row wrap',
             WebkitBoxShadow: 'none',
             height: 'auto'
@@ -72,10 +72,23 @@ export const Base: Styles<MainClasses> = {
         left: 0,
         transition: 'left .5s ease'
     },
-    navChild: {
+    navItemsContainer: {
+        height: '100%',
+        overflow: 'auto',
+        [MediaQuery.desktop]: {
+            display: 'flex'
+        }
+    },
+    navItem: {
         paddingBottom: 30,
         width: 200,
+        ['&:first-child']: {
+            paddingTop: 50
+        },
         [MediaQuery.desktop]: {
+            ['&:first-child']: {
+                paddingTop: 0
+            },
             flex: 1,
             display: 'flex',
             alignItems: 'center',
@@ -94,13 +107,13 @@ export const Base: Styles<MainClasses> = {
         left: props.currentPageMarkerPosition
     }),
     currentPageMarkerAccent: {
-        marginTop: '10px',
-        width: '139.8px',
+        marginTop: 10,
+        width: 139.8,
         backgroundColor: primary,
-        height: '5px',
+        height: 5,
         left: '50%',
         position: 'relative',
-        marginLeft: '-69.9px'
+        marginLeft: -69.9
     },
     navButton: {
         position: 'absolute',

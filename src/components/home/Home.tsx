@@ -32,6 +32,29 @@ export class HomeComponent extends React.Component<IHomeProps> {
                         St. Margaret Mary Alacoque Church<br />
                         Harrisburg, PA
                     </p>
+                    <img
+                        style={{
+                            width: 200,
+                            margin: '22px auto'
+                        }}
+                        alt='underline'
+                        src={Photos.CurlyUnderline} />
+                </ParallaxLayer>
+                <ParallaxLayer offset={0.3} speed={0.5}>
+                    <img
+                        width={400}
+                        alt='Flowers'
+                        src={Photos.Flowers} />
+                </ParallaxLayer>
+                <ParallaxLayer offset={0.32} speed={0.6}>
+                    <img
+                        style={{
+                            display: 'block',
+                            marginLeft: '72.5%'
+                        }}
+                        width={325}
+                        alt='Flowers'
+                        src={Photos.Flowers1} />
                 </ParallaxLayer>
                 <ParallaxLayer offset={0.65} speed={0.5}>
                     <img

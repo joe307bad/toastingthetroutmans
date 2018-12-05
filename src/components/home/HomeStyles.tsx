@@ -31,6 +31,9 @@ export const HomeStyles: Styles<HomeClasses> = {
         width: '80%',
         paddingTop: 70,
         paddingBottom: 10,
+        [Device.landscape]: {
+            paddingTop: 50
+        },
         [MediaQuery.tablet]: {
             width: 500
         },
@@ -67,6 +70,9 @@ export const HomeStyles: Styles<HomeClasses> = {
         marginTop: -20,
         bottom: 0,
         zIndex: 1,
+        [Device.landscape]: {
+            display: 'none'
+        },
         [MediaQuery.mobile]: {
             marginTop: -60,
             width: 350,
@@ -96,6 +102,9 @@ export const HomeStyles: Styles<HomeClasses> = {
         display: 'block',
         boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
         zIndex: 2,
+        [Device.landscape]: {
+            display: 'none'
+        },
         [MediaQuery.mobile]: {
             marginTop: 30,
             width: 350

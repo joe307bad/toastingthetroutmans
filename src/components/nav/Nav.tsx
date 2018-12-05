@@ -36,16 +36,18 @@ export class NavComponent extends React.Component<INavProps, INavState> {
                 onClick={this.toggleMenu}>
                 <hamburger.HamburgerSpin isActive={this.state.menuOpen} />
             </div>
-            {NavItems.map((navItem: INavItem, index: number) =>
-                <div
-                    key={index}
-                    role='button'
-                    className={classes.navChild}
-                    data-position={navItem.position}
-                    onClick={this.props.scrollTo}>
-                    {navItem.title}
-                </div>
-            )}
+            <div className={classes.navItemsContainer}>
+                {NavItems.map((navItem: INavItem, index: number) =>
+                    <div
+                        key={index}
+                        role='button'
+                        className={classes.navItem}
+                        data-position={navItem.position}
+                        onClick={this.props.scrollTo}>
+                        {navItem.title}
+                    </div>
+                )}
+            </div>
             <div style={{ width: '100%' }}></div>
             <div className={this.props.classes.currentPageMarker}>
                 <div className={this.props.classes.currentPageMarkerAccent}></div>
