@@ -20,6 +20,8 @@ export const MediaQuery: { [key: string]: string } = {
 
 export const Device: { [key: string]: string } = {
   iphonex: '@media (min-height: 812px)',
+  samsungGS8LandscapeWithNavigationBar: '@media (max-width: 640px) and (max-height: 360px)',
+  samsungGS8Landscape: '@media (min-width: 740px) and (min-height: 360px)',
   iphonexLandscape: '@media (min-width: 812px) and (min-height: 375px)',
   pixel2xlLandscape: '@media (min-height: 411px) and (min-width: 823px)',
   phoneLandscape: `@media (max-width: 830px) and (orientation: landscape)`,

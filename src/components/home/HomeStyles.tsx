@@ -25,7 +25,15 @@ export const HomeStyles: Styles<HomeClasses> = {
         justifyContent: 'center',
         [Device.tabletLandscape]: {
             flexDirection: 'column',
-            justifyContent: 'start'
+            justifyContent: 'start',
+            [Device.samsungGS8LandscapeWithNavigationBar]: {
+                flexDirection: 'column',
+                justifyContent: 'center'
+            },
+            [Device.samsungGS8Landscape]: {
+                flexDirection: 'row',
+                justifyContent: 'center'
+            }
         },
         [MediaQuery.xltablet]: {
             flexDirection: 'column',
@@ -47,10 +55,12 @@ export const HomeStyles: Styles<HomeClasses> = {
         },
         [Device.tabletLandscape]: {
             paddingTop: 50,
-            flexDirection: 'column',
-            justifyContent: 'start'
+            [Device.samsungGS8LandscapeWithNavigationBar]: {
+                width: 300,
+                paddingTop: 0
+            }
         },
-        [MediaQuery.tablet]: {
+        [MediaQuery.mobile]: {
             width: 500
         },
         [MediaQuery.desktop]: {
