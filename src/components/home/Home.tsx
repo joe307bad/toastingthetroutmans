@@ -33,10 +33,7 @@ export class HomeComponent extends React.Component<IHomeProps> {
                         Harrisburg, PA
                     </p>
                     <img
-                        style={{
-                            width: 200,
-                            margin: '22px auto'
-                        }}
+                        className={classes.CurlyUnderline}
                         alt='underline'
                         src={Photos.CurlyUnderline} />
                 </ParallaxLayer>
@@ -44,14 +41,12 @@ export class HomeComponent extends React.Component<IHomeProps> {
                     <img
                         width={400}
                         alt='Flowers'
+                        className={classes.Flowers}
                         src={Photos.Flowers} />
                 </ParallaxLayer>
                 <ParallaxLayer offset={0.32} speed={0.6}>
                     <img
-                        style={{
-                            display: 'block',
-                            marginLeft: '72.5%'
-                        }}
+                        className={classes.Flowers1}
                         width={325}
                         alt='Flowers'
                         src={Photos.Flowers1} />
