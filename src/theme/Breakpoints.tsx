@@ -5,9 +5,9 @@
 export const Breakpoints: { [key: string]: number } = {
   xl: 1540,
   desktop: 1280,
-  xltablet: 1024,
+  xltablet: 1100,
   tablet: 768,
-  mobile: 374
+  mobile: 440
 };
 
 export const MediaQuery: { [key: string]: string } = {
@@ -19,12 +19,5 @@ export const MediaQuery: { [key: string]: string } = {
 };
 
 export const Device: { [key: string]: string } = {
-  iphonex: '@media (min-height: 812px)',
-  samsungGS8LandscapeWithNavigationBar: '@media (max-width: 640px) and (max-height: 360px)',
-  samsungGS8Landscape: '@media (min-width: 740px) and (min-height: 360px)',
-  iphonexLandscape: '@media (min-width: 812px) and (min-height: 375px)',
-  pixel2xlLandscape: '@media (min-height: 411px) and (min-width: 823px)',
-  phoneLandscape: `@media (max-width: 830px) and (orientation: landscape)`,
-  tabletLandscape: `@media (max-width: 1024px) and (orientation: landscape)`,
-  ipadProLandscape: '@media (min-width: 1366px) and (min-height: 1024px)'
+  iphonex: `@media (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio : 3)`
 };
