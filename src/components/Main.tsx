@@ -7,6 +7,7 @@ import { Base, MainClasses } from '../theme';
 import { Home } from './home/Home';
 import { TParallaxElement } from './home/TParallaxElement';
 import { Nav } from './nav/Nav';
+import { Photos } from './photos/Photos';
 
 interface IMainProps {
     classes: Record<MainClasses, string>;
@@ -48,7 +49,7 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
             container.scrollTop / (container.scrollHeight - container.clientHeight);
 
         this.setState({
-            currentPageMarkerPosition: `calc(${position * 100 * 0.857142857143}%)`
+            currentPageMarkerPosition: `calc(${position * 85.7142857143}%)`
         });
     }
 
@@ -78,6 +79,7 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                         [classes.moveMainContainerForNavMenu]: this.state.menuOpen
                     })}>
                         <Home />
+                        <Photos />
                     </main>
                 </Parallax>
             </div>

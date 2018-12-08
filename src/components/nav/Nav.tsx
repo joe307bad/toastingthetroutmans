@@ -61,7 +61,7 @@ export class NavComponent extends React.Component<INavProps, INavState> {
             this.props.toggleMenu(newMenuState);
 
             return {
-                menuOpen: !!!prevState.menuOpen
+                menuOpen: newMenuState
             };
         });
     }

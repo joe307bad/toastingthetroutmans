@@ -5,7 +5,6 @@ import { ParallaxLayer } from 'react-spring';
 
 import { Photos } from '../../assets/photos/Photos';
 import { HomeClasses, HomeStyles } from './HomeStyles';
-import { TParallaxElement } from './TParallaxElement';
 
 interface IHomeProps {
     classes: Record<HomeClasses, string>;
@@ -15,7 +14,7 @@ interface IHomeProps {
  * Home Component
  */
 export class HomeComponent extends React.Component<IHomeProps> {
-    public parallaxContainer: TParallaxElement;
+    
     public render(): JSX.Element {
         const classes: Record<HomeClasses, string> = this.props.classes;
 
@@ -59,12 +58,6 @@ export class HomeComponent extends React.Component<IHomeProps> {
                         src={Photos.SamAndShaun_4_Landscape}
                         className={classes.SamAndShaun_4_Landscape} />
                 </ParallaxLayer>
-                {/* <ParallaxLayer offset={0.65} speed={0.5}>
-                    <img
-                        alt='Sam and Shaun'
-                        src={Photos.SamAndShaun_1_Landscape}
-                        className={classes.SamAndShaun_1_Landscape} />
-                </ParallaxLayer> */}
                 <ParallaxLayer offset={0.5} speed={0.3}>
                     <img
                         alt='Sam and Shaun'
