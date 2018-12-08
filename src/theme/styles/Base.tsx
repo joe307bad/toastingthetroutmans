@@ -56,7 +56,7 @@ export const Base: Styles<MainClasses> = {
         [MediaQuery.desktop]: {
             padding: '20px 0 20px 0',
             backgroundImage: backgroundImage,
-            display: 'flex',
+            display: 'block',
             width: 978,
             left: '50%',
             marginLeft: -514,

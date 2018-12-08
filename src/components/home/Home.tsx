@@ -21,21 +21,23 @@ export class HomeComponent extends React.Component<IHomeProps> {
 
         return (
             <div>
-                <ParallaxLayer className={classes.TaglineContainer} offset={0} speed={0}>
-                    <img
-                        alt='Sam and Shaun'
-                        width={400}
-                        className={classes.SamAndShaun}
-                        src={Photos.samAndShaun} />
-                    <p className={classes.Tagline}>
-                        Friday, October 29th 2019<br />
-                        St. Margaret Mary Alacoque Church<br />
-                        Harrisburg, PA
+                <ParallaxLayer offset={0} speed={0}>
+                    <div className={classes.TaglineContainer} >
+                        <img
+                            alt='Sam and Shaun'
+                            width={400}
+                            className={classes.SamAndShaun}
+                            src={Photos.samAndShaun} />
+                        <p className={classes.Tagline}>
+                            Friday, October 29th 2019<br />
+                            St. Margaret Mary Alacoque Church<br />
+                            Harrisburg, PA
                     </p>
-                    <img
-                        className={classes.CurlyUnderline}
-                        alt='underline'
-                        src={Photos.CurlyUnderline} />
+                        <img
+                            className={classes.CurlyUnderline}
+                            alt='underline'
+                            src={Photos.CurlyUnderline} />
+                    </div>
                 </ParallaxLayer>
                 <ParallaxLayer offset={0.3} speed={0.5}>
                     <img

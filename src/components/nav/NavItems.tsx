@@ -11,7 +11,7 @@ export interface INavItem {
  */
 export const NavItems: INavItem[] = [
     {
-        title: 'Engagement',
+        title: 'Announcement',
         position: 0
     },
     {

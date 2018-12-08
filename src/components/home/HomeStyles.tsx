@@ -21,12 +21,9 @@ export const HomeStyles: Styles<HomeClasses> = {
     TaglineContainer: {
         display: 'flex',
         flexDirection: 'column',
-        flexWrap: 'wrap',
         alignContent: 'baseline',
         justifyContent: 'start',
-        [MediaQuery.mobile]: {
-            width: 440
-        },
+        width: '100%',
         [MediaQuery.desktop]: {
             flexDirection: 'column',
             justifyContent: 'start',
@@ -59,7 +56,8 @@ export const HomeStyles: Styles<HomeClasses> = {
         lineHeight: '30px',
         margin: 0,
         [MediaQuery.desktop]: {
-            alignSelf: 'center'
+            fontSize: 25,
+            lineHeight: '35px'
         }
     },
     CurlyUnderline: {
@@ -86,6 +84,9 @@ export const HomeStyles: Styles<HomeClasses> = {
             width: 300,
             marginTop: -60
         },
+        [Device.landscape]: {
+            display: 'none'
+        },
         [MediaQuery.mobile]: {
             width: 220
         },
@@ -96,8 +97,7 @@ export const HomeStyles: Styles<HomeClasses> = {
             position: 'relative',
             left: -200
         },
-        [MediaQuery.xl]: {
-            marginLeft: -50,
+        [MediaQuery.desktop]: {
             marginTop: 20,
             width: 700
         }
@@ -111,14 +111,16 @@ export const HomeStyles: Styles<HomeClasses> = {
         display: 'block',
         boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
         zIndex: 2,
+        [Device.landscape]: {
+            display: 'none'
+        },
         [MediaQuery.tablet]: {
             width: 400,
             margin: '0 auto',
             position: 'relative',
             right: -200
         },
-        [MediaQuery.xl]: {
-            marginRight: -50,
+        [MediaQuery.desktop]: {
             marginTop: -80,
             width: 700
         }
@@ -132,6 +134,12 @@ export const HomeStyles: Styles<HomeClasses> = {
             width: 300,
             marginTop: 0
         },
+        [Device.landscape]: {
+            position: 'relative',
+            marginLeft: 0,
+            top: 30,
+            left: -100
+        },
         [MediaQuery.mobile]: {
             margin: '0 auto',
             paddingRight: 150,
@@ -140,6 +148,13 @@ export const HomeStyles: Styles<HomeClasses> = {
         [MediaQuery.tablet]: {
             width: 400,
             paddingTop: 0
+        },
+        [MediaQuery.desktop]: {
+            margin: '0 auto',
+            width: 600,
+            position: 'relative',
+            left: -200,
+            marginTop: -100
         }
     },
     Flowers1: {
@@ -156,6 +171,11 @@ export const HomeStyles: Styles<HomeClasses> = {
             paddingLeft: 150,
             paddingTop: 40
         },
+        [Device.landscape]: {
+            position: 'relative',
+            right: -100,
+            top: 50
+        },
         [MediaQuery.tablet]: {
             width: 400,
             paddingTop: 0
@@ -165,14 +185,11 @@ export const HomeStyles: Styles<HomeClasses> = {
             width: 500
         },
         [MediaQuery.desktop]: {
-            marginLeft: '70%',
-            marginTop: -60,
+            margin: '0 auto',
             width: 400,
-            [Device.ipadProLandscape]: {
-                marginLeft: '65%',
-                marginTop: -20,
-                width: 400
-            }
+            position: 'relative',
+            right: -300,
+            marginTop: -80
         }
     }
 };
