@@ -38,6 +38,9 @@ export const HomeStyles: Styles<HomeClasses> = {
         [MediaQuery.mobile]: {
             width: 300
         },
+        [Device.landscape]: {
+            paddingTop: 20
+        },
         [MediaQuery.tablet]: {
             width: 400,
             paddingTop: 20
