@@ -14,7 +14,7 @@ interface IHomeProps {
  * Home Component
  */
 export class HomeComponent extends React.Component<IHomeProps> {
-    
+
     public render(): JSX.Element {
         const classes: Record<HomeClasses, string> = this.props.classes;
 

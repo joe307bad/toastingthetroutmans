@@ -101,8 +101,8 @@ export const HomeStyles: Styles<HomeClasses> = {
             left: -200
         },
         [MediaQuery.desktop]: {
-            marginTop: 20,
-            width: 700
+            marginTop: 35,
+            width: 675
         }
     },
     SamAndShaun_4_Landscape: {

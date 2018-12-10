@@ -23,10 +23,10 @@ export const LandscapeQuery: { [key: string]: string } = {
     desktop: `@media (min-height: ${Breakpoints.desktop}px)`,
     xltablet: `@media (min-height: ${Breakpoints.xltablet}px) and (min-height: 1366px)`,
     tablet: `@media (min-height: ${Breakpoints.tablet}px)`,
-    mobile: `@media (min-height: ${Breakpoints.mobile}px)`,
-}
+    mobile: `@media (min-height: ${Breakpoints.mobile}px)`
+};
 
 export const Device: { [key: string]: string } = {
-  landscape: `@media (orientation: landscape) and (max-height: 767px)`,
+  landscape: `@media (orientation: landscape) and (max-height: 760px)`,
   iphonex: `@media (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio : 3)`
 };
