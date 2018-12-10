@@ -1,5 +1,6 @@
 import os
 from os.path import isfile, join
+from PIL import Image
 
 srcDir = "C:/Projects/ttt/src/assets/photos/engagement/"
 engagementPhotos = [f for f in
@@ -12,7 +13,7 @@ photosObject = """
     /**
      * Collection of engagement photos
      */
-    export const EngagementPhotos: { [key: string]: string } = {"""
+    export const EngagementPhotos: { [key: string]: {src: string; height: number; width: number } } = {"""
 
 for photo in engagementPhotos:
     importStatements += """import * as {photoVar} from '{photoPath}';
@@ -22,8 +23,13 @@ numOfPhotos = len(engagementPhotos)
 count = 0
 for photo in engagementPhotos:
     count += 1
+    filePath = srcDir + photo
+    with Image.open(filePath) as img:
+        maxsize = (200, 200)
+        tn_image = img.thumbnail(maxsize, Image.ANTIALIAS)
+        width, height = img.size
     photosObject += """
-        {photoVar}: {photoVar}{comma}""".format(photoVar=photo.replace(' ', '').replace('+', '').replace('-', '').replace('.', ''), comma = '' if count == numOfPhotos else ',')
+        {photoVar}: {{ src: {photoVar}, height: {height}, width: {width} }}{comma}""".format(photoVar=photo.replace(' ', '').replace('+', '').replace('-', '').replace('.', ''), comma='' if count == numOfPhotos else ',', height = height, width = width)
 
 photosObject += """
 };
