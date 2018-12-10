@@ -4,6 +4,7 @@ import injectSheet, { StyledComponentProps } from 'react-jss';
 import { Parallax } from 'react-spring';
 
 import { Base, MainClasses } from '../theme';
+import { BridesmaidsComponent } from './bridesmaids/Bridesmaids';
 import { Home } from './home/Home';
 import { TParallaxElement } from './home/TParallaxElement';
 import { Nav } from './nav/Nav';
@@ -80,6 +81,7 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                     })}>
                         <Home />
                         <Photos />
+                        <BridesmaidsComponent />
                     </main>
                 </Parallax>
             </div>

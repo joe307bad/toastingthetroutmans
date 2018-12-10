@@ -1,9 +1,10 @@
 import * as React from 'react';
 
 import injectSheet, { StyledComponentProps } from 'react-jss';
-import Masonry from 'react-masonry-component';
-import HorizontalScroll from 'react-scroll-horizontal';
+import { Carousel } from 'react-responsive-carousel';
 import { ParallaxLayer } from 'react-spring';
+// tslint:disable-next-line:no-import-side-effect
+import '../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css';
 import { EngagementPhotos } from '../../assets/photos/engagement/EngagementPhotos';
 
 interface IPhoto {
@@ -37,29 +38,21 @@ export class PhotosComponent extends React.Component<{}> {
                     const photoData: IPhoto = EngagementPhotos[photo];
 
                     return <div key={key}
-                        style={{ textAlign: 'center', height: photoData.height }}
-                        className='image-element-class'>
+                        style={{ textAlign: 'center', width: photoData.width, maxWidth: '100%' }}>
                         <img
                             alt='photo'
                             style={{ display: 'block' }}
+                            width={photoData.width}
                             height={photoData.height}
                             src={EngagementPhotos[photo].src} />
                     </div>;
                 });
 
-        const masonryOptions: Masonry.MasonryOptions = {
-            transitionDuration: 0,
-            gutter: 0,
-            columnWidth: 1,
-            itemSelector: '.image-element-class',
-            fitWidth: true
-        };
-
         return (
             <ParallaxLayer offset={1} style={{ marginTop: 70 }} speed={1}>
-                <Masonry key={0} style={{ margin: '0 auto' }} options={masonryOptions} >
+                <Carousel emulateTouch showThumbs={false} dynamicHeight>
                     {photos}
-                </Masonry>
+                </Carousel>
             </ParallaxLayer>
         );
     }
