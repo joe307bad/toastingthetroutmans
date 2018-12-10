@@ -25,7 +25,8 @@ for photo in engagementPhotos:
     count += 1
     filePath = srcDir + photo
     with Image.open(filePath) as img:
-        maxsize = (200, 200)
+        width, height = img.size
+        maxsize = (300 * width / height, 300)
         tn_image = img.thumbnail(maxsize, Image.ANTIALIAS)
         width, height = img.size
     photosObject += """
