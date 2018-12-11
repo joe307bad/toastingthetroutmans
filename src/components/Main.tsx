@@ -4,7 +4,8 @@ import injectSheet, { StyledComponentProps } from 'react-jss';
 import { Parallax } from 'react-spring';
 
 import { Base, MainClasses } from '../theme';
-import { BridesmaidsComponent } from './bridesmaids/Bridesmaids';
+import { Bridesmaids } from './bridesmaids/Bridesmaids';
+import { Groomsmen } from './groomsmen/Groomsmen';
 import { Home } from './home/Home';
 import { TParallaxElement } from './home/TParallaxElement';
 import { Nav } from './nav/Nav';
@@ -75,13 +76,14 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                 <Parallax
                     className={classes.main}
                     ref={this.bindRef}
-                    pages={3}>
+                    pages={4}>
                     <main className={cx(classes.mainContainer, {
                         [classes.moveMainContainerForNavMenu]: this.state.menuOpen
                     })}>
                         <Home />
                         <Photos />
-                        <BridesmaidsComponent />
+                        <Bridesmaids />
+                        <Groomsmen />
                     </main>
                 </Parallax>
             </div>
