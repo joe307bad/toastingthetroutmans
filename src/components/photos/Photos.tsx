@@ -1,10 +1,13 @@
 import * as React from 'react';
 
-import injectSheet, { StyledComponentProps } from 'react-jss';
-import { Carousel } from 'react-responsive-carousel';
-import { ParallaxLayer } from 'react-spring';
 // tslint:disable-next-line:no-import-side-effect
-import '../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css';
+import '../../../node_modules/slick-carousel/slick/slick-theme.css';
+// tslint:disable-next-line:no-import-side-effect
+import '../../../node_modules/slick-carousel/slick/slick.css';
+
+import injectSheet, { StyledComponentProps } from 'react-jss';
+import Slider, { Settings } from 'react-slick';
+import { ParallaxLayer } from 'react-spring';
 import { EngagementPhotos } from '../../assets/photos/engagement/EngagementPhotos';
 
 interface IPhoto {
@@ -13,18 +16,6 @@ interface IPhoto {
     width: number;
 }
 
-const selectedPhotos: { [key: string]: number } = {
-    SamanthaShawnEngagement58jpg: 0,
-    SamanthaShawnEngagement8jpg: 1,
-    SamanthaShawnEngagement57jpg: 2,
-    SamanthaShawnEngagement82jpg: 3,
-    SamanthaShawnEngagement87jpg: 4,
-    SamanthaShawnEngagement97jpg: 5,
-    SamanthaShawnEngagement71jpg: 6,
-    SamanthaShawnEngagement69jpg: 7,
-    SamanthaShawnEngagement62jpg: 8
-};
-
 /**
  * Photos Component
  */
@@ -32,27 +23,35 @@ export class PhotosComponent extends React.Component<{}> {
 
     public render(): JSX.Element {
 
-        const photos: JSX.Element[] =
-            Object.keys(selectedPhotos)
-                .map((photo: string, key: number) => {
-                    const photoData: IPhoto = EngagementPhotos[photo];
-
-                    return <div key={key}
-                        style={{ textAlign: 'center', width: photoData.width, maxWidth: '100%' }}>
-                        <img
-                            alt='photo'
-                            style={{ display: 'block' }}
-                            width={photoData.width}
-                            height={photoData.height}
-                            src={EngagementPhotos[photo].src} />
-                    </div>;
-                });
+        const settings: Settings = {
+            dots: false,
+            infinite: true,
+            centerMode: true,
+            variableWidth: true,
+            adaptiveHeight: true,
+            focusOnSelect: true,
+            slidesToShow: 1,
+            slidesToScroll: 1
+        };
 
         return (
-            <ParallaxLayer offset={1} style={{ marginTop: 70 }} speed={1}>
-                <Carousel emulateTouch showThumbs={false} dynamicHeight>
-                    {photos}
-                </Carousel>
+            <ParallaxLayer offset={1} style={{
+                display: 'flex',
+                justifyContent: 'center'
+            }} speed={1}>
+                <div style={{ alignSelf: 'center' }}>
+                    <Slider {...settings}>
+                        {Object.keys(EngagementPhotos).map((photo: string, key: number) => {
+                            const photoData: IPhoto = EngagementPhotos[photo];
+
+                            return (
+                                <div key={key} style={{ height: '100%', width: photoData.width }}>
+                                    <img alt='Photo' src={photoData.src} width={photoData.width} />
+                                </div>
+                            );
+                        })}
+                    </Slider>
+                </div>
             </ParallaxLayer>
         );
     }

@@ -66,7 +66,6 @@ export const Base: Styles<MainClasses> = {
         }
     },
     mainContainer: {
-        maxWidth: 1280,
         position: 'relative',
         margin: '0 auto',
         left: 0,

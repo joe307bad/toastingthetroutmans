@@ -9,4 +9,4 @@
 * [Webpack](https://webpack.js.org/) to bundle assets and run a live reloading dev server
 
 ##### Other Credits:
-* [neptunian/react-photo-gallery](https://github.com/neptunian/react-photo-gallery)
+* [akiran/react-slick](https://github.com/akiran/react-slick)
