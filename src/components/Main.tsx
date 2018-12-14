@@ -74,9 +74,10 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                     }}
                 />
                 <Parallax
-                    className={classes.main}
+                    // className={classes.main}
                     ref={this.bindRef}
-                    pages={4}>
+                    pages={4}
+                >
                     <main className={cx(classes.mainContainer, {
                         [classes.moveMainContainerForNavMenu]: this.state.menuOpen
                     })}>

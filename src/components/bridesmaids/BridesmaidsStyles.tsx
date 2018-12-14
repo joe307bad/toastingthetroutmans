@@ -4,6 +4,8 @@ import { primary } from '../../theme';
 import { Device, MediaQuery } from '../../theme/Breakpoints';
 
 export type BridesmaidsClasses =
+    'BridesmaidsContainer' |
+    'Bridesmaids' |
     'Person';
 
 /**
@@ -14,21 +16,26 @@ export const BridesmaidsStyles: Styles<BridesmaidsClasses> = {
         width: 300,
         textAlign: 'center',
         padding: 10,
+        margin: '0 auto',
+        display: 'inline-block',
         '& h2': {
             fontFamily: 'Imperator',
             color: primary
         },
         '& p': {
-            textAlign: 'left',
-            fontFamily: 'Verdana, Geneva, sans-serif',
-            backgroundColor: 'white',
-            padding: 10,
-            fontSize: 12,
-            boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)'
+            textAlign: 'left'
         },
         '& img': {
             width: 100,
             borderRadius: '50%'
         }
+    },
+    BridesmaidsContainer: {
+        display: 'flex',
+        alignContent: 'center'
+    },
+    Bridesmaids: {
+        alignSelf: 'center',
+        textAlign: 'center'
     }
 };
