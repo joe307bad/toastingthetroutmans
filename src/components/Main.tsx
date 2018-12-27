@@ -78,14 +78,16 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                     ref={this.bindRef}
                     pages={4}
                 >
-                    <main className={cx(classes.mainContainer, {
-                        [classes.moveMainContainerForNavMenu]: this.state.menuOpen
-                    })}>
+                    <div
+                        id='main'
+                        className={cx(classes.mainContainer, {
+                            [classes.moveMainContainerForNavMenu]: this.state.menuOpen
+                        })}>
                         <Home />
                         <Photos />
                         <Bridesmaids />
                         <Groomsmen />
-                    </main>
+                    </div>
                 </Parallax>
             </div>
         );

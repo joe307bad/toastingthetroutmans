@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: ["@babel/polyfill", "./src/index.tsx"],
+    entry: ["babel-polyfill", "./src/index.tsx"],
     output: {
         publicPath: '/',
         path: __dirname + "/dist",
@@ -31,28 +31,14 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                include: [
-                    path.resolve(__dirname, "not_exist_path")
-                ],
                 use: [
                     'style-loader',
-                    'css-loader'
-                ]
+                    'css-loader']
             },
             {
-                test: /\.tsx?$/,
-                loader: 'babel-loader',
-                options: {
-                    presets: ["@babel/preset-env"],
-                    plugins: [
-                        "babel-plugin-transform-es2015-arrow-functions"
-                    ]
-                }
-            },
-            {
-                test: /\.js$/,
-                use: ["source-map-loader"],
-                enforce: "pre"
+                test: /\.tsx?$/, use: [{
+                    loader: 'awesome-typescript-loader'
+                }]
             },
             {
                 test: /\.(mp3|mp4|ogg|wav|eot|ttf|woff|woff2)$/,
