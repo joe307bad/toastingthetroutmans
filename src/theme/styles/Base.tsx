@@ -29,6 +29,8 @@ export const Base: Styles<MainClasses> = {
     main: {
         backgroundImage: backgroundImage,
         overflow: 'hidden',
+        width: '100%',
+        height: '100%',
         top: 0,
         left: 0,
         zIndex: 1
@@ -66,6 +68,7 @@ export const Base: Styles<MainClasses> = {
         }
     },
     mainContainer: {
+        backgroundImage: backgroundImage,
         position: 'relative',
         margin: '0 auto',
         left: 0,

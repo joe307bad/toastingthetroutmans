@@ -27,11 +27,11 @@ export class PhotosComponent extends React.Component<{}> {
             dots: false,
             infinite: true,
             centerMode: true,
-            variableWidth: true,
-            adaptiveHeight: true,
-            focusOnSelect: true,
-            slidesToShow: 1,
-            slidesToScroll: 1
+            variableWidth: true
+            // adaptiveHeight: true,
+            // focusOnSelect: true,
+            // slidesToShow: 1,
+            // slidesToScroll: 1
         };
 
         return (
@@ -39,7 +39,7 @@ export class PhotosComponent extends React.Component<{}> {
                 display: 'flex',
                 justifyContent: 'center'
             }} speed={1}>
-                <div style={{ alignSelf: 'center' }}>
+                <div style={{ alignSelf: 'center', width: '100%' }}>
                     <Slider {...settings}>
                         {Object.keys(EngagementPhotos).map((photo: string, key: number) => {
                             const photoData: IPhoto = EngagementPhotos[photo];

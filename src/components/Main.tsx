@@ -3,6 +3,7 @@ import * as React from 'react';
 import injectSheet, { StyledComponentProps } from 'react-jss';
 import { Parallax } from 'react-spring';
 
+import { debounce } from 'lodash';
 import { Base, MainClasses } from '../theme';
 import { Bridesmaids } from './bridesmaids/Bridesmaids';
 import { Groomsmen } from './groomsmen/Groomsmen';
@@ -32,6 +33,17 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
         menuOpen: false
     };
 
+    public onScroll = debounce(
+        function() {
+            const container: HTMLDivElement = this.parallaxContainer.container;
+
+            const position: number =
+            container.scrollTop / (container.scrollHeight - container.clientHeight);
+            this.setState({
+                currentPageMarkerPosition: `${(position * 85.7142857143)}%`
+            });
+        }, 500);
+
     public componentDidMount(): void {
         this.parallaxContainer.container.addEventListener('scroll', this.onScroll.bind(this));
     }
@@ -42,17 +54,6 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
 
     public scrollTo = (event: React.SyntheticEvent<HTMLDivElement>): void => {
         this.parallaxContainer.scrollTo(Number(event.currentTarget.dataset.position));
-    }
-
-    public onScroll = (): void => {
-        const container: HTMLDivElement = this.parallaxContainer.container;
-
-        const position: number =
-            container.scrollTop / (container.scrollHeight - container.clientHeight);
-
-        this.setState({
-            currentPageMarkerPosition: `calc(${position * 85.7142857143}%)`
-        });
     }
 
     public toggleMenu = (newMenuState: boolean): void => {
@@ -74,9 +75,11 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                     }}
                 />
                 <Parallax
-                    // className={classes.main}
-                    ref={this.bindRef}
-                    pages={4}
+                    {...{
+                        className: classes.main,
+                        ref: this.bindRef,
+                        pages: 4
+                    }}
                 >
                     <div
                         id='main'
@@ -85,8 +88,7 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                         })}>
                         <Home />
                         <Photos />
-                        <Bridesmaids />
-                        <Groomsmen />
+
                     </div>
                 </Parallax>
             </div>

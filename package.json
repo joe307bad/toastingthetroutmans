@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.6",
+    "lodash": "^4.17.11",
     "react": "16.6.1",
     "react-animated-burgers": "^1.2.1",
     "react-dom": "16.6.1",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@types/classnames": "^2.2.6",
+    "@types/lodash": "^4.14.119",
     "@types/react": "^16.7.6",
     "@types/react-dom": "^16.0.9",
     "@types/react-jss": "^8.6.0",
