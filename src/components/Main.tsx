@@ -5,8 +5,6 @@ import { Parallax } from 'react-spring';
 
 import { debounce } from 'lodash';
 import { Base, MainClasses } from '../theme';
-import { Bridesmaids } from './bridesmaids/Bridesmaids';
-import { Groomsmen } from './groomsmen/Groomsmen';
 import { Home } from './home/Home';
 import { TParallaxElement } from './home/TParallaxElement';
 import { Nav } from './nav/Nav';
@@ -33,16 +31,17 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
         menuOpen: false
     };
 
-    public onScroll = debounce(
-        function() {
+    public onScroll: (() => void) = debounce(
+        () => {
             const container: HTMLDivElement = this.parallaxContainer.container;
-
             const position: number =
-            container.scrollTop / (container.scrollHeight - container.clientHeight);
+                container.scrollTop / (container.scrollHeight - container.clientHeight);
+
             this.setState({
                 currentPageMarkerPosition: `${(position * 85.7142857143)}%`
             });
-        }, 500);
+        },
+        500);
 
     public componentDidMount(): void {
         this.parallaxContainer.container.addEventListener('scroll', this.onScroll.bind(this));
@@ -79,8 +78,7 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                         className: classes.main,
                         ref: this.bindRef,
                         pages: 4
-                    }}
-                >
+                    }}>
                     <div
                         id='main'
                         className={cx(classes.mainContainer, {
@@ -88,7 +86,6 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                         })}>
                         <Home />
                         <Photos />
-
                     </div>
                 </Parallax>
             </div>

@@ -6,7 +6,7 @@ import { ParallaxLayer } from 'react-spring';
 /**
  * Groomsmen Component
  */
-export class GroomsmenComponent extends React.Component<{}> {
+export class GroomsmenComponent extends React.Component {
 
     public render(): JSX.Element {
 

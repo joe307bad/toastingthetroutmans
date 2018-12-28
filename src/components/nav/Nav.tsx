@@ -27,32 +27,34 @@ export class NavComponent extends React.Component<INavProps, INavState> {
     public render(): JSX.Element {
         const classes: Record<MainClasses, string> = this.props.classes;
 
-        return <nav className={cx(this.props.classes.nav, {
-            [this.props.classes.moveNavMenu]: this.state.menuOpen
-        })}>
-            <div
-                role='button'
-                className={classes.navButton}
-                onClick={this.toggleMenu}>
-                <hamburger.HamburgerSpin isActive={this.state.menuOpen} />
-            </div>
-            <div className={classes.navItemsContainer}>
-                {NavItems.map((navItem: INavItem, index: number) =>
-                    <div
-                        key={index}
-                        role='button'
-                        className={classes.navItem}
-                        data-position={navItem.position}
-                        onClick={this.props.scrollTo}>
-                        {navItem.title}
-                    </div>
-                )}
-            </div>
-            <div style={{ width: '100%' }}></div>
-            <div className={this.props.classes.currentPageMarker}>
-                <div className={this.props.classes.currentPageMarkerAccent}></div>
-            </div>
-        </nav>;
+        return (
+            <nav className={cx(this.props.classes.nav, {
+                [this.props.classes.moveNavMenu]: this.state.menuOpen
+            })}>
+                <div
+                    role='button'
+                    className={classes.navButton}
+                    onClick={this.toggleMenu}>
+                    <hamburger.HamburgerSpin isActive={this.state.menuOpen} />
+                </div>
+                <div className={classes.navItemsContainer}>
+                    {NavItems.map((navItem: INavItem, index: number) =>
+                        <div
+                            key={index}
+                            role='button'
+                            className={classes.navItem}
+                            data-position={navItem.position}
+                            onClick={this.props.scrollTo}>
+                            {navItem.title}
+                        </div>
+                    )}
+                </div>
+                <div style={{ width: '100%' }} />
+                <div className={this.props.classes.currentPageMarker}>
+                    <div className={this.props.classes.currentPageMarkerAccent} />
+                </div>
+            </nav>
+        );
     }
 
     private toggleMenu = (): void => {

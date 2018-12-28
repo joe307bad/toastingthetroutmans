@@ -17,6 +17,8 @@
         "no-relative-imports": false,
         "linebreak-style": false,
         "no-unsafe-any": false,
-        "import-name": false
+        "import-name": false,
+        "jsx-no-multiline-js": false,
+        "jsx-alignment": false
     }
 }

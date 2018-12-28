@@ -19,7 +19,7 @@ interface IPhoto {
 /**
  * Photos Component
  */
-export class PhotosComponent extends React.Component<{}> {
+export class PhotosComponent extends React.Component {
 
     public render(): JSX.Element {
 

@@ -65,8 +65,11 @@ const bridesmaids: IPerson[] = [
     }
 ];
 
-type TInterpolateFunc = (callback: (progress: number) => string) => string;
-type TTrailFunc = (x: { interpolate: TInterpolateFunc }, opacity: number) => JSX.Element;
+interface ITrailArgs {
+    x: { interpolate(callback: TInterpolateCallback): string };
+    opacity: number;
+}
+type TInterpolateCallback = (transform: number) => string;
 
 /**
  * Bridesmaids Component
@@ -75,8 +78,9 @@ export class BridesmaidsComponent extends React.Component<IBridesmaidsProps, IBr
 
     public state: IBridesmaidsState = { toggle: false };
 
-    // tslint:disable-next-line:typedef
-    public toggle = () => this.setState(state => ({ toggle: !state.toggle }));
+    public toggle = (): void => {
+        this.setState((state: IBridesmaidsState) => ({ toggle: !state.toggle }));
+    }
 
     public render(): JSX.Element {
         const classes: Record<BridesmaidsClasses, string> = this.props.classes;
@@ -104,24 +108,25 @@ export class BridesmaidsComponent extends React.Component<IBridesmaidsProps, IBr
                                             `translate3d(${progress}%,0,0)`)
                                     }} />
                             )}
-                    </Trail> */}
-                    <Trail
-                        native
+                         </Trail> */}
+                    {/* <Trail
+                        native={true}
                         from={{ opacity: 0, x: -100 }}
-                        to={{ opacity: this.toggle ? 1 : 0.25, x: this.toggle ? 0 : 100 }}
+                        to={{ opacity: this.state.toggle ? 1 : 0.25, x: this.state.toggle ? 0 : 100 }}
                         keys={bridesmaids.map((b: IPerson, key: number) => key)}>
-                        {bridesmaids.map((item: IPerson) => ({ x, opacity }: any) => (
+                        {bridesmaids.map((item: IPerson) => ({ x, opacity }: ITrailArgs): JSX.Element => (
                             <animated.div
                                 className='box'
                                 onClick={this.toggle}
                                 style={{
                                     opacity,
-                                    transform: x.interpolate((x: any) => `translate3d(${x}%,0,0)`)
+                                    transform: x.interpolate((transform: number) =>
+                                        `translate3d(${transform}%,0,0)`)
                                 }}
                             />
                         ))}
 
-                    </Trail>
+                    </Trail> */}
 
                 </div>
             </ParallaxLayer>
