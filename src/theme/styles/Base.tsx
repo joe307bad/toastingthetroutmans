@@ -101,7 +101,7 @@ export const Base: Styles<MainClasses> = {
     },
     // @ts-ignore
     currentPageMarker: (props: INavProps): CSSProperties => ({
-        transition: 'left 1s ease',
+        transition: 'left .5s linear',
         bottom: 0,
         width: '14.2857142857%',
         textAlign: 'center',

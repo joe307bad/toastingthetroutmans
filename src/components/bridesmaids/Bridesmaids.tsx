@@ -7,6 +7,7 @@ import { IPerson, Person } from './Person';
 
 interface IBridesmaidsProps {
     classes: Record<BridesmaidsClasses, string>;
+    active: boolean;
 }
 
 interface IBridesmaidsState {
@@ -65,12 +66,6 @@ const bridesmaids: IPerson[] = [
     }
 ];
 
-interface ITrailArgs {
-    x: { interpolate(callback: TInterpolateCallback): string };
-    opacity: number;
-}
-type TInterpolateCallback = (transform: number) => string;
-
 /**
  * Bridesmaids Component
  */
@@ -80,6 +75,12 @@ export class BridesmaidsComponent extends React.Component<IBridesmaidsProps, IBr
 
     public toggle = (): void => {
         this.setState((state: IBridesmaidsState) => ({ toggle: !state.toggle }));
+    }
+    public componentWillReceiveProps = (nextProps: IBridesmaidsProps): void => {
+
+        this.setState({
+            toggle: nextProps.active
+        });
     }
 
     public render(): JSX.Element {
@@ -112,7 +113,7 @@ export class BridesmaidsComponent extends React.Component<IBridesmaidsProps, IBr
                     {/* <Trail
                         native={true}
                         from={{ opacity: 0, x: -100 }}
-                        to={{ opacity: this.state.toggle ? 1 : 0.25, x: this.state.toggle ? 0 : 100 }}
+                        to={{ opacity: this.state.toggle ? 1 : 0.25, x: this.toggle ? 0 : 100 }}
                         keys={bridesmaids.map((b: IPerson, key: number) => key)}>
                         {bridesmaids.map((item: IPerson) => ({ x, opacity }: ITrailArgs): JSX.Element => (
                             <animated.div
@@ -127,7 +128,26 @@ export class BridesmaidsComponent extends React.Component<IBridesmaidsProps, IBr
                         ))}
 
                     </Trail> */}
-
+                    <Trail
+                        native={true}
+                        from={{ opacity: 0, x: -100 }}
+                        to={{ opacity: this.state.toggle ? 1 : 0, x: this.state.toggle ? 0 : 100 }}
+                        keys={bridesmaids.map((b: IPerson, key: number) => key)}>
+                        {bridesmaids.map(item => ({ x, opacity }: any): any => (
+                            <animated.div
+                                className='box'
+                                onClick={this.toggle}
+                                style={{
+                                    width: 100,
+                                    height: 100,
+                                    backgroundColor: 'black',
+                                    opacity,
+                                    transform: x.interpolate((transition: number) =>
+                                        `translate3d(${transition}%,0,0)`)
+                                }}
+                            />
+                        ))}
+                    </Trail>
                 </div>
             </ParallaxLayer>
         );

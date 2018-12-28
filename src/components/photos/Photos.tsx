@@ -28,10 +28,6 @@ export class PhotosComponent extends React.Component {
             infinite: true,
             centerMode: true,
             variableWidth: true
-            // adaptiveHeight: true,
-            // focusOnSelect: true,
-            // slidesToShow: 1,
-            // slidesToScroll: 1
         };
 
         return (
