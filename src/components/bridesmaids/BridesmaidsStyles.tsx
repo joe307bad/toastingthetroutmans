@@ -1,7 +1,7 @@
 import { Styles, withTheme } from 'react-jss';
 
 import { primary } from '../../theme';
-import { Device, MediaQuery } from '../../theme/Breakpoints';
+import { Breakpoints, Device, MediaQuery } from '../../theme/Breakpoints';
 
 export type BridesmaidsClasses =
     'BridesmaidsContainer' |
@@ -9,7 +9,7 @@ export type BridesmaidsClasses =
     'Person';
 
 /**
- * The Styles for the Home Component
+ * The Styles for the Bridesmaids Component
  */
 export const BridesmaidsStyles: Styles<BridesmaidsClasses> = {
     Person: {
@@ -35,7 +35,10 @@ export const BridesmaidsStyles: Styles<BridesmaidsClasses> = {
         alignContent: 'center'
     },
     Bridesmaids: {
-        alignSelf: 'center',
-        textAlign: 'center'
+        alignSelf: 'start',
+        textAlign: 'center',
+        [MediaQuery.tablet]: {
+            alignSelf: 'center'
+        }
     }
 };

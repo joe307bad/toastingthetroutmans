@@ -19,7 +19,7 @@ type PersonComponent = (props: IPersonProps) => JSX.Element;
 export const Person: PersonComponent = (props: IPersonProps): JSX.Element => {
 
     return (
-        <div className={props.classes.Person} >
+        <div >
             <img src={props.person.photo} alt='Placeholder' />
             <h2>{props.person.name}</h2>
             <p>{props.person.description}</p>

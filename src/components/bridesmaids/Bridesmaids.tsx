@@ -89,63 +89,19 @@ export class BridesmaidsComponent extends React.Component<IBridesmaidsProps, IBr
         return (
             <ParallaxLayer className={classes.BridesmaidsContainer} offset={2} speed={1}>
                 <div className={classes.Bridesmaids}>
-                    {/* {bridesmaids.map((person: IPerson, key: number) =>
-                        <Person key={key} classes={classes} person={person} />)} */}
-                    {/* <Trail
-                        native
-                        reverse={this.toggle}
-                        initial={null}
-                        items={['']}
-                        from={{ opacity: 0, x: -100 }}
-                        to={{ opacity: this.toggle ? 1 : 0.25, x: this.toggle ? 0 : 100 }}>
-                        {(person: IPerson): TTrailFunc =>
-                            (x: { interpolate: TInterpolateFunc }, opacity: number): JSX.Element => (
-                                <animated.div
-                                    className='box'
-                                    onClick={this.toggle}
-                                    style={{
-                                        opacity,
-                                        transform: x.interpolate((progress: number) =>
-                                            `translate3d(${progress}%,0,0)`)
-                                    }} />
-                            )}
-                         </Trail> */}
-                    {/* <Trail
-                        native={true}
-                        from={{ opacity: 0, x: -100 }}
-                        to={{ opacity: this.state.toggle ? 1 : 0.25, x: this.toggle ? 0 : 100 }}
-                        keys={bridesmaids.map((b: IPerson, key: number) => key)}>
-                        {bridesmaids.map((item: IPerson) => ({ x, opacity }: ITrailArgs): JSX.Element => (
-                            <animated.div
-                                className='box'
-                                onClick={this.toggle}
-                                style={{
-                                    opacity,
-                                    transform: x.interpolate((transform: number) =>
-                                        `translate3d(${transform}%,0,0)`)
-                                }}
-                            />
-                        ))}
-
-                    </Trail> */}
                     <Trail
                         native={true}
                         from={{ opacity: 0, x: -100 }}
                         to={{ opacity: this.state.toggle ? 1 : 0, x: this.state.toggle ? 0 : 100 }}
                         keys={bridesmaids.map((b: IPerson, key: number) => key)}>
-                        {bridesmaids.map(item => ({ x, opacity }: any): any => (
-                            <animated.div
-                                className='box'
-                                onClick={this.toggle}
-                                style={{
-                                    width: 100,
-                                    height: 100,
-                                    backgroundColor: 'black',
-                                    opacity,
-                                    transform: x.interpolate((transition: number) =>
-                                        `translate3d(${transition}%,0,0)`)
-                                }}
-                            />
+                        {bridesmaids.map((person: IPerson, key: number) => ({ x, opacity }: any): JSX.Element => (
+                            <animated.div className={classes.Person} style={{
+                                opacity,
+                                transform: x.interpolate((transition: number) =>
+                                    `translate3d(0,${transition}%,0)`)
+                            }} >
+                                <Person key={key} classes={classes} person={person} />
+                            </animated.div>
                         ))}
                     </Trail>
                 </div>

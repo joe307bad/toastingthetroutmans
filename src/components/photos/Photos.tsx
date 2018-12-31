@@ -9,6 +9,8 @@ import injectSheet, { StyledComponentProps } from 'react-jss';
 import Slider, { Settings } from 'react-slick';
 import { ParallaxLayer } from 'react-spring';
 import { EngagementPhotos } from '../../assets/photos/engagement/EngagementPhotos';
+import { Breakpoints } from '../../theme/Breakpoints';
+import { PhotosClasses, PhotosStyles } from './PhotosStyles';
 
 interface IPhoto {
     src: string;
@@ -16,18 +18,31 @@ interface IPhoto {
     width: number;
 }
 
+interface IPhotoProps {
+    classes: Record<PhotosClasses, string>;
+}
 /**
  * Photos Component
  */
-export class PhotosComponent extends React.Component {
+export class PhotosComponent extends React.Component<IPhotoProps, {}> {
 
     public render(): JSX.Element {
+        const classes: Record<PhotosClasses, string> = this.props.classes;
 
         const settings: Settings = {
             dots: false,
             infinite: true,
+            variableWidth: true,
             centerMode: true,
-            variableWidth: true
+            responsive: [
+                {
+                    breakpoint: Breakpoints.mobile,
+                    settings: {
+                        variableWidth: false,
+                        centerMode: false
+                    }
+                }
+            ]
         };
 
         return (
@@ -35,7 +50,7 @@ export class PhotosComponent extends React.Component {
                 display: 'flex',
                 justifyContent: 'center'
             }} speed={1}>
-                <div style={{ alignSelf: 'center', width: '100%' }}>
+                <div className={classes.Photos}>
                     <Slider {...settings}>
                         {Object.keys(EngagementPhotos).map((photo: string, key: number) => {
                             const photoData: IPhoto = EngagementPhotos[photo];
@@ -54,4 +69,4 @@ export class PhotosComponent extends React.Component {
 }
 
 export const Photos: React.ComponentType<Pick<{}, never> & StyledComponentProps>
-    = injectSheet({})(PhotosComponent);
+    = injectSheet(PhotosStyles)(PhotosComponent);
