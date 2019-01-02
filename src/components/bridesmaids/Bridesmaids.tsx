@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import injectSheet, { StyledComponentProps } from 'react-jss';
 import { animated, ParallaxLayer, Trail } from 'react-spring';
+import { IPerson, Person } from '../../shared/Person';
 import { BridesmaidsClasses, BridesmaidsStyles } from './BridesmaidsStyles';
-import { IPerson, Person } from './Person';
 
 interface IBridesmaidsProps {
     classes: Record<BridesmaidsClasses, string>;
@@ -88,26 +88,34 @@ export class BridesmaidsComponent extends React.Component<IBridesmaidsProps, IBr
 
         return (
             <ParallaxLayer className={classes.BridesmaidsContainer} offset={2} speed={1}>
-                <div className={classes.Bridesmaids}>
-                    <Trail
-                        native={true}
-                        from={{ opacity: 0, x: -100 }}
-                        to={{ opacity: this.state.toggle ? 1 : 0, x: this.state.toggle ? 0 : 100 }}
-                        keys={bridesmaids.map((b: IPerson, key: number) => key)}>
-                        {bridesmaids.map((person: IPerson, key: number) => ({ x, opacity }: any): JSX.Element => (
-                            <animated.div className={classes.Person} style={{
-                                opacity,
-                                transform: x.interpolate((transition: number) =>
-                                    `translate3d(0,${transition}%,0)`)
-                            }} >
-                                <Person key={key} classes={classes} person={person} />
-                            </animated.div>
-                        ))}
-                    </Trail>
+                <div className={classes.Bridesmaids} onScroll={this.stopScrollPropagation}>
+                    <div className={classes.BridesmaidsContent}>
+                        <h1>The Bridesmaids</h1>
+                        <Trail
+                            native={true}
+                            from={{ opacity: 0, x: -100 }}
+                            to={{ opacity: this.state.toggle ? 1 : 0, x: this.state.toggle ? 0 : 100 }}
+                            keys={bridesmaids.map((b: IPerson, key: number) => key)}>
+                            {bridesmaids.map((person: IPerson, key: number) => ({ x, opacity }: any): JSX.Element => (
+                                <animated.div className={classes.Person} style={{
+                                    opacity,
+                                    transform: x.interpolate((transition: number) =>
+                                        `translate3d(0,${transition}%,0)`)
+                                }} >
+                                    <Person key={key} classes={classes} person={person} />
+                                </animated.div>
+                            ))}
+                        </Trail>
+                    </div>
                 </div>
             </ParallaxLayer>
         );
     }
+
+    private stopScrollPropagation: (e: React.UIEvent<HTMLDivElement>) => void =
+        (e: React.UIEvent<HTMLDivElement>): void => {
+            e.stopPropagation();
+        }
 }
 
 export const Bridesmaids: React.ComponentType<Pick<{}, never> & StyledComponentProps>

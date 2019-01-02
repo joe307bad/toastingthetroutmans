@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { BridesmaidsClasses } from './BridesmaidsStyles';
+import { BridesmaidsClasses } from '../components/bridesmaids/BridesmaidsStyles';
+import { GroomsmenClasses } from '../components/groomsmen/GroomsmenStyles';
 
 export interface IPerson {
     photo: string;
@@ -8,7 +9,7 @@ export interface IPerson {
 }
 
 export interface IPersonProps {
-    classes: Record<BridesmaidsClasses, string>;
+    classes: Record<BridesmaidsClasses & GroomsmenClasses, string>;
     person: IPerson;
 }
 

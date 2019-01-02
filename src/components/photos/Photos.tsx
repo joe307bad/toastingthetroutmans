@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 // tslint:disable-next-line:no-import-side-effect
-import '../../../node_modules/slick-carousel/slick/slick-theme.css';
-// tslint:disable-next-line:no-import-side-effect
-import '../../../node_modules/slick-carousel/slick/slick.css';
+// @ts-ignore
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
 
 import injectSheet, { StyledComponentProps } from 'react-jss';
 import Slider, { Settings } from 'react-slick';

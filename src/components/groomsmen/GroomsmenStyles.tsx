@@ -3,16 +3,16 @@ import { Styles } from 'react-jss';
 import { primary } from '../../theme';
 import { MediaQuery } from '../../theme/Breakpoints';
 
-export type BridesmaidsClasses =
-    'BridesmaidsContainer' |
-    'Bridesmaids' |
+export type GroomsmenClasses =
+    'GroomsmenContainer' |
+    'Groomsmen' |
     'Person' |
-    'BridesmaidsContent';
+    'GroomsmensContent';
 
 /**
- * The Styles for the Bridesmaids Component
+ * The Styles for the Groomsmen Component
  */
-export const BridesmaidsStyles: Styles<BridesmaidsClasses> = {
+export const GroomsmenStyles: Styles<GroomsmenClasses> = {
     Person: {
         width: 300,
         textAlign: 'center',
@@ -31,17 +31,19 @@ export const BridesmaidsStyles: Styles<BridesmaidsClasses> = {
             borderRadius: '50%'
         }
     },
-    BridesmaidsContainer: {
+    GroomsmenContainer: {
         display: 'flex',
         alignContent: 'center'
     },
-    Bridesmaids: {
+    Groomsmen: {
         alignSelf: 'start',
         textAlign: 'center',
         padding: 50,
         paddingTop: 50,
         paddingBottom: 50,
         height: 'calc(100% - 100px)',
+        width: '100%',
+        display: 'flex',
         [MediaQuery.desktop]: {
             alignSelf: 'center'
         },
@@ -51,11 +53,13 @@ export const BridesmaidsStyles: Styles<BridesmaidsClasses> = {
             margin: '0 0 20 0'
         }
     },
-    BridesmaidsContent: {
+    GroomsmensContent: {
         overflowY: 'auto',
-        height: 'calc(100% - 100px)',
         paddingTop: 50,
         paddingBottom: 50,
+        height: 'auto',
+        alignSelf: 'center',
+        width: '100%',
         [MediaQuery.desktop]: {
             overflow: 'hidden'
         }

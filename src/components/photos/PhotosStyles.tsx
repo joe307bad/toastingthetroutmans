@@ -1,5 +1,4 @@
 import { Styles } from 'react-jss';
-import { MediaQuery } from '../../theme/Breakpoints';
 
 export type PhotosClasses =
     'Photos';

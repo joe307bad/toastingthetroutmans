@@ -3,9 +3,9 @@ import * as React from 'react';
 import injectSheet, { StyledComponentProps } from 'react-jss';
 import { Parallax } from 'react-spring';
 
-import { debounce, throttle } from 'lodash';
 import { Base, MainClasses } from '../theme';
 import { Bridesmaids } from './bridesmaids/Bridesmaids';
+import { Groomsmen } from './groomsmen/Groomsmen';
 import { Home } from './home/Home';
 import { TParallaxElement } from './home/TParallaxElement';
 import { Nav } from './nav/Nav';
@@ -93,6 +93,9 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                         <Photos />
                         <Bridesmaids {...{
                             active: this.state.activePage >= 1.5
+                        }} />
+                        <Groomsmen {...{
+                            active: this.state.activePage >= 2.5
                         }} />
                     </div>
                 </Parallax>
