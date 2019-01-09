@@ -14,17 +14,22 @@ export type GroomsmenClasses =
  */
 export const GroomsmenStyles: Styles<GroomsmenClasses> = {
     Person: {
-        width: 300,
+        width: 'calc(100% - 20px)',
         textAlign: 'center',
         padding: 10,
         margin: '0 auto',
         display: 'inline-block',
+        [MediaQuery.tablet]: {
+            width: 300
+        },
         '& h2': {
             fontFamily: 'Imperator',
-            color: primary
+            color: primary,
+            marginBottom: 0
         },
         '& p': {
-            textAlign: 'left'
+            textAlign: 'center',
+            marginTop: 0
         },
         '& img': {
             width: 100,
@@ -41,7 +46,7 @@ export const GroomsmenStyles: Styles<GroomsmenClasses> = {
         padding: 50,
         paddingTop: 50,
         paddingBottom: 50,
-        height: 'calc(100% - 100px)',
+        // height: 'calc(100% - 100px)',
         width: '100%',
         display: 'flex',
         [MediaQuery.desktop]: {
@@ -54,14 +59,14 @@ export const GroomsmenStyles: Styles<GroomsmenClasses> = {
         }
     },
     GroomsmensContent: {
-        overflowY: 'auto',
+        // overflowY: 'auto',
         paddingTop: 50,
         paddingBottom: 50,
-        height: 'auto',
+        // height: 'auto',
         alignSelf: 'center',
         width: '100%',
         [MediaQuery.desktop]: {
-            overflow: 'hidden'
+            // overflow: 'hidden'
         }
     }
 };

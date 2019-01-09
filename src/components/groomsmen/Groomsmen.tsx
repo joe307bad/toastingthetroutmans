@@ -19,15 +19,13 @@ const groomsmen: IPerson[] = [
         // tslint:disable-next-line:no-http-string
         photo: 'https://i2.wp.com/nellions.co.ke/wp-content/uploads/2018/06/male-placeholder-image.jpeg?ssl=1',
         name: 'Andrew Valentine',
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua..`
+        description: `Lorem ipsum dolor sit amet`
     },
     {
         // tslint:disable-next-line:no-http-string
         photo: 'https://i2.wp.com/nellions.co.ke/wp-content/uploads/2018/06/male-placeholder-image.jpeg?ssl=1',
         name: 'Joe Badaczewski',
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua.`
+        description: `Lorem ipsum dolor sit amet`
     }
 ];
 

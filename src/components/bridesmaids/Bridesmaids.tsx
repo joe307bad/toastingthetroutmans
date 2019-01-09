@@ -19,50 +19,43 @@ const bridesmaids: IPerson[] = [
         // tslint:disable-next-line:no-http-string
         photo: 'http://techplace.ca/wp-content/uploads/2016/11/woman.png',
         name: 'Courtney Cerjanic',
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua..`
+        description: `Lorem ipsum dolor sit amet`
     },
     {
         // tslint:disable-next-line:no-http-string
         photo: 'http://techplace.ca/wp-content/uploads/2016/11/woman.png',
         name: 'Jamie Badaczewski',
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua.`
+        description: `Lorem ipsum dolor sit amet`
     },
     {
         // tslint:disable-next-line:no-http-string
         photo: 'http://techplace.ca/wp-content/uploads/2016/11/woman.png',
         name: 'Jamie Badaczewski',
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua.`
+        description: `Lorem ipsum dolor sit amet`
     },
     {
         // tslint:disable-next-line:no-http-string
         photo: 'http://techplace.ca/wp-content/uploads/2016/11/woman.png',
         name: 'Jamie Badaczewski',
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua.`
+        description: `Lorem ipsum dolor sit amet`
     },
     {
         // tslint:disable-next-line:no-http-string
         photo: 'http://techplace.ca/wp-content/uploads/2016/11/woman.png',
         name: 'Jamie Badaczewski',
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua.`
+        description: `Lorem ipsum dolor sit amet`
     },
     {
         // tslint:disable-next-line:no-http-string
         photo: 'http://techplace.ca/wp-content/uploads/2016/11/woman.png',
         name: 'Jamie Badaczewski',
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua.`
+        description: `Lorem ipsum dolor sit amet`
     },
     {
         // tslint:disable-next-line:no-http-string
         photo: 'http://techplace.ca/wp-content/uploads/2016/11/woman.png',
         name: 'Jamie Badaczewski',
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua.`
+        description: `Lorem ipsum dolor sit amet`
     }
 ];
 

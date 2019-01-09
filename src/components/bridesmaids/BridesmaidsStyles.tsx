@@ -14,21 +14,33 @@ export type BridesmaidsClasses =
  */
 export const BridesmaidsStyles: Styles<BridesmaidsClasses> = {
     Person: {
-        width: 300,
+        width: 85,
         textAlign: 'center',
         padding: 10,
         margin: '0 auto',
         display: 'inline-block',
         '& h2': {
             fontFamily: 'Imperator',
-            color: primary
+            color: primary,
+            marginBottom: 0,
+            fontSize: 15,
+            [MediaQuery.tablet]: {
+                fontSize: 20
+            }
         },
         '& p': {
-            textAlign: 'left'
+            textAlign: 'center',
+            marginTop: 0
         },
         '& img': {
             width: 100,
             borderRadius: '50%'
+        },
+        [MediaQuery.tablet]: {
+            width: 150
+        },
+        [MediaQuery.desktop]: {
+            width: 300
         }
     },
     BridesmaidsContainer: {
@@ -41,9 +53,9 @@ export const BridesmaidsStyles: Styles<BridesmaidsClasses> = {
         padding: 50,
         paddingTop: 50,
         paddingBottom: 50,
-        height: 'calc(100% - 100px)',
+        // height: 'calc(100% - 100px)',
         [MediaQuery.desktop]: {
-            alignSelf: 'center'
+            // alignSelf: 'center'
         },
         '& h1': {
             fontFamily: 'Imperator',
@@ -52,12 +64,12 @@ export const BridesmaidsStyles: Styles<BridesmaidsClasses> = {
         }
     },
     BridesmaidsContent: {
-        overflowY: 'auto',
-        height: 'calc(100% - 100px)',
+        // overflowY: 'auto',
+        // height: 'calc(100% - 100px)',
         paddingTop: 50,
         paddingBottom: 50,
         [MediaQuery.desktop]: {
-            overflow: 'hidden'
+            // overflow: 'hidden'
         }
     }
 };
