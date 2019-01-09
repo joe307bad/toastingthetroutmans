@@ -9,7 +9,9 @@ import { Groomsmen } from './groomsmen/Groomsmen';
 import { Home } from './home/Home';
 import { TParallaxElement } from './home/TParallaxElement';
 import { Nav } from './nav/Nav';
+import { NavItems } from './nav/NavItems';
 import { Photos } from './photos/Photos';
+import { Venue } from './venue/Venue';
 
 interface IMainProps {
     classes: Record<MainClasses, string>;
@@ -21,6 +23,10 @@ interface IMainState {
     activePage: number;
 }
 
+export const numberOfPages: number = NavItems.length;
+export const markerWidth: number = 100 / numberOfPages;
+export const navConstant: number = (100 - markerWidth) * 0.01;
+
 /**
  * Main Component
  * This component facilitates any global parent components and serves as a single entry point
@@ -28,7 +34,7 @@ interface IMainState {
  */
 class MainComponent extends React.Component<IMainProps, IMainState> {
     public parallaxContainer: TParallaxElement;
-    public navConstant: number = 0.857142857143;
+    public navConstant: number = navConstant;
     public state: IMainState = {
         currentPageMarkerPosition: '0',
         menuOpen: false,
@@ -82,7 +88,7 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                     {...{
                         className: classes.main,
                         ref: this.bindRef,
-                        pages: 4
+                        pages: 5
                     }}>
                     <div
                         id='main'
@@ -92,11 +98,12 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                         <Home />
                         <Photos />
                         <Bridesmaids {...{
-                            active: this.state.activePage >= 1.5
+                            active: this.state.activePage >= 1.2
                         }} />
                         <Groomsmen {...{
-                            active: this.state.activePage >= 2.5
+                            active: this.state.activePage >= 2.2
                         }} />
+                        <Venue />
                     </div>
                 </Parallax>
             </div>

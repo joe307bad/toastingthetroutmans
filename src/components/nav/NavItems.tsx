@@ -33,9 +33,5 @@ export const NavItems: INavItem[] = [
     {
         title: 'Registry',
         position: 5
-    },
-    {
-        title: 'RSVP',
-        position: 6
     }
 ];

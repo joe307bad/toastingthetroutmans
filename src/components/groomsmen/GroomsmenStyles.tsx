@@ -46,7 +46,6 @@ export const GroomsmenStyles: Styles<GroomsmenClasses> = {
         padding: 50,
         paddingTop: 50,
         paddingBottom: 50,
-        // height: 'calc(100% - 100px)',
         width: '100%',
         display: 'flex',
         [MediaQuery.desktop]: {
@@ -59,14 +58,9 @@ export const GroomsmenStyles: Styles<GroomsmenClasses> = {
         }
     },
     GroomsmensContent: {
-        // overflowY: 'auto',
         paddingTop: 50,
         paddingBottom: 50,
-        // height: 'auto',
         alignSelf: 'center',
-        width: '100%',
-        [MediaQuery.desktop]: {
-            // overflow: 'hidden'
-        }
+        width: '100%'
     }
 };

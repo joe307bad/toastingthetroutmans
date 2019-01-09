@@ -1,5 +1,6 @@
 import { CSSProperties } from 'react';
 import { Styles } from 'react-jss';
+import { markerWidth } from '../../components/Main';
 import { INavProps } from '../../components/nav/Nav';
 import { MediaQuery } from '../Breakpoints';
 import { primary } from '../Colors';
@@ -83,7 +84,7 @@ export const Base: Styles<MainClasses> = {
     },
     navItem: {
         paddingBottom: 30,
-        width: 200,
+        width: '20%',
         ['&:first-child']: {
             paddingTop: 50
         },
@@ -103,7 +104,7 @@ export const Base: Styles<MainClasses> = {
     currentPageMarker: (props: INavProps): CSSProperties => ({
         transition: 'left .5s linear',
         bottom: 0,
-        width: '14.2857142857%',
+        width: `${markerWidth}%`,
         textAlign: 'center',
         position: 'absolute',
         left: props.currentPageMarkerPosition

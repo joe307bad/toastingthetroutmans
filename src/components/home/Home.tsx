@@ -28,7 +28,7 @@ export class HomeComponent extends React.Component<IHomeProps> {
                             className={classes.SamAndShaun}
                             src={Photos.samAndShaun} />
                         <p className={classes.Tagline}>
-                            Friday, October 29th 2019<br />
+                            Saturday, October 26th 2019<br />
                             St. Margaret Mary Alacoque Church<br />
                             Harrisburg, PA
                     </p>

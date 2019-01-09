@@ -1,3 +1,5 @@
+import * as Church_1 from './church/Church_1.jpg';
+import * as Church_2 from './church/Church_2.jpg';
 import * as Flowers from './flowers.png';
 import * as Flowers1 from './flowers1.png';
 import * as SamAndShaun from './SamAndShaun.png';
@@ -18,5 +20,7 @@ export const Photos: { [key: string]: string } = {
     SamAndShaun_4_Landscape: SamAndShaun_4_Landscape,
     Flowers: Flowers,
     Flowers1: Flowers1,
-    CurlyUnderline: CurlyUnderline
+    CurlyUnderline: CurlyUnderline,
+    Church_1: Church_1,
+    Church_2: Church_2
 };
