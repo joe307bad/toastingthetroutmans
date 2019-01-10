@@ -83,12 +83,14 @@ export const Base: Styles<MainClasses> = {
         }
     },
     navItem: {
+        cursor: 'pointer',
         paddingBottom: 30,
-        width: '20%',
+        width: 200,
         ['&:first-child']: {
             paddingTop: 50
         },
         [MediaQuery.desktop]: {
+            width: '20%',
             ['&:first-child']: {
                 paddingTop: 0
             },

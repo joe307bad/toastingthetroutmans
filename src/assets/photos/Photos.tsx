@@ -2,6 +2,9 @@ import * as Church_1 from './church/Church_1.jpg';
 import * as Church_2 from './church/Church_2.jpg';
 import * as Flowers from './flowers.png';
 import * as Flowers1 from './flowers1.png';
+import * as CrateAndBarrel from './registries/crate-and-barrel.png';
+import * as Target from './registries/target.png';
+import * as Zola from './registries/zola.png';
 import * as SamAndShaun from './SamAndShaun.png';
 import * as SamAndShaun_1_Landscape from './SamAndShaun_1_Landscape.jpg';
 import * as SamAndShaun_2_Portrait from './SamAndShaun_2_Portrait.jpg';
@@ -22,5 +25,8 @@ export const Photos: { [key: string]: string } = {
     Flowers1: Flowers1,
     CurlyUnderline: CurlyUnderline,
     Church_1: Church_1,
-    Church_2: Church_2
+    Church_2: Church_2,
+    CrateAndBarrel: CrateAndBarrel,
+    Target: Target,
+    Zola: Zola
 };

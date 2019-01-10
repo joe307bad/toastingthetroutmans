@@ -11,6 +11,7 @@ import { TParallaxElement } from './home/TParallaxElement';
 import { Nav } from './nav/Nav';
 import { NavItems } from './nav/NavItems';
 import { Photos } from './photos/Photos';
+import { Registries } from './registries/Registries';
 import { Venue } from './venue/Venue';
 
 interface IMainProps {
@@ -44,15 +45,15 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
     public onScroll = (): void => {
         const container: HTMLDivElement = this.parallaxContainer.container;
         const position: number =
-        container.scrollTop / (container.scrollHeight - container.clientHeight);
-
+            container.scrollTop / (container.scrollHeight - container.clientHeight);
         this.setState({
             currentPageMarkerPosition: `${(position * (this.navConstant * 100))}%`,
             activePage: this.currentPage(position)
         });
     }
 
-    public currentPage = (position: number): number => Number((position * this.navConstant * 3.5).toFixed(2));
+    public currentPage = (position: number): number =>
+        Number((position * this.navConstant * numberOfPages).toFixed(2))
 
     public componentDidMount(): void {
         this.parallaxContainer.container.addEventListener('scroll', this.onScroll.bind(this));
@@ -88,7 +89,7 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                     {...{
                         className: classes.main,
                         ref: this.bindRef,
-                        pages: 5
+                        pages: numberOfPages
                     }}>
                     <div
                         id='main'
@@ -98,12 +99,15 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                         <Home />
                         <Photos />
                         <Bridesmaids {...{
-                            active: this.state.activePage >= 1.2
+                            active: this.state.activePage >= 1.5
                         }} />
                         <Groomsmen {...{
-                            active: this.state.activePage >= 2.2
+                            active: this.state.activePage >= 2.7
                         }} />
                         <Venue />
+                        <Registries {...{
+                            active: this.state.activePage >= 4.7
+                        }} />
                     </div>
                 </Parallax>
             </div>
