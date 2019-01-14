@@ -6,6 +6,7 @@ export interface IPerson {
     photo: string;
     name: string;
     description: string;
+    role?: string;
 }
 
 export interface IPersonProps {
@@ -23,6 +24,7 @@ export const Person: PersonComponent = (props: IPersonProps): JSX.Element => {
         <div >
             <img src={props.person.photo} alt='Placeholder' />
             <h2>{props.person.name}</h2>
+            {props.person.role && <p>{props.person.role}</p>}
             <p>{props.person.description}</p>
         </div>
     );

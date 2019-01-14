@@ -9,6 +9,7 @@ import injectSheet, { StyledComponentProps } from 'react-jss';
 import Slider, { Settings } from 'react-slick';
 import { ParallaxLayer } from 'react-spring';
 import { EngagementPhotos } from '../../assets/photos/engagement/EngagementPhotos';
+import { Photos } from '../../assets/photos/Photos';
 import { Breakpoints } from '../../theme/Breakpoints';
 import { PhotosClasses, PhotosStyles } from './PhotosStyles';
 
@@ -46,27 +47,41 @@ export class PhotosComponent extends React.Component<IPhotoProps, {}> {
         };
 
         return (
-            <ParallaxLayer offset={1} style={{
-                display: 'flex',
-                justifyContent: 'center'
-            }} speed={1}>
-                <div className={classes.Photos}>
-                    <Slider {...settings}>
-                        {Object.keys(EngagementPhotos).map((photo: string, key: number) => {
-                            const photoData: IPhoto = EngagementPhotos[photo];
+            <div>
+                <ParallaxLayer offset={1} speed={0.5}>
+                    <img
+                        alt='FlowerPic1'
+                        src={Photos.FlowerPic3}
+                        className={classes.FlowerPic3} />
+                </ParallaxLayer>
+                <ParallaxLayer offset={1} speed={0.5}>
+                    <img
+                        alt='FlowerPic1'
+                        src={Photos.FlowerPic4}
+                        className={classes.FlowerPic4} />
+                </ParallaxLayer>
+                <ParallaxLayer offset={1} style={{
+                    display: 'flex',
+                    justifyContent: 'center'
+                }} speed={1}>
+                    <div className={classes.Photos}>
+                        <Slider {...settings}>
+                            {Object.keys(EngagementPhotos).map((photo: string, key: number) => {
+                                const photoData: IPhoto = EngagementPhotos[photo];
 
-                            return (
-                                <div key={key} style={{ height: '100%', width: photoData.width }}>
-                                    <img alt='Photo' src={photoData.src} width={photoData.width} />
-                                </div>
-                            );
-                        })}
-                    </Slider>
-                </div>
-            </ParallaxLayer>
+                                return (
+                                    <div key={key} style={{ height: '100%', width: photoData.width }}>
+                                        <img alt='Photo' src={photoData.src} width={photoData.width} />
+                                    </div>
+                                );
+                            })}
+                        </Slider>
+                    </div>
+                </ParallaxLayer>
+            </div>
         );
     }
 }
 
-export const Photos: React.ComponentType<Pick<{}, never> & StyledComponentProps>
+export const PhotosSlider: React.ComponentType<Pick<{}, never> & StyledComponentProps>
     = injectSheet(PhotosStyles)(PhotosComponent);

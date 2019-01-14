@@ -7,7 +7,9 @@ export type GroomsmenClasses =
     'GroomsmenContainer' |
     'Groomsmen' |
     'Person' |
-    'GroomsmensContent';
+    'GroomsmensContent' |
+    'FlowerPic7' |
+    'FlowerPic8';
 
 /**
  * The Styles for the Groomsmen Component
@@ -20,7 +22,7 @@ export const GroomsmenStyles: Styles<GroomsmenClasses> = {
         margin: '0 auto',
         display: 'inline-block',
         [MediaQuery.tablet]: {
-            width: 300
+            width: 250
         },
         '& h2': {
             fontFamily: 'Imperator',
@@ -29,10 +31,12 @@ export const GroomsmenStyles: Styles<GroomsmenClasses> = {
         },
         '& p': {
             textAlign: 'center',
-            marginTop: 0
+            marginTop: 0,
+            marginBottom: 0
         },
         '& img': {
-            width: 100,
+            boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
+            width: 200,
             borderRadius: '50%'
         }
     },
@@ -62,5 +66,17 @@ export const GroomsmenStyles: Styles<GroomsmenClasses> = {
         paddingBottom: 50,
         alignSelf: 'center',
         width: '100%'
+    },
+    FlowerPic7: {
+        width: 300,
+        position: 'absolute',
+        right: -50,
+        top: -100
+    },
+    FlowerPic8: {
+        width: 300,
+        position: 'absolute',
+        left: -50,
+        bottom: -100
     }
 };

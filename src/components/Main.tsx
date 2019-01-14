@@ -10,7 +10,7 @@ import { Home } from './home/Home';
 import { TParallaxElement } from './home/TParallaxElement';
 import { Nav } from './nav/Nav';
 import { NavItems } from './nav/NavItems';
-import { Photos } from './photos/Photos';
+import { PhotosSlider } from './photos/Photos';
 import { Registries } from './registries/Registries';
 import { Venue } from './venue/Venue';
 
@@ -97,7 +97,7 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                             [classes.moveMainContainerForNavMenu]: this.state.menuOpen
                         })}>
                         <Home />
-                        <Photos />
+                        <PhotosSlider />
                         <Bridesmaids {...{
                             active: this.state.activePage >= 1.5
                         }} />

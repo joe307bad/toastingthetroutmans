@@ -7,14 +7,16 @@ export type BridesmaidsClasses =
     'BridesmaidsContainer' |
     'Bridesmaids' |
     'Person' |
-    'BridesmaidsContent';
+    'BridesmaidsContent' |
+    'FlowerPic5' |
+    'FlowerPic6';
 
 /**
  * The Styles for the Bridesmaids Component
  */
 export const BridesmaidsStyles: Styles<BridesmaidsClasses> = {
     Person: {
-        width: 85,
+        width: 250,
         textAlign: 'center',
         padding: 10,
         margin: '0 auto',
@@ -30,11 +32,13 @@ export const BridesmaidsStyles: Styles<BridesmaidsClasses> = {
         },
         '& p': {
             textAlign: 'center',
-            marginTop: 0
+            marginTop: 0,
+            marginBottom: 0
         },
         '& img': {
-            width: 100,
-            borderRadius: '50%'
+            width: 200,
+            borderRadius: '50%',
+            boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)'
         },
         [MediaQuery.tablet]: {
             width: 150
@@ -53,10 +57,7 @@ export const BridesmaidsStyles: Styles<BridesmaidsClasses> = {
         padding: 50,
         paddingTop: 50,
         paddingBottom: 50,
-        // height: 'calc(100% - 100px)',
-        [MediaQuery.desktop]: {
-            // alignSelf: 'center'
-        },
+        width: '100%',
         '& h1': {
             fontFamily: 'Imperator',
             color: primary,
@@ -64,12 +65,19 @@ export const BridesmaidsStyles: Styles<BridesmaidsClasses> = {
         }
     },
     BridesmaidsContent: {
-        // overflowY: 'auto',
-        // height: 'calc(100% - 100px)',
         paddingTop: 50,
-        paddingBottom: 50,
-        [MediaQuery.desktop]: {
-            // overflow: 'hidden'
-        }
+        paddingBottom: 50
+    },
+    FlowerPic5: {
+        width: 300,
+        position: 'absolute',
+        right: -50,
+        bottom: -100
+    },
+    FlowerPic6: {
+        width: 300,
+        position: 'absolute',
+        left: -150,
+        top: -100
     }
 };

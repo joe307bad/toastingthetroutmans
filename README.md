@@ -10,3 +10,13 @@
 
 ##### Other Credits:
 * [akiran/react-slick](https://github.com/akiran/react-slick)
+
+#### ToDos:
+* Countdown
+* Double check responsiveness
+* Add more photos for wedding party
+* Add more engagement photos across the site
+* Look for photos of Sam/Shawn on Facebook to add
+* Add registry links
+* Improve Registries section
+* Look at other wedding websites and determine other page ideas

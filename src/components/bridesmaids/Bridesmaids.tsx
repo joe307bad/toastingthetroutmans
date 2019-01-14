@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import injectSheet, { StyledComponentProps } from 'react-jss';
 import { animated, ParallaxLayer, Trail } from 'react-spring';
+import { BridesmaidsPhotos, Photos } from '../../assets/photos/Photos';
 import { IPerson, Person } from '../../shared/Person';
 import { BridesmaidsClasses, BridesmaidsStyles } from './BridesmaidsStyles';
 
@@ -16,46 +17,26 @@ interface IBridesmaidsState {
 
 const bridesmaids: IPerson[] = [
     {
-        // tslint:disable-next-line:no-http-string
-        photo: 'http://techplace.ca/wp-content/uploads/2016/11/woman.png',
+        photo: BridesmaidsPhotos.Courtney,
         name: 'Courtney Cerjanic',
-        description: `Lorem ipsum dolor sit amet`
+        role: `Matron of Honor`,
+        description: `Cousin of the Bride`
     },
     {
-        // tslint:disable-next-line:no-http-string
-        photo: 'http://techplace.ca/wp-content/uploads/2016/11/woman.png',
-        name: 'Jamie Badaczewski',
-        description: `Lorem ipsum dolor sit amet`
+        photo: BridesmaidsPhotos.Katie,
+        name: 'Katie Krouse',
+        description: `Friend of the Bride`
     },
     {
-        // tslint:disable-next-line:no-http-string
-        photo: 'http://techplace.ca/wp-content/uploads/2016/11/woman.png',
-        name: 'Jamie Badaczewski',
-        description: `Lorem ipsum dolor sit amet`
+        photo: BridesmaidsPhotos.Amanda,
+        name: 'Amanda Dix',
+        description: `Friend of the Bride & Groom`
     },
     {
-        // tslint:disable-next-line:no-http-string
-        photo: 'http://techplace.ca/wp-content/uploads/2016/11/woman.png',
-        name: 'Jamie Badaczewski',
-        description: `Lorem ipsum dolor sit amet`
-    },
-    {
-        // tslint:disable-next-line:no-http-string
-        photo: 'http://techplace.ca/wp-content/uploads/2016/11/woman.png',
-        name: 'Jamie Badaczewski',
-        description: `Lorem ipsum dolor sit amet`
-    },
-    {
-        // tslint:disable-next-line:no-http-string
-        photo: 'http://techplace.ca/wp-content/uploads/2016/11/woman.png',
-        name: 'Jamie Badaczewski',
-        description: `Lorem ipsum dolor sit amet`
-    },
-    {
-        // tslint:disable-next-line:no-http-string
-        photo: 'http://techplace.ca/wp-content/uploads/2016/11/woman.png',
-        name: 'Jamie Badaczewski',
-        description: `Lorem ipsum dolor sit amet`
+        photo: BridesmaidsPhotos.Anniston,
+        name: 'Anniston Cerjanic',
+        role: `Flower Girl`,
+        description: `Neice of the Bride`
     }
 ];
 
@@ -80,28 +61,42 @@ export class BridesmaidsComponent extends React.Component<IBridesmaidsProps, IBr
         const classes: Record<BridesmaidsClasses, string> = this.props.classes;
 
         return (
-            <ParallaxLayer className={classes.BridesmaidsContainer} offset={2} speed={1}>
-                <div className={classes.Bridesmaids} onScroll={this.stopScrollPropagation}>
-                    <div className={classes.BridesmaidsContent}>
-                        <h1>The Bridesmaids</h1>
-                        <Trail
-                            native={true}
-                            from={{ opacity: 0, x: -100 }}
-                            to={{ opacity: this.state.toggle ? 1 : 0, x: this.state.toggle ? 0 : 100 }}
-                            keys={bridesmaids.map((b: IPerson, key: number) => key)}>
-                            {bridesmaids.map((person: IPerson, key: number) => ({ x, opacity }: any): JSX.Element => (
-                                <animated.div className={classes.Person} style={{
-                                    opacity,
-                                    transform: x.interpolate((transition: number) =>
-                                        `translate3d(0,${transition}%,0)`)
-                                }} >
-                                    <Person key={key} classes={classes} person={person} />
-                                </animated.div>
-                            ))}
-                        </Trail>
+            <div>
+                <ParallaxLayer offset={2} speed={0.25}>
+                    <img
+                        alt='FlowerPic5'
+                        src={Photos.FlowerPic5}
+                        className={classes.FlowerPic5} />
+                </ParallaxLayer>
+                <ParallaxLayer offset={2} speed={0.25}>
+                    <img
+                        alt='FlowerPic5'
+                        src={Photos.FlowerPic6}
+                        className={classes.FlowerPic6} />
+                </ParallaxLayer>
+                <ParallaxLayer className={classes.BridesmaidsContainer} offset={2} speed={1}>
+                    <div className={classes.Bridesmaids} onScroll={this.stopScrollPropagation}>
+                        <div className={classes.BridesmaidsContent}>
+                            <h1>The Bridesmaids</h1>
+                            <Trail
+                                native={true}
+                                from={{ opacity: 0, x: -100 }}
+                                to={{ opacity: this.state.toggle ? 1 : 0, x: this.state.toggle ? 0 : 100 }}
+                                keys={bridesmaids.map((b: IPerson, key: number) => key)}>
+                                {bridesmaids.map((person: IPerson, key: number) => ({ x, opacity }: any): JSX.Element => (
+                                    <animated.div className={classes.Person} style={{
+                                        opacity,
+                                        transform: x.interpolate((transition: number) =>
+                                            `translate3d(0,${transition}%,0)`)
+                                    }} >
+                                        <Person key={key} classes={classes} person={person} />
+                                    </animated.div>
+                                ))}
+                            </Trail>
+                        </div>
                     </div>
-                </div>
-            </ParallaxLayer>
+                </ParallaxLayer>
+            </div>
         );
     }
 

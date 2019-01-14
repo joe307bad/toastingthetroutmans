@@ -12,7 +12,9 @@ export type HomeClasses =
     'SamAndShaun_4_Landscape' |
     'Flowers' |
     'Flowers1' |
-    'CurlyUnderline';
+    'CurlyUnderline' |
+    'FlowerPic1' |
+    'FlowerPic2';
 
 /**
  * The Styles for the Home Component
@@ -194,5 +196,15 @@ export const HomeStyles: Styles<HomeClasses> = {
             right: -300,
             marginTop: -80
         }
+    },
+    FlowerPic1: {
+        width: 300,
+        position: 'absolute',
+        left: -50
+    },
+    FlowerPic2: {
+        width: 300,
+        position: 'absolute',
+        right: -50
     }
 };
