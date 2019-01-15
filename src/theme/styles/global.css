@@ -28,6 +28,7 @@ button.slick-prev:before, button.slick-next:before {
 
 .slick-slide img{
     max-width: 100%;
+    width: 100%;
 }
 
 .slick-track {

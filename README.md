@@ -13,10 +13,10 @@
 
 #### ToDos:
 * Countdown
-* Double check responsiveness
+* ~~Double check responsiveness~~
 * Add more photos for wedding party
 * Add more engagement photos across the site
 * Look for photos of Sam/Shawn on Facebook to add
 * Add registry links
-* Improve Registries section
+* Improve Registries section (landscape responsiveness)
 * Look at other wedding websites and determine other page ideas

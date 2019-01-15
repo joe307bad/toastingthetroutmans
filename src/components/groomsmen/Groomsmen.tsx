@@ -17,7 +17,7 @@ interface IGroomsmenState {
 
 const groomsmen: IPerson[] = [
     {
-        photo: 'https://i2.wp.com/nellions.co.ke/wp-content/uploads/2018/06/male-placeholder-image.jpeg?ssl=1',
+        photo: GroomsmenPhotos.Luke,
         name: 'Luke Walker',
         role: 'Best Man',
         description: `Friend of the Groom`

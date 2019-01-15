@@ -18,6 +18,7 @@ import * as Andrew from './groomsmen/andrew.png';
 import * as Drew from './groomsmen/drew.png';
 import * as Everett from './groomsmen/everett.png';
 import * as Joe from './groomsmen/joe.png';
+import * as Luke from './groomsmen/luke.png';
 import * as CrateAndBarrel from './registries/crate-and-barrel.png';
 import * as Target from './registries/target.png';
 import * as Zola from './registries/zola.png';
@@ -59,7 +60,8 @@ export const GroomsmenPhotos: { [key: string]: string } = {
     Everett: Everett,
     Andrew: Andrew,
     Joe: Joe,
-    Drew: Drew
+    Drew: Drew,
+    Luke: Luke
 };
 
 export const BridesmaidsPhotos: { [key: string]: string } = {

@@ -16,18 +16,20 @@ export type GroomsmenClasses =
  */
 export const GroomsmenStyles: Styles<GroomsmenClasses> = {
     Person: {
-        width: 'calc(100% - 20px)',
+        width: 100,
         textAlign: 'center',
         padding: 10,
         margin: '0 auto',
         display: 'inline-block',
-        [MediaQuery.tablet]: {
-            width: 250
-        },
+        verticalAlign: 'top',
         '& h2': {
             fontFamily: 'Imperator',
             color: primary,
-            marginBottom: 0
+            marginBottom: 0,
+            fontSize: 15,
+            [MediaQuery.tablet]: {
+                fontSize: 20
+            }
         },
         '& p': {
             textAlign: 'center',
@@ -35,9 +37,16 @@ export const GroomsmenStyles: Styles<GroomsmenClasses> = {
             marginBottom: 0
         },
         '& img': {
+            width: '100%',
             boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
-            width: 200,
-            borderRadius: '50%'
+            borderRadius: '50%',
+            [MediaQuery.tablet]: {
+                width: 250,
+                height: 250
+            }
+        },
+        [MediaQuery.tablet]: {
+            width: 250
         }
     },
     GroomsmenContainer: {
@@ -68,15 +77,23 @@ export const GroomsmenStyles: Styles<GroomsmenClasses> = {
         width: '100%'
     },
     FlowerPic7: {
+        opacity: 0.5,
         width: 300,
         position: 'absolute',
         right: -50,
-        top: -100
+        top: -100,
+        [MediaQuery.tablet]: {
+            opacity: 1
+        }
     },
     FlowerPic8: {
+        opacity: 0.5,
         width: 300,
         position: 'absolute',
         left: -50,
-        bottom: -100
+        bottom: -100,
+        [MediaQuery.tablet]: {
+            opacity: 1
+        }
     }
 };

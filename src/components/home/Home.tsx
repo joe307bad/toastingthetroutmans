@@ -20,6 +20,18 @@ export class HomeComponent extends React.Component<IHomeProps> {
 
         return (
             <div>
+                <ParallaxLayer offset={0.8} speed={1}>
+                    <img
+                        alt='FlowerPic1'
+                        src={Photos.FlowerPic1}
+                        className={classes.FlowerPic1} />
+                </ParallaxLayer>
+                <ParallaxLayer offset={0.8} speed={1}>
+                    <img
+                        alt='FlowerPic2'
+                        src={Photos.FlowerPic2}
+                        className={classes.FlowerPic2} />
+                </ParallaxLayer>
                 <ParallaxLayer offset={0} speed={0}>
                     <div className={classes.TaglineContainer} >
                         <img
@@ -63,18 +75,6 @@ export class HomeComponent extends React.Component<IHomeProps> {
                         alt='Sam and Shaun'
                         src={Photos.SamAndShaun_3_Landscape}
                         className={classes.SamAndShaun_3_Landscape} />
-                </ParallaxLayer>
-                <ParallaxLayer offset={0.8} speed={1}>
-                    <img
-                        alt='FlowerPic1'
-                        src={Photos.FlowerPic1}
-                        className={classes.FlowerPic1} />
-                </ParallaxLayer>
-                <ParallaxLayer offset={0.8} speed={1}>
-                    <img
-                        alt='FlowerPic2'
-                        src={Photos.FlowerPic2}
-                        className={classes.FlowerPic2} />
                 </ParallaxLayer>
             </div>
         );

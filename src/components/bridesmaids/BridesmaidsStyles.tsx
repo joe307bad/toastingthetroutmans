@@ -16,11 +16,12 @@ export type BridesmaidsClasses =
  */
 export const BridesmaidsStyles: Styles<BridesmaidsClasses> = {
     Person: {
-        width: 250,
+        width: 100,
         textAlign: 'center',
         padding: 10,
         margin: '0 auto',
         display: 'inline-block',
+        verticalAlign: 'top',
         '& h2': {
             fontFamily: 'Imperator',
             color: primary,
@@ -36,12 +37,15 @@ export const BridesmaidsStyles: Styles<BridesmaidsClasses> = {
             marginBottom: 0
         },
         '& img': {
-            width: 200,
+            width: '100%',
             borderRadius: '50%',
-            boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)'
+            boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
+            [MediaQuery.tablet]: {
+                width: 250
+            }
         },
         [MediaQuery.tablet]: {
-            width: 150
+            width: 250
         },
         [MediaQuery.desktop]: {
             width: 300
@@ -69,15 +73,23 @@ export const BridesmaidsStyles: Styles<BridesmaidsClasses> = {
         paddingBottom: 50
     },
     FlowerPic5: {
+        opacity: 0.5,
         width: 300,
         position: 'absolute',
         right: -50,
-        bottom: -100
+        bottom: -100,
+        [MediaQuery.tablet]: {
+            opacity: 1
+        }
     },
     FlowerPic6: {
+        opacity: 0.5,
         width: 300,
         position: 'absolute',
         left: -150,
-        top: -100
+        top: -100,
+        [MediaQuery.tablet]: {
+            opacity: 1
+        }
     }
 };
