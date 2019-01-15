@@ -2,6 +2,10 @@ import * as Amanda from './bridesmaids/amanda.png';
 import * as Anniston from './bridesmaids/anniston.png';
 import * as Courtney from './bridesmaids/courtney.png';
 import * as Katie from './bridesmaids/katie.png';
+import * as Katie_alt from './bridesmaids/katie_alt.png';
+import * as Moira from './bridesmaids/moira.png';
+import * as Moira_alt from './bridesmaids/moira_alt.png';
+import * as Olivia from './bridesmaids/olivia.png';
 import * as Church_1 from './church/Church_1.jpg';
 import * as Church_2 from './church/Church_2.jpg';
 import * as Flowers from './flowers.png';
@@ -15,10 +19,12 @@ import * as FlowerPic7 from './flowers/flowers7.png';
 import * as FlowerPic8 from './flowers/flowers8.png';
 import * as Flowers1 from './flowers1.png';
 import * as Andrew from './groomsmen/andrew.png';
+import * as Andrew_alt from './groomsmen/andrew_alt.png';
 import * as Drew from './groomsmen/drew.png';
 import * as Everett from './groomsmen/everett.png';
 import * as Joe from './groomsmen/joe.png';
 import * as Luke from './groomsmen/luke.png';
+import * as Luke_alt from './groomsmen/luke_alt.png';
 import * as CrateAndBarrel from './registries/crate-and-barrel.png';
 import * as Target from './registries/target.png';
 import * as Zola from './registries/zola.png';
@@ -59,14 +65,20 @@ export const Photos: { [key: string]: string } = {
 export const GroomsmenPhotos: { [key: string]: string } = {
     Everett: Everett,
     Andrew: Andrew,
+    Andrew_alt: Andrew_alt,
     Joe: Joe,
     Drew: Drew,
-    Luke: Luke
+    Luke: Luke,
+    Luke_alt: Luke_alt
 };
 
 export const BridesmaidsPhotos: { [key: string]: string } = {
     Anniston: Anniston,
     Amanda: Amanda,
     Courtney: Courtney,
-    Katie: Katie
+    Katie: Katie,
+    Katie_alt: Katie_alt,
+    Moira: Moira,
+    Moira_alt: Moira_alt,
+    Olivia: Olivia
 };

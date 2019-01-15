@@ -24,7 +24,19 @@ const bridesmaids: IPerson[] = [
     },
     {
         photo: BridesmaidsPhotos.Katie,
+        altPhoto: BridesmaidsPhotos.Katie_alt,
         name: 'Katie Krouse',
+        description: `Friend of the Bride`
+    },
+    {
+        photo: BridesmaidsPhotos.Olivia,
+        name: 'Olivia Lampenfeld',
+        description: `Friend of the Bride`
+    },
+    {
+        photo: BridesmaidsPhotos.Moira,
+        altPhoto: BridesmaidsPhotos.Moira_alt,
+        name: 'Moira Nugent',
         description: `Friend of the Bride`
     },
     {

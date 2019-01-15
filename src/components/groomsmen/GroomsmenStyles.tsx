@@ -38,15 +38,24 @@ export const GroomsmenStyles: Styles<GroomsmenClasses> = {
         },
         '& img': {
             width: '100%',
-            boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
+            borderRadius: '50%'
+        },
+        '& .imageContainer': {
+            width: 250,
+            height: 250,
             borderRadius: '50%',
-            [MediaQuery.tablet]: {
-                width: 250,
-                height: 250
+            overflow: 'hidden',
+            boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
+            position: 'relative',
+            '& .altPhoto': {
+                width: '100%',
+                position: 'absolute',
+                top: 0
             }
         },
         [MediaQuery.tablet]: {
-            width: 250
+            width: 250,
+            height: 250
         }
     },
     GroomsmenContainer: {

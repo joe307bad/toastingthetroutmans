@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "animate.css": "^3.7.0",
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",
     "react": "16.6.1",

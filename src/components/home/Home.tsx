@@ -24,7 +24,7 @@ export class HomeComponent extends React.Component<IHomeProps> {
                     <img
                         alt='FlowerPic1'
                         src={Photos.FlowerPic1}
-                        className={classes.FlowerPic1} />
+                        className={`${classes.FlowerPic1}`} />
                 </ParallaxLayer>
                 <ParallaxLayer offset={0.8} speed={1}>
                     <img

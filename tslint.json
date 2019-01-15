@@ -20,6 +20,7 @@
         "import-name": false,
         "jsx-no-multiline-js": false,
         "jsx-alignment": false,
-        "react-iframe-missing-sandbox": false
+        "react-iframe-missing-sandbox": false,
+        "react-this-binding-issue": false
     }
 }

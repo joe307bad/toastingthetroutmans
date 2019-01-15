@@ -18,12 +18,14 @@ interface IGroomsmenState {
 const groomsmen: IPerson[] = [
     {
         photo: GroomsmenPhotos.Luke,
+        altPhoto: GroomsmenPhotos.Luke_alt,
         name: 'Luke Walker',
         role: 'Best Man',
         description: `Friend of the Groom`
     },
     {
         photo: GroomsmenPhotos.Andrew,
+        altPhoto: GroomsmenPhotos.Andrew_alt,
         name: 'Andrew Valentine',
         description: `Friend of the Groom`
     },
