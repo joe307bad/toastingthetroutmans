@@ -13,6 +13,7 @@
 
 #### ToDos:
 * Countdown
+* Add funny photo hovers
 * ~~Double check responsiveness~~
 * Add more photos for wedding party
 * Add more engagement photos across the site
