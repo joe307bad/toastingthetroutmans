@@ -1,7 +1,7 @@
 import * as cx from 'classnames';
 import * as React from 'react';
 import injectSheet, { StyledComponentProps } from 'react-jss';
-import { Parallax } from 'react-spring';
+import { animated, config, Keyframes, Parallax, SpringProps } from 'react-spring';
 
 import { Base, MainClasses } from '../theme';
 import { Bridesmaids } from './bridesmaids/Bridesmaids';
@@ -22,11 +22,22 @@ interface IMainState {
     currentPageMarkerPosition: string;
     menuOpen: boolean;
     activePage: number;
+    countdownButtonHovered: boolean;
 }
 
 export const numberOfPages: number = NavItems.length;
 export const markerWidth: number = 100 / numberOfPages;
 export const navConstant: number = (100 - markerWidth) * 0.01;
+
+// tslint:disable-next-line:max-line-length
+type TKeyframe = 'config' | 'native' | 'from' | 'onStart' | 'onRest' | 'onFrame' | 'children' | 'render' | 'immediate' | 'reset' | 'impl' | 'inject' | 'delay';
+const CountdownContainer: any
+    // (props: object) =>
+    //     Keyframes<{} | Pick<SpringProps<{}, {}>, TKeyframe>, {}>
+    = Keyframes.Spring({
+        open: { to: { x: 0 }, config: config.default },
+        close: { to: { x: 50 }, config: config.default }
+    });
 
 /**
  * Main Component
@@ -39,7 +50,8 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
     public state: IMainState = {
         currentPageMarkerPosition: '0',
         menuOpen: false,
-        activePage: 0
+        activePage: 0,
+        countdownButtonHovered: false
     };
 
     public onScroll = (): void => {
@@ -71,6 +83,20 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
         this.setState({
             menuOpen: newMenuState
         });
+    }
+
+    public countdownButtonHover = (): void => {
+        this.setState({
+            countdownButtonHovered: true
+        });
+
+        setTimeout(
+            () => {
+                this.setState({
+                    countdownButtonHovered: false
+                });
+            },
+            1000);
     }
 
     public render(): JSX.Element {
@@ -110,8 +136,21 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                         }} />
                     </div>
                 </Parallax>
-            </div>
-        );
+                <CountdownContainer native={true} state={this.state.countdownButtonHovered ? 'open' : 'close'}>
+                    {({ x }: any) => (
+                        <animated.i
+                            onMouseEnter={this.countdownButtonHover}
+                            className={cx(`${classes.CountdownButton} fas fa-hourglass-half`, {
+                                ['animated tada']: this.state.countdownButtonHovered
+                            })}
+                            style={{
+                                transform: x.interpolate((x: any) => `translate3d(${x}%,0,0)`)
+                            }}>
+                            <span />
+                        </animated.i>
+                    )}
+                </CountdownContainer>
+            </div>);
     }
 }
 

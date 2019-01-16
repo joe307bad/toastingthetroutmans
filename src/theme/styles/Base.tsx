@@ -21,7 +21,8 @@ export type MainClasses =
     'navItem' |
     'currentPageMarker' |
     'currentPageMarkerAccent' |
-    'navButton';
+    'navButton' |
+    'CountdownButton';
 
 /**
  * Base theme styles
@@ -128,6 +129,29 @@ export const Base: Styles<MainClasses> = {
         opacity: 0.5,
         [MediaQuery.desktop]: {
             display: 'none'
+        }
+    },
+    CountdownButton: {
+        display: 'none',
+        position: 'fixed',
+        bottom: 10,
+        left: '50%',
+        marginLeft: -20,
+        width: 40,
+        height: 40,
+        borderRadius: '50%',
+        backgroundColor: 'white',
+        zIndex: 1,
+        textAlign: 'center',
+        boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
+        cursor: 'pointer',
+        '&:before': {
+            content: '\f252',
+            verticalAlign: 'middle',
+            height: '100%',
+            marginTop: '12px',
+            display: 'block',
+            opacity: 0.5
         }
     }
 };
