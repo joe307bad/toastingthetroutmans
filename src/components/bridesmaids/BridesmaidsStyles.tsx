@@ -41,8 +41,7 @@ export const BridesmaidsStyles: Styles<BridesmaidsClasses> = {
             borderRadius: '50%'
         },
         '& .imageContainer': {
-            width: 250,
-            height: 250,
+            width: '100%',
             borderRadius: '50%',
             overflow: 'hidden',
             boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
