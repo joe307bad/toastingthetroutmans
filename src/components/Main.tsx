@@ -1,8 +1,9 @@
 import * as cx from 'classnames';
 import * as React from 'react';
 import injectSheet, { StyledComponentProps } from 'react-jss';
-import { animated, config, Keyframes, Parallax, SpringProps } from 'react-spring';
+import { animated, config, Keyframes, Parallax, SpringProps, Transition } from 'react-spring';
 
+import { CSSProperties } from 'jss/css';
 import { Base, MainClasses } from '../theme';
 import { Bridesmaids } from './bridesmaids/Bridesmaids';
 import { Groomsmen } from './groomsmen/Groomsmen';
@@ -23,21 +24,13 @@ interface IMainState {
     menuOpen: boolean;
     activePage: number;
     countdownButtonHovered: boolean;
+    countdownExpanded: boolean;
+    items: any[];
 }
 
 export const numberOfPages: number = NavItems.length;
 export const markerWidth: number = 100 / numberOfPages;
 export const navConstant: number = (100 - markerWidth) * 0.01;
-
-// tslint:disable-next-line:max-line-length
-type TKeyframe = 'config' | 'native' | 'from' | 'onStart' | 'onRest' | 'onFrame' | 'children' | 'render' | 'immediate' | 'reset' | 'impl' | 'inject' | 'delay';
-const CountdownContainer: any
-    // (props: object) =>
-    //     Keyframes<{} | Pick<SpringProps<{}, {}>, TKeyframe>, {}>
-    = Keyframes.Spring({
-        open: { to: { x: 0 }, config: config.default },
-        close: { to: { x: 50 }, config: config.default }
-    });
 
 /**
  * Main Component
@@ -51,7 +44,9 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
         currentPageMarkerPosition: '0',
         menuOpen: false,
         activePage: 0,
-        countdownButtonHovered: false
+        countdownButtonHovered: false,
+        countdownExpanded: false,
+        items: []
     };
 
     public onScroll = (): void => {
@@ -99,6 +94,12 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
             1000);
     }
 
+    public update = () => {
+        this.setState({
+            items: [1]
+        });
+    }
+
     public render(): JSX.Element {
         const classes: Record<MainClasses, string> = this.props.classes;
 
@@ -136,23 +137,46 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                         }} />
                     </div>
                 </Parallax>
-                <CountdownContainer native={true} state={this.state.countdownButtonHovered ? 'open' : 'close'}>
-                    {({ x }: any) => (
-                        <animated.i
-                            onMouseEnter={this.countdownButtonHover}
-                            className={cx(`${classes.CountdownButton} fas fa-hourglass-half`, {
-                                ['animated tada']: this.state.countdownButtonHovered
-                            })}
-                            style={{
-                                transform: x.interpolate((x: any) => `translate3d(${x}%,0,0)`)
-                            }}>
-                            <span />
-                        </animated.i>
-                    )}
-                </CountdownContainer>
+                <i
+                    role='button'
+                    onClick={this.update}
+                    onMouseEnter={this.countdownButtonHover}
+                    className={cx(`${classes.CountdownButton} fas fa-hourglass-half`, {
+                        ['animated tada']: this.state.countdownButtonHovered
+                    })} />
+                <div style={{ position: 'fixed', top: 0, zIndex: 9 }}>
+                    {
+                        // @ts-ignore
+                        <Transition
+                            native={true}
+                            keys={this.state.items}
+                            from={{ height: 0, width: 0, borderRadius: '150%' }}
+                            enter={{ height: 500, width: 500, borderRadius: '5%' }}
+                            leave={{ height: 0 }}>
+                            {this.state.items.length ? this.state.items.map((item: any) => (styles: any) => (
+                                <animated.div style={{ ...defaultStyles, ...styles }}>
+                                    {item}
+                                </animated.div>
+                            )) : [<span key={1} />]}
+                        </Transition>
+                    }
+                </div>
             </div>);
     }
 }
+
+const defaultStyles = {
+    overflow: 'hidden',
+    width: '100%',
+    backgroundColor: '#FF1C68',
+    color: 'white',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: '2em',
+    fontFamily: '\'Kanit\', sans-serif',
+    textTransform: 'uppercase'
+};
 
 export const Main: React.ComponentType<Pick<IMainProps, never> & StyledComponentProps>
     = injectSheet(Base)(MainComponent);
