@@ -94,10 +94,16 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
             1000);
     }
 
-    public update = () => {
-        this.setState({
-            items: [1]
-        });
+    public toggleCountdown = () => {
+        if (this.state.items.length) {
+            this.setState({
+                items: []
+            });
+        } else {
+            this.setState({
+                items: [1]
+            });
+        }
     }
 
     public render(): JSX.Element {
@@ -138,44 +144,55 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                     </div>
                 </Parallax>
                 <i
-                    role='button'
-                    onClick={this.update}
                     onMouseEnter={this.countdownButtonHover}
                     className={cx(`${classes.CountdownButton} fas fa-hourglass-half`, {
-                        ['animated tada']: this.state.countdownButtonHovered
+                        ['animated tada']: this.state.countdownButtonHovered,
+                        ['shadowed base']: !this.state.items.length,
+                        ['raised']: this.state.items.length
                     })} />
-                <div style={{ position: 'fixed', top: 0, zIndex: 9 }}>
-                    {
-                        // @ts-ignore
-                        <Transition
-                            native={true}
-                            keys={this.state.items}
-                            from={{ height: 0, width: 0, borderRadius: '150%' }}
-                            enter={{ height: 500, width: 500, borderRadius: '5%' }}
-                            leave={{ height: 0 }}>
-                            {this.state.items.length ? this.state.items.map((item: any) => (styles: any) => (
-                                <animated.div style={{ ...defaultStyles, ...styles }}>
-                                    {item}
-                                </animated.div>
-                            )) : [<span key={1} />]}
-                        </Transition>
-                    }
-                </div>
+                <i
+                    role='button'
+                    onClick={this.toggleCountdown}
+                    onMouseEnter={this.countdownButtonHover}
+                    className={cx(`${classes.CountdownButton} fas fa-compress-arrows-alt`, {
+                        ['shadowed']: this.state.items.length,
+                        ['raised']: this.state.items.length
+                    })} />
+                {
+                    // @ts-ignore
+                    <Transition
+                        native={true}
+                        keys={this.state.items}
+                        from={{ height: 0, width: 0, marginLeft: 0, borderRadius: '120%'}}
+                        enter={{ height: 250, width: 500, marginLeft: -250, bottom: 10, borderRadius: '0%' }}
+                        leave={{ height: 35, width: 35, marginLeft: -17.5, bottom: 12, borderRadius: '50%' }}>
+                        {this.state.items.length ? this.state.items.map((item: any) => (styles: any): any => (
+                            <animated.div style={{ ...defaultStyles, ...styles }}>
+                                {item}
+                            </animated.div>
+                        )) : [<span key={1} />]}
+                    </Transition>
+                }
             </div>);
     }
 }
 
-const defaultStyles = {
+const defaultStyles: React.CSSProperties = {
     overflow: 'hidden',
-    width: '100%',
-    backgroundColor: '#FF1C68',
-    color: 'white',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontSize: '2em',
-    fontFamily: '\'Kanit\', sans-serif',
-    textTransform: 'uppercase'
+    backgroundColor: 'white',
+    position: 'fixed',
+    zIndex: 1,
+    left: '50%',
+    boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)'
+};
+
+const CountdownContainer: React.CSSProperties = {
+    position: 'fixed',
+    zIndex: 1,
+    left: '50%',
+    boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)'
+    // left: '50%',
+    // marginLeft: -250
 };
 
 export const Main: React.ComponentType<Pick<IMainProps, never> & StyledComponentProps>

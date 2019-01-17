@@ -132,19 +132,19 @@ export const Base: Styles<MainClasses> = {
         }
     },
     CountdownButton: {
-        display: 'none',
         position: 'fixed',
-        bottom: 10,
+        bottom: 15,
         left: '50%',
         marginLeft: -20,
         width: 40,
         height: 40,
         borderRadius: '50%',
         backgroundColor: 'white',
-        zIndex: 1,
+        zIndex: 2,
         textAlign: 'center',
-        boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
         cursor: 'pointer',
+        transition: '.5s all',
+        opacity: 0,
         '&:before': {
             content: '\f252',
             verticalAlign: 'middle',

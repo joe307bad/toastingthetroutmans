@@ -44,3 +44,17 @@ button.slick-prev:before, button.slick-next:before {
     background-color:white;
     z-index: 9;
 }
+.shadowed{
+    box-shadow: 9px 9px 5px -3px rgba(0,0,0,0.22);
+}
+
+.base {
+    bottom: 10px !important;
+    opacity: 1 !important;
+}
+
+.raised {
+    bottom: 15 !important;
+    opacity: 1 !important;
+    box-shadow: none;
+}
