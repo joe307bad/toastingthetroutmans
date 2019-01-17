@@ -12,6 +12,7 @@
 * [akiran/react-slick](https://github.com/akiran/react-slick)
 
 #### ToDos:
+* Add the videos of moms bridal dance
 * Countdown
 * ~~Add funny photo hovers~~
 * ~~Double check responsiveness~~
