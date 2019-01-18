@@ -95,7 +95,7 @@ export class BridesmaidsComponent extends React.Component<IBridesmaidsProps, IBr
                                 from={{ opacity: 0, x: -100 }}
                                 to={{ opacity: this.state.toggle ? 1 : 0, x: this.state.toggle ? 0 : 100 }}
                                 keys={bridesmaids.map((b: IPerson, key: number) => key)}>
-                                {bridesmaids.map((person: IPerson, key: number) => ({ x, opacity }: ITrail): JSX.Element => (
+                                {bridesmaids.map((person: IPerson, key: number) => ({ x, opacity }: any): JSX.Element => (
                                     <animated.div className={classes.Person} style={{
                                         opacity,
                                         transform: x.interpolate((transition: number) =>

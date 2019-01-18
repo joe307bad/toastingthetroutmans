@@ -65,7 +65,7 @@ export class RegistriesComponent extends React.Component<IRegistriesProps, IRegi
                         from={{ opacity: 0, x: -100 }}
                         to={{ opacity: this.state.toggle ? 1 : 0, x: this.state.toggle ? 0 : 100 }}
                         keys={registries.map((b: IRegistry, key: number) => key)}>
-                        {registries.map((registry: IRegistry, key: number) => ({ x, opacity }: ITrail): JSX.Element => (
+                        {registries.map((registry: IRegistry, key: number) => ({ x, opacity }: any): JSX.Element => (
                             <animated.div className={classes.Registry} style={{
                                 opacity,
                                 transform: x.interpolate((transition: number) =>

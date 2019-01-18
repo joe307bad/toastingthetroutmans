@@ -92,7 +92,7 @@ export class GroomsmenComponent extends React.Component<IGroomsmenProps, IGrooms
                                 from={{ opacity: 0, x: -100 }}
                                 to={{ opacity: this.state.toggle ? 1 : 0, x: this.state.toggle ? 0 : 100 }}
                                 keys={groomsmen.map((b: IPerson, key: number) => key)}>
-                                {groomsmen.map((person: IPerson, key: number) => ({ x, opacity }: ITrail): JSX.Element => (
+                                {groomsmen.map((person: IPerson, key: number) => ({ x, opacity }: any): JSX.Element => (
                                     <animated.div className={classes.Person} style={{
                                         opacity,
                                         transform: x.interpolate((transition: number) =>
