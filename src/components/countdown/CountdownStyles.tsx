@@ -42,9 +42,9 @@ export const CountdownStyles: Styles<CountdownClasses> = {
     Countdown: {
         top: '50%',
         position: 'absolute',
-        width: 220,
+        width: 240,
         left: '50%',
-        marginLeft: -110,
+        marginLeft: -120,
         marginTop: -55,
         whiteSpace: 'nowrap',
         transition: '2s all'
