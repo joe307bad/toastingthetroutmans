@@ -164,7 +164,7 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                         native={true}
                         keys={this.state.items}
                         from={{ height: 0, width: 0, marginLeft: 0, borderRadius: '120%'}}
-                        enter={{ height: 160, width: 500, marginLeft: -250, bottom: 10, borderRadius: '0%' }}
+                        enter={{ height: 160, width: 340, marginLeft: -176, bottom: 10, borderRadius: '0%' }}
                         leave={{ height: 25, width: 25, marginLeft: -17.5, bottom: 12, borderRadius: '50%' }}>
                         {this.state.items.length ? this.state.items.map((item: any) => (styles: any): any => (
                             <animated.div style={{ ...defaultStyles, ...styles }}>

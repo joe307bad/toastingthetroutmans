@@ -20,7 +20,8 @@ export class CountdownComponent extends React.Component<ICountownProps, {}> {
         return (
             <React.Fragment>
                 <p style={{ marginTop: 0, marginBottom: 0, whiteSpace: 'nowrap' }}>
-                    {countdownData.days} days {countdownData.hrs} hours {countdownData.mins} minutes {countdownData.secs} seconds<br />
+                    {countdownData.days} days {countdownData.hrs} hours<br />
+                    {countdownData.mins} minutes {countdownData.secs} seconds<br />
                     Until "I Do"</p>
             </React.Fragment>);
     }
@@ -34,7 +35,7 @@ export class CountdownComponent extends React.Component<ICountownProps, {}> {
                     width: 500,
                     left: '50%',
                     marginLeft: -250,
-                    marginTop: -38.5,
+                    marginTop: -55,
                     whiteSpace: 'nowrap'
                 }}
                 endDate={new Date(2019, 9, 26, 13)}
