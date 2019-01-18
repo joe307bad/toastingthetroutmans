@@ -130,28 +130,5 @@ export const Base: Styles<MainClasses> = {
         [MediaQuery.desktop]: {
             display: 'none'
         }
-    },
-    CountdownButton: {
-        position: 'fixed',
-        bottom: 15,
-        left: '50%',
-        marginLeft: -20,
-        width: 40,
-        height: 40,
-        borderRadius: '50%',
-        backgroundColor: 'white',
-        zIndex: 2,
-        textAlign: 'center',
-        cursor: 'pointer',
-        transition: '.5s all',
-        opacity: 0,
-        '&:before': {
-            content: '\f252',
-            verticalAlign: 'middle',
-            height: '100%',
-            marginTop: '12px',
-            display: 'block',
-            opacity: 0.5
-        }
     }
 };

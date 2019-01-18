@@ -1,7 +1,7 @@
 import * as cx from 'classnames';
 import * as React from 'react';
 import injectSheet, { StyledComponentProps } from 'react-jss';
-import { animated, config, Keyframes, Parallax, SpringProps, Transition } from 'react-spring';
+import { Parallax } from 'react-spring';
 
 import { Base, MainClasses, primary } from '../theme';
 import { Bridesmaids } from './bridesmaids/Bridesmaids';
@@ -25,7 +25,6 @@ interface IMainState {
     activePage: number;
     countdownButtonHovered: boolean;
     countdownExpanded: boolean;
-    items: any[];
 }
 
 export const numberOfPages: number = NavItems.length;
@@ -45,8 +44,7 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
         menuOpen: false,
         activePage: 0,
         countdownButtonHovered: false,
-        countdownExpanded: false,
-        items: []
+        countdownExpanded: false
     };
 
     public onScroll = (): void => {
@@ -78,32 +76,6 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
         this.setState({
             menuOpen: newMenuState
         });
-    }
-
-    public countdownButtonHover = (): void => {
-        this.setState({
-            countdownButtonHovered: true
-        });
-
-        setTimeout(
-            () => {
-                this.setState({
-                    countdownButtonHovered: false
-                });
-            },
-            1000);
-    }
-
-    public toggleCountdown = () => {
-        if (this.state.items.length) {
-            this.setState({
-                items: []
-            });
-        } else {
-            this.setState({
-                items: [<Countdown key={0} />]
-            });
-        }
     }
 
     public render(): JSX.Element {
@@ -143,62 +115,10 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                         }} />
                     </div>
                 </Parallax>
-                <i
-                    onMouseEnter={this.countdownButtonHover}
-                    className={cx(`${classes.CountdownButton} fas fa-hourglass-half`, {
-                        ['animated tada']: this.state.countdownButtonHovered,
-                        ['shadowed base']: !this.state.items.length,
-                        ['raised']: this.state.items.length
-                    })} />
-                <i
-                    role='button'
-                    onClick={this.toggleCountdown}
-                    onMouseEnter={this.countdownButtonHover}
-                    className={cx(`${classes.CountdownButton} fas fa-compress-arrows-alt`, {
-                        ['shadowed']: this.state.items.length,
-                        ['raised']: this.state.items.length
-                    })} />
-                {
-                    // @ts-ignore
-                    <Transition
-                        native={true}
-                        keys={this.state.items}
-                        from={{ height: 0, width: 0, marginLeft: 0, borderRadius: '120%'}}
-                        enter={{ height: 160, width: 340, marginLeft: -176, bottom: 10, borderRadius: '0%' }}
-                        leave={{ height: 25, width: 25, marginLeft: -17.5, bottom: 12, borderRadius: '50%' }}>
-                        {this.state.items.length ? this.state.items.map((item: any) => (styles: any): any => (
-                            <animated.div style={{ ...defaultStyles, ...styles }}>
-                                {item}
-                            </animated.div>
-                        )) : [<span key={1} />]}
-                    </Transition>
-                }
+                <Countdown />
             </div>);
     }
 }
-
-const defaultStyles: React.CSSProperties = {
-    overflow: 'hidden',
-    backgroundColor: 'white',
-    position: 'fixed',
-    zIndex: 1,
-    left: '50%',
-    boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
-    textAlign: 'center',
-    fontFamily: 'Imperator',
-    color: primary,
-    fontSize: 25,
-    border: `5px solid ${primary}`
-};
-
-const CountdownContainer: React.CSSProperties = {
-    position: 'fixed',
-    zIndex: 1,
-    left: '50%',
-    boxShadow: 'inset 9px 9px 5px -3px rgba(0,0,0,0.22)'
-    // left: '50%',
-    // marginLeft: -250
-};
 
 export const Main: React.ComponentType<Pick<IMainProps, never> & StyledComponentProps>
     = injectSheet(Base)(MainComponent);

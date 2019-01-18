@@ -58,3 +58,7 @@ button.slick-prev:before, button.slick-next:before {
     opacity: 1 !important;
     box-shadow: none;
 }
+
+.visible {
+    opacity: 1 !important;
+}
