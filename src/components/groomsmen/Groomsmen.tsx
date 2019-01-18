@@ -31,6 +31,7 @@ const groomsmen: IPerson[] = [
     },
     {
         photo: GroomsmenPhotos.Joe,
+        altPhoto: GroomsmenPhotos.Joe_alt,
         name: 'Joe Badaczewski',
         description: `Brother of the Bride`
     },

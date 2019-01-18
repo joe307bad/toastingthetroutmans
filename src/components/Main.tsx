@@ -3,9 +3,9 @@ import * as React from 'react';
 import injectSheet, { StyledComponentProps } from 'react-jss';
 import { animated, config, Keyframes, Parallax, SpringProps, Transition } from 'react-spring';
 
-import { CSSProperties } from 'jss/css';
-import { Base, MainClasses } from '../theme';
+import { Base, MainClasses, primary } from '../theme';
 import { Bridesmaids } from './bridesmaids/Bridesmaids';
+import { Countdown } from './countdown/Countdown';
 import { Groomsmen } from './groomsmen/Groomsmen';
 import { Home } from './home/Home';
 import { TParallaxElement } from './home/TParallaxElement';
@@ -101,7 +101,7 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
             });
         } else {
             this.setState({
-                items: [1]
+                items: [<Countdown key={0} />]
             });
         }
     }
@@ -164,8 +164,8 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                         native={true}
                         keys={this.state.items}
                         from={{ height: 0, width: 0, marginLeft: 0, borderRadius: '120%'}}
-                        enter={{ height: 250, width: 500, marginLeft: -250, bottom: 10, borderRadius: '0%' }}
-                        leave={{ height: 35, width: 35, marginLeft: -17.5, bottom: 12, borderRadius: '50%' }}>
+                        enter={{ height: 160, width: 500, marginLeft: -250, bottom: 10, borderRadius: '0%' }}
+                        leave={{ height: 25, width: 25, marginLeft: -17.5, bottom: 12, borderRadius: '50%' }}>
                         {this.state.items.length ? this.state.items.map((item: any) => (styles: any): any => (
                             <animated.div style={{ ...defaultStyles, ...styles }}>
                                 {item}
@@ -183,14 +183,19 @@ const defaultStyles: React.CSSProperties = {
     position: 'fixed',
     zIndex: 1,
     left: '50%',
-    boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)'
+    boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
+    textAlign: 'center',
+    fontFamily: 'Imperator',
+    color: primary,
+    fontSize: 25,
+    border: `5px solid ${primary}`
 };
 
 const CountdownContainer: React.CSSProperties = {
     position: 'fixed',
     zIndex: 1,
     left: '50%',
-    boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)'
+    boxShadow: 'inset 9px 9px 5px -3px rgba(0,0,0,0.22)'
     // left: '50%',
     // marginLeft: -250
 };

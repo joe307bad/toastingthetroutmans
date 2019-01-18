@@ -23,6 +23,7 @@ import * as Andrew_alt from './groomsmen/andrew_alt.png';
 import * as Drew from './groomsmen/drew.png';
 import * as Everett from './groomsmen/everett.png';
 import * as Joe from './groomsmen/joe.png';
+import * as Joe_alt from './groomsmen/joe_alt.png';
 import * as Luke from './groomsmen/luke.png';
 import * as Luke_alt from './groomsmen/luke_alt.png';
 import * as CrateAndBarrel from './registries/crate-and-barrel.png';
@@ -67,6 +68,7 @@ export const GroomsmenPhotos: { [key: string]: string } = {
     Andrew: Andrew,
     Andrew_alt: Andrew_alt,
     Joe: Joe,
+    Joe_alt: Joe_alt,
     Drew: Drew,
     Luke: Luke,
     Luke_alt: Luke_alt
