@@ -13,7 +13,7 @@
 
 #### ToDos:
 * Add the videos of moms bridal dance
-* Countdown
+* ~~Countdown~~
 * ~~Add funny photo hovers~~
 * ~~Double check responsiveness~~
 * Add more photos for wedding party
