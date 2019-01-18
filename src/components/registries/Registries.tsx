@@ -4,6 +4,7 @@ import injectSheet, { StyledComponentProps } from 'react-jss';
 import { animated, ParallaxLayer, Trail } from 'react-spring';
 
 import { Photos } from '../../assets/photos/Photos';
+import { ITrail } from '../../shared/ITrail';
 import { RegistriesClasses, RegistriesStyles } from './RegistriesStyles';
 
 interface IRegistriesProps {
@@ -64,7 +65,7 @@ export class RegistriesComponent extends React.Component<IRegistriesProps, IRegi
                         from={{ opacity: 0, x: -100 }}
                         to={{ opacity: this.state.toggle ? 1 : 0, x: this.state.toggle ? 0 : 100 }}
                         keys={registries.map((b: IRegistry, key: number) => key)}>
-                        {registries.map((registry: IRegistry, key: number) => ({ x, opacity }: any): JSX.Element => (
+                        {registries.map((registry: IRegistry, key: number) => ({ x, opacity }: ITrail): JSX.Element => (
                             <animated.div className={classes.Registry} style={{
                                 opacity,
                                 transform: x.interpolate((transition: number) =>

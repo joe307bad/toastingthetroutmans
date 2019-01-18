@@ -57,7 +57,7 @@ export class Person extends React.Component<IPersonProps, IPersonState> {
                     onMouseEnter={this.toggleAltPhoto.bind(this, true)}
                     onMouseLeave={this.toggleAltPhoto.bind(this, false)}>
 
-                    {this.props.person.altPhoto
+                    {this.props.person.altPhoto != null
                         && <img
                             className={cx('altPhoto', {
                                 ['rollIn animated']: this.state.entering,
@@ -69,7 +69,7 @@ export class Person extends React.Component<IPersonProps, IPersonState> {
                     <img src={this.props.person.photo} alt='Placeholder' />
                 </div>
                 <h2>{this.props.person.name}</h2>
-                {this.props.person.role && <p>{this.props.person.role}</p>}
+                {this.props.person.role != null && <p>{this.props.person.role}</p>}
                 <p>{this.props.person.description}</p>
             </div>
         );

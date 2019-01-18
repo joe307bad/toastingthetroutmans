@@ -18,6 +18,32 @@ interface ICountdownState {
     items: JSX.Element[];
 }
 
+const CountdownContent: React.CSSProperties = {
+    overflow: 'hidden',
+    backgroundColor: 'white',
+    position: 'fixed',
+    zIndex: 1,
+    left: '50%',
+    boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
+    textAlign: 'center',
+    fontFamily: 'Imperator',
+    color: primary,
+    fontSize: 25,
+    border: `5px solid ${primary}`
+};
+
+const CountdownText: React.CSSProperties = {
+    marginTop: 0,
+    marginBottom: 0,
+    whiteSpace: 'nowrap',
+    fontWeight: 'bold'
+};
+
+const UntilIDo: React.CSSProperties = {
+    fontSize: 17,
+    fontWeight: 'normal'
+};
+
 /**
  * Countdown Component
  */
@@ -55,7 +81,7 @@ export class CountdownComponent extends React.Component<ICountownProps, ICountdo
     }
 
     public toggleCountdown = (style: React.CSSProperties): void => {
-        if (this.state.items.length) {
+        if (this.state.items.length !== 0) {
             this.setState({
                 items: []
             });
@@ -88,7 +114,7 @@ export class CountdownComponent extends React.Component<ICountownProps, ICountdo
                     onMouseEnter={this.countdownButtonHover}
                     className={cx(`${classes.CountdownButton} fas fa-hourglass-half`, {
                         ['animated tada']: this.state.countdownButtonHovered,
-                        ['shadowed base']: !this.state.items.length,
+                        ['shadowed base']: this.state.items.length === 0,
                         ['raised']: this.state.items.length
                     })} />
                 <i
@@ -107,7 +133,7 @@ export class CountdownComponent extends React.Component<ICountownProps, ICountdo
                         from={{ height: 0, width: 0, marginLeft: 0, borderRadius: '120%' }}
                         enter={{ height: 160, width: 270, marginLeft: -135, bottom: 10, borderRadius: '0%' }}
                         leave={{ height: 25, width: 25, marginLeft: -17.5, bottom: 12, borderRadius: '50%' }}>
-                        {this.state.items.length ? this.state.items.map((item: JSX.Element) =>
+                        {this.state.items.length !== 0 ? this.state.items.map((item: JSX.Element) =>
                             (styles: React.CSSProperties): JSX.Element => (
                                 <animated.div style={{ ...CountdownContent, ...styles }}>
                                     {item}
@@ -118,32 +144,6 @@ export class CountdownComponent extends React.Component<ICountownProps, ICountdo
             </div>);
     }
 }
-
-const CountdownContent: React.CSSProperties = {
-    overflow: 'hidden',
-    backgroundColor: 'white',
-    position: 'fixed',
-    zIndex: 1,
-    left: '50%',
-    boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
-    textAlign: 'center',
-    fontFamily: 'Imperator',
-    color: primary,
-    fontSize: 25,
-    border: `5px solid ${primary}`
-};
-
-const CountdownText: React.CSSProperties = {
-    marginTop: 0,
-    marginBottom: 0,
-    whiteSpace: 'nowrap',
-    fontWeight: 'bold'
-};
-
-const UntilIDo: React.CSSProperties = {
-    fontSize: 17,
-    fontWeight: 'normal'
-};
 
 export const Countdown: React.ComponentType<Pick<{}, never> & StyledComponentProps>
     = injectSheet(CountdownStyles)(CountdownComponent);

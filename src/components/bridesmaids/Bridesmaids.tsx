@@ -3,6 +3,7 @@ import * as React from 'react';
 import injectSheet, { StyledComponentProps } from 'react-jss';
 import { animated, ParallaxLayer, Trail } from 'react-spring';
 import { BridesmaidsPhotos, Photos } from '../../assets/photos/Photos';
+import { ITrail } from '../../shared/ITrail';
 import { IPerson, Person } from '../../shared/Person';
 import { BridesmaidsClasses, BridesmaidsStyles } from './BridesmaidsStyles';
 
@@ -14,7 +15,6 @@ interface IBridesmaidsProps {
 interface IBridesmaidsState {
     toggle: boolean;
 }
-
 const bridesmaids: IPerson[] = [
     {
         photo: BridesmaidsPhotos.Courtney,
@@ -95,7 +95,7 @@ export class BridesmaidsComponent extends React.Component<IBridesmaidsProps, IBr
                                 from={{ opacity: 0, x: -100 }}
                                 to={{ opacity: this.state.toggle ? 1 : 0, x: this.state.toggle ? 0 : 100 }}
                                 keys={bridesmaids.map((b: IPerson, key: number) => key)}>
-                                {bridesmaids.map((person: IPerson, key: number) => ({ x, opacity }: any): JSX.Element => (
+                                {bridesmaids.map((person: IPerson, key: number) => ({ x, opacity }: ITrail): JSX.Element => (
                                     <animated.div className={classes.Person} style={{
                                         opacity,
                                         transform: x.interpolate((transition: number) =>

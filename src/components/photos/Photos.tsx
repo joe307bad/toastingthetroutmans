@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-// tslint:disable-next-line:no-import-side-effect
-// @ts-ignore
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 
@@ -25,7 +23,7 @@ interface IPhotoProps {
 /**
  * Photos Component
  */
-export class PhotosComponent extends React.Component<IPhotoProps, {}> {
+export class PhotosComponent extends React.Component<IPhotoProps> {
 
     public render(): JSX.Element {
         const classes: Record<PhotosClasses, string> = this.props.classes;

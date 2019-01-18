@@ -1,6 +1,6 @@
 {
     "extends": [
-        "tslint:recommended", 
+        "tslint:recommended",
         "tslint-microsoft-contrib",
         "tslint-react"
     ],
@@ -13,7 +13,10 @@
             true,
             "allow-pascal-case"
         ],
-        "no-implicit-dependencies": [true, "dev"],
+        "no-implicit-dependencies": [
+            true,
+            "dev"
+        ],
         "no-relative-imports": false,
         "linebreak-style": false,
         "no-unsafe-any": false,
@@ -21,6 +24,12 @@
         "jsx-no-multiline-js": false,
         "jsx-alignment": false,
         "react-iframe-missing-sandbox": false,
-        "react-this-binding-issue": false
+        "react-this-binding-issue": false,
+        "no-import-side-effect": false,
+        "no-submodule-imports": false,
+        "strict-boolean-expressions": [
+            true,
+            "allow-null-union"
+        ]
     }
 }
