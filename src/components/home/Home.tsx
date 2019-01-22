@@ -35,10 +35,10 @@ export class HomeComponent extends React.Component<IHomeProps> {
                 <ParallaxLayer offset={0} speed={0}>
                     <div className={classes.TaglineContainer} >
                         <img
-                            alt='Sam and Shaun'
+                            alt='Sam and Shawn'
                             width={400}
-                            className={classes.SamAndShaun}
-                            src={Photos.samAndShaun} />
+                            className={classes.SamAndShawn}
+                            src={Photos.samAndShawn} />
                         <p className={classes.Tagline}>
                             Saturday, October 26th 2019<br />
                             St. Margaret Mary Alacoque Church<br />
@@ -66,15 +66,15 @@ export class HomeComponent extends React.Component<IHomeProps> {
                 </ParallaxLayer>
                 <ParallaxLayer offset={0.65} speed={0.5}>
                     <img
-                        alt='Sam and Shaun'
-                        src={Photos.SamAndShaun_4_Landscape}
-                        className={classes.SamAndShaun_4_Landscape} />
+                        alt='Sam and Shawn'
+                        src={Photos.SamAndShawn_4_Landscape}
+                        className={classes.SamAndShawn_4_Landscape} />
                 </ParallaxLayer>
                 <ParallaxLayer offset={0.5} speed={0.3}>
                     <img
-                        alt='Sam and Shaun'
-                        src={Photos.SamAndShaun_3_Landscape}
-                        className={classes.SamAndShaun_3_Landscape} />
+                        alt='Sam and Shawn'
+                        src={Photos.SamAndShawn_3_Landscape}
+                        className={classes.SamAndShawn_3_Landscape} />
                 </ParallaxLayer>
             </div>
         );

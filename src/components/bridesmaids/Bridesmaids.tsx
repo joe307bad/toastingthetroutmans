@@ -17,7 +17,15 @@ interface IBridesmaidsState {
 }
 const bridesmaids: IPerson[] = [
     {
+        photo: BridesmaidsPhotos.Jamie,
+        altPhoto: BridesmaidsPhotos.Jamie_alt,
+        name: 'Jamie Badaczewski',
+        role: `Maid of Honor`,
+        description: `Sister of the Bride`
+    },
+    {
         photo: BridesmaidsPhotos.Courtney,
+        altPhoto: BridesmaidsPhotos.Courtney_alt,
         name: 'Courtney Cerjanic',
         role: `Matron of Honor`,
         description: `Cousin of the Bride`
@@ -25,12 +33,19 @@ const bridesmaids: IPerson[] = [
     {
         photo: BridesmaidsPhotos.Katie,
         altPhoto: BridesmaidsPhotos.Katie_alt,
-        name: 'Katie Krouse',
+        name: 'Katie Ketterer',
         description: `Friend of the Bride`
     },
     {
         photo: BridesmaidsPhotos.Olivia,
+        altPhoto: BridesmaidsPhotos.Olivia_alt,
         name: 'Olivia Lampenfeld',
+        description: `Friend of the Bride`
+    },
+    {
+        photo: BridesmaidsPhotos.Meghan,
+        altPhoto: BridesmaidsPhotos.Meghan_alt,
+        name: 'Meghan Dougherty',
         description: `Friend of the Bride`
     },
     {
@@ -46,6 +61,7 @@ const bridesmaids: IPerson[] = [
     },
     {
         photo: BridesmaidsPhotos.Anniston,
+        altPhoto: BridesmaidsPhotos.Anniston_alt,
         name: 'Anniston Cerjanic',
         role: `Flower Girl`,
         description: `Neice of the Bride`

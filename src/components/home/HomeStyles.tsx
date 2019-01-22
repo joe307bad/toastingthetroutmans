@@ -4,12 +4,12 @@ import { primary } from '../../theme';
 import { Device, MediaQuery } from '../../theme/Breakpoints';
 
 export type HomeClasses =
-    // 'SamAndShaun_1_Landscape' |
-    'SamAndShaun_3_Landscape' |
-    'SamAndShaun' |
+    // 'SamAndShawn_1_Landscape' |
+    'SamAndShawn_3_Landscape' |
+    'SamAndShawn' |
     'Tagline' |
     'TaglineContainer' |
-    'SamAndShaun_4_Landscape' |
+    'SamAndShawn_4_Landscape' |
     'Flowers' |
     'Flowers1' |
     'CurlyUnderline' |
@@ -32,7 +32,7 @@ export const HomeStyles: Styles<HomeClasses> = {
             paddingTop: 100
         }
     },
-    SamAndShaun: {
+    SamAndShawn: {
         alignSelf: 'center',
         width: '80%',
         paddingTop: 70,
@@ -74,7 +74,7 @@ export const HomeStyles: Styles<HomeClasses> = {
             width: 100
         }
     },
-    SamAndShaun_3_Landscape: {
+    SamAndShawn_3_Landscape: {
         width: 175,
         margin: '0 auto',
         transform: 'rotate(-10deg)',
@@ -107,7 +107,7 @@ export const HomeStyles: Styles<HomeClasses> = {
             width: 675
         }
     },
-    SamAndShaun_4_Landscape: {
+    SamAndShawn_4_Landscape: {
         width: 300,
         margin: '0 auto',
         transform: 'rotate(10deg)',

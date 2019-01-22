@@ -1,7 +1,7 @@
 import { Styles } from 'react-jss';
 
 import { primary } from '../../theme';
-import { MediaQuery } from '../../theme/Breakpoints';
+import { Device, MediaQuery } from '../../theme/Breakpoints';
 
 export type GroomsmenClasses =
     'GroomsmenContainer' |
@@ -52,9 +52,15 @@ export const GroomsmenStyles: Styles<GroomsmenClasses> = {
                 top: 0
             }
         },
+        [Device.landscape]: {
+            width: '100px !important'
+        },
         [MediaQuery.tablet]: {
             width: 250,
             height: 250
+        },
+        [MediaQuery.landscape]: {
+            width: 100
         }
     },
     GroomsmenContainer: {

@@ -3,7 +3,6 @@ import * as React from 'react';
 import injectSheet, { StyledComponentProps } from 'react-jss';
 import { animated, ParallaxLayer, Trail } from 'react-spring';
 import { GroomsmenPhotos, Photos } from '../../assets/photos/Photos';
-import { ITrail } from '../../shared/ITrail';
 import { IPerson, Person } from '../../shared/Person';
 import { GroomsmenClasses, GroomsmenStyles } from './GroomsmenStyles';
 
@@ -38,8 +37,9 @@ const groomsmen: IPerson[] = [
     },
     {
         photo: GroomsmenPhotos.Drew,
+        altPhoto: GroomsmenPhotos.Drew_alt,
         name: 'Andrew Cerjanic',
-        description: `Cousin of the Bride`
+        description: `Cousin-in-law of the Bride`
     },
     {
         photo: GroomsmenPhotos.Everett,

@@ -19,20 +19,19 @@ interface IRegistriesState {
 interface IRegistry {
     name: string;
     photo: string;
+    link: string;
 }
 
 const registries: IRegistry[] = [
     {
         name: 'Target',
-        photo: Photos.Target
+        photo: Photos.Target,
+        link: 'http://tgt.gifts/b0dfb418c77c41fcab196697bed6f048'
     },
     {
         name: 'Crate and Barrel',
-        photo: Photos.CrateAndBarrel
-    },
-    {
-        name: 'Zola',
-        photo: Photos.Zola
+        photo: Photos.CrateAndBarrel,
+        link: 'https://www.crateandbarrel.com/gift-registry/samantha-badaczewski-and-shawn-troutman/r5927666'
     }
 ];
 
@@ -57,26 +56,54 @@ export class RegistriesComponent extends React.Component<IRegistriesProps, IRegi
         const classes: Record<RegistriesClasses, string> = this.props.classes;
 
         return (
-            <ParallaxLayer className={classes.RegistriesContainer} offset={5} speed={1}>
-                <div className={classes.Registries} onScroll={this.stopScrollPropagation}>
-                    <h1>Registries</h1>
-                    <Trail
-                        native={true}
-                        from={{ opacity: 0, x: -100 }}
-                        to={{ opacity: this.state.toggle ? 1 : 0, x: this.state.toggle ? 0 : 100 }}
-                        keys={registries.map((b: IRegistry, key: number) => key)}>
-                        {registries.map((registry: IRegistry, key: number) => ({ x, opacity }: any): JSX.Element => (
-                            <animated.div className={classes.Registry} style={{
-                                opacity,
-                                transform: x.interpolate((transition: number) =>
-                                    `translate3d(0,${transition}%,0)`)
-                            }} >
-                                <img src={registry.photo} alt={registry.name} />
-                            </animated.div>
-                        ))}
-                    </Trail>
-                </div>
-            </ParallaxLayer>
+            <div>
+                <ParallaxLayer offset={5} speed={0.5}>
+                    <img
+                        alt='Flowers'
+                        src={Photos.FlowerPic9}
+                        className={classes.FlowerPic9} />
+                </ParallaxLayer>
+                <ParallaxLayer offset={5} speed={0.25}>
+                    <img
+                        alt='Sam and Shawn'
+                        src={Photos.SamAndShawn_2_Portrait}
+                        className={classes.SamAndShawn_2_Portrait} />
+                </ParallaxLayer>
+                <ParallaxLayer offset={5} speed={0.25}>
+                    <img
+                        alt='Flowers'
+                        src={Photos.FlowerPic10}
+                        className={classes.FlowerPic10} />
+                </ParallaxLayer>
+                <ParallaxLayer offset={5} speed={0.5}>
+                    <img
+                        alt='Sam and Shawn'
+                        src={Photos.SamAndShawn_1_Landscape}
+                        className={classes.SamAndShawn_1_Landscape} />
+                </ParallaxLayer>
+                <ParallaxLayer className={classes.RegistriesContainer} offset={5} speed={1}>
+                    <div className={classes.Registries} onScroll={this.stopScrollPropagation}>
+                        <h1>Registries</h1>
+                        <Trail
+                            native={true}
+                            from={{ opacity: 0, x: -100 }}
+                            to={{ opacity: this.state.toggle ? 1 : 0, x: this.state.toggle ? 0 : 100 }}
+                            keys={registries.map((b: IRegistry, key: number) => key)}>
+                            {registries.map((registry: IRegistry, key: number) => ({ x, opacity }: any): JSX.Element => (
+                                <animated.div className={classes.Registry} style={{
+                                    opacity,
+                                    transform: x.interpolate((transition: number) =>
+                                        `translate3d(0,${transition}%,0)`)
+                                }} >
+                                    <a href={registry.link} target='_blank' rel='noopener noreferrer'>
+                                        <img src={registry.photo} alt={registry.name} />
+                                    </a>
+                                </animated.div>
+                            ))}
+                        </Trail>
+                    </div>
+                </ParallaxLayer>
+            </div>
         );
     }
 

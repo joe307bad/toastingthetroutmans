@@ -4,7 +4,11 @@ import { MediaQuery, primary } from '../../theme';
 export type RegistriesClasses =
     'RegistriesContainer' |
     'Registries' |
-    'Registry';
+    'Registry' |
+    'SamAndShawn_2_Portrait' |
+    'SamAndShawn_1_Landscape' |
+    'FlowerPic10' |
+    'FlowerPic9';
 
 /**
  * The Styles for the Registries Component
@@ -26,7 +30,7 @@ export const RegistriesStyles: Styles<RegistriesClasses> = {
         width: '100%'
     },
     Registry: {
-        width: 'calc(100% - 20px)',
+        // width: 'calc(100% - 20px)',
         textAlign: 'center',
         padding: 10,
         margin: '0 auto',
@@ -47,6 +51,55 @@ export const RegistriesStyles: Styles<RegistriesClasses> = {
             width: 200,
             boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
             cursor: 'pointer'
+        }
+    },
+    SamAndShawn_2_Portrait: {
+        display: 'none',
+        width: 300,
+        position: 'absolute',
+        left: 0,
+        bottom: -100,
+        transform: 'rotate(-15deg)',
+        backgroundColor: 'white',
+        boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
+        padding: 10,
+        [MediaQuery.tablet]: {
+            display: 'block'
+        }
+    },
+    FlowerPic9: {
+        display: 'none',
+        width: 250,
+        bottom: 400,
+        position: 'absolute',
+        left: 0,
+        transform: 'rotate(-15deg)',
+        [MediaQuery.tablet]: {
+            display: 'block'
+        }
+    },
+    SamAndShawn_1_Landscape: {
+        display: 'none',
+        width: 400,
+        position: 'absolute',
+        right: -50,
+        top: 150,
+        transform: 'rotate(20deg)',
+        backgroundColor: 'white',
+        boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
+        padding: 10,
+        [MediaQuery.tablet]: {
+            display: 'block'
+        }
+    },
+    FlowerPic10: {
+        display: 'none',
+        width: 250,
+        position: 'absolute',
+        right: -20,
+        top: 350,
+        [MediaQuery.tablet]: {
+            display: 'block'
         }
     }
 };

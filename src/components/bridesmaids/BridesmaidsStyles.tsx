@@ -1,7 +1,7 @@
 import { Styles } from 'react-jss';
 
 import { primary } from '../../theme';
-import { MediaQuery } from '../../theme/Breakpoints';
+import { Device, MediaQuery } from '../../theme/Breakpoints';
 
 export type BridesmaidsClasses =
     'BridesmaidsContainer' |
@@ -50,6 +50,9 @@ export const BridesmaidsStyles: Styles<BridesmaidsClasses> = {
                 position: 'absolute',
                 top: 0
             }
+        },
+        [Device.landscape]: {
+            width: '100px !important'
         },
         [MediaQuery.tablet]: {
             width: 250
