@@ -36,7 +36,7 @@ export const RegistriesStyles: Styles<RegistriesClasses> = {
         margin: '0 auto',
         display: 'inline-block',
         [MediaQuery.tablet]: {
-            width: 300
+            width: 200
         },
         '& h2': {
             fontFamily: 'Imperator',

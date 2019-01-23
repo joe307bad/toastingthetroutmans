@@ -1,4 +1,5 @@
 import * as Amanda from './bridesmaids/amanda.png';
+import * as Amanda_alt from './bridesmaids/amanda_alt.png';
 import * as Anniston from './bridesmaids/anniston.png';
 import * as Anniston_alt from './bridesmaids/anniston_alt.png';
 import * as Courtney from './bridesmaids/courtney.png';
@@ -40,9 +41,9 @@ import * as Joe from './groomsmen/joe.png';
 import * as Joe_alt from './groomsmen/joe_alt.png';
 import * as Luke from './groomsmen/luke.png';
 import * as Luke_alt from './groomsmen/luke_alt.png';
+import * as Amazon from './registries/amazon.png';
 import * as CrateAndBarrel from './registries/crate-and-barrel.png';
 import * as Target from './registries/target.png';
-import * as Zola from './registries/zola.png';
 import * as SamAndShawn from './SamAndShawn.png';
 import * as SamAndShawn_1_Landscape from './SamAndShawn_1_Landscape.jpg';
 import * as SamAndShawn_2_Portrait from './SamAndShawn_2_Portrait.jpg';
@@ -78,7 +79,7 @@ export const Photos: { [key: string]: string } = {
     Church_2: Church_2,
     CrateAndBarrel: CrateAndBarrel,
     Target: Target,
-    Zola: Zola
+    Amazon: Amazon
 };
 
 export const GroomsmenPhotos: { [key: string]: string } = {
@@ -97,6 +98,7 @@ export const BridesmaidsPhotos: { [key: string]: string } = {
     Anniston: Anniston,
     Anniston_alt: Anniston_alt,
     Amanda: Amanda,
+    Amanda_alt: Amanda_alt,
     Courtney: Courtney,
     Courtney_alt: Courtney_alt,
     Katie: Katie,

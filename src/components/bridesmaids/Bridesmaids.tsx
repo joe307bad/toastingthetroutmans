@@ -56,6 +56,7 @@ const bridesmaids: IPerson[] = [
     },
     {
         photo: BridesmaidsPhotos.Amanda,
+        altPhoto: BridesmaidsPhotos.Amanda_alt,
         name: 'Amanda Dix',
         description: `Friend of the Bride & Groom`
     },

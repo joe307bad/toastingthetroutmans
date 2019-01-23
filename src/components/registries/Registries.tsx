@@ -4,7 +4,6 @@ import injectSheet, { StyledComponentProps } from 'react-jss';
 import { animated, ParallaxLayer, Trail } from 'react-spring';
 
 import { Photos } from '../../assets/photos/Photos';
-import { ITrail } from '../../shared/ITrail';
 import { RegistriesClasses, RegistriesStyles } from './RegistriesStyles';
 
 interface IRegistriesProps {
@@ -26,12 +25,17 @@ const registries: IRegistry[] = [
     {
         name: 'Target',
         photo: Photos.Target,
-        link: 'http://tgt.gifts/b0dfb418c77c41fcab196697bed6f048'
+        link: 'http://tgt.gifts/ToastingtotheTroutmans'
     },
     {
         name: 'Crate and Barrel',
         photo: Photos.CrateAndBarrel,
         link: 'https://www.crateandbarrel.com/gift-registry/samantha-badaczewski-and-shawn-troutman/r5927666'
+    },
+    {
+        name: 'Amazon',
+        photo: Photos.Amazon,
+        link: 'https://www.amazon.com/wedding/share/toastingthetroutmans '
     }
 ];
 
