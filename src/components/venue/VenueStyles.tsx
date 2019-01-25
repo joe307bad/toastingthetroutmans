@@ -1,5 +1,5 @@
 import { Styles } from 'react-jss';
-import { primary } from '../../theme';
+import { primary, MediaQuery } from '../../theme';
 import { IVenueProps, numberOfTabs } from './Venue';
 
 export type VenueClasses =
@@ -12,7 +12,9 @@ export type VenueClasses =
     'VenueTab' |
     'LastVenueTab' |
     'ScheduleTab' |
-    'HotelTab';
+    'HotelTab' |
+    'ChurchTab' |
+    'ReceptionTab';
 
 /**
  * The Styles for the Venue Component
@@ -48,21 +50,26 @@ export const VenueStyles: Styles<VenueClasses> = {
             borderBottom: '0px !important'
         },
         '& .tab.activeTab p': {
-            marginBottom: 5
+            marginBottom: 2
         },
         '& .tab p': {
+            fontSize: 15,
             backgroundColor: 'white',
-            padding: 20,
+            padding: '15px 0px 7px 0px',
             height: 20,
-            margin: 0
+            margin: 0,
+            [MediaQuery.tablet]: {
+                fontSize: 20,
+                padding: 20,
+            }
         },
         '& .tabContent': {
             float: 'left',
-            width: 'calc(100% - 10px)',
+            width: 'calc(100% - 4px)',
             display: 'none',
             backgroundColor: 'white',
             marginTop: -5,
-            borderWidth: '0px 5px 5px 5px',
+            borderWidth: '0px 2px 2px 2px',
             borderStyle: 'solid',
             borderColor: primary,
             minHeight: 530,
@@ -73,6 +80,38 @@ export const VenueStyles: Styles<VenueClasses> = {
             paddingBottom: 6,
             cursor: 'pointer',
             borderBottom: `2px dotted ${primary}`
+        },
+        '& h2': {
+            fontFamily: 'Imperator',
+            color: primary,
+            fontSize: 30
+        },
+        '& .venueLink': {
+            color: primary,
+            fontFamily: 'Imperator',
+            fontSize: 20,
+            textDecoration: 'none',
+            lineHeight: '39px',
+            marginTop: 10,
+            width: 250,
+            margin: '10px auto',
+            '& span': {
+                borderBottom: `2px dotted ${primary}`
+            }
+        },
+        '& .venueButton': {
+            display: 'block',
+            marginTop: 20,
+            marginBottom: 10,
+            border: `2px solid ${primary}`,
+            padding: 20,
+            color: primary,
+            fontFamily: 'Imperator',
+            fontSize: 20,
+            textDecoration: 'none',
+            width: 200,
+            margin: '0 auto 25px',
+            height: 20
         }
     },
     VenueTabs: {
@@ -83,21 +122,22 @@ export const VenueStyles: Styles<VenueClasses> = {
     },
     // @ts-ignore
     VenueTab: (props: IVenueProps): CSSProperties => ({
-        width: `calc(${100 / props.numberOfTabs}% - 6.25px)`,
+        width: `calc(${100 / props.numberOfTabs}% - 2.5px)`,
         display: 'inline-block',
         fontFamily: 'Imperator',
         fontSize: 20,
         textAlign: 'center',
         cursor: 'pointer',
-        borderWidth: '5px 0px 5px 5px',
+        borderWidth: '2px 0px 2px 2px',
         borderColor: primary,
         borderStyle: 'solid',
         float: 'left'
     }),
     LastVenueTab: {
-        borderRight: `5px solid ${primary} !important`
+        borderRight: `2px solid ${primary} !important`
     },
     ScheduleTab: {
+        padding: 20,
         '& ul': {
             margin: 0
         },
@@ -114,43 +154,13 @@ export const VenueStyles: Styles<VenueClasses> = {
         '& div': {
             paddingTop: 10,
             paddingBottom: 20,
-            paddingLeft: 20
+            paddingLeft: 20,
+            lineHeight: '26px'
         }
     },
     HotelTab: {
         textAlign: 'center',
         width: '100%',
-        '& h2': {
-            fontFamily: 'Imperator',
-            color: primary,
-            fontSize: 30
-        },
-        '& .bookNowButton': {
-            display: 'block',
-            marginTop: 20,
-            border: `2px solid ${primary}`,
-            padding: 20,
-            color: primary,
-            fontFamily: 'Imperator',
-            fontSize: 20,
-            textDecoration: 'none',
-            width: 180,
-            margin: '0 auto 25px',
-            height: 20
-        },
-        '& .hotelLink': {
-            color: primary,
-            fontFamily: 'Imperator',
-            fontSize: 20,
-            textDecoration: 'none',
-            lineHeight: '39px',
-            marginTop: 10,
-            width: 226,
-            margin: '10px auto',
-            '& span': {
-                borderBottom: `2px dotted ${primary}`
-            }
-        },
         '& .hotelWarning': {
             color: primary,
             margin: '0 auto',
@@ -160,6 +170,14 @@ export const VenueStyles: Styles<VenueClasses> = {
                 paddingRight: 10
             }
         }
+    },
+    ChurchTab: {
+        textAlign: 'center',
+        width: '100%'
+    },
+    ReceptionTab: {
+        textAlign: 'center',
+        width: '100%'
     },
     GoogleMap: {
         maxWidth: 620,

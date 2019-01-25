@@ -27,7 +27,7 @@ export const NavItems: INavItem[] = [
         position: 3
     },
     {
-        title: 'Venue',
+        title: 'Details',
         position: 4
     },
     {

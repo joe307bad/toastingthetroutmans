@@ -15,13 +15,13 @@ export const HotelTab: THotelTab = (props: ITabProps): JSX.Element => {
     return (
         <div className={props.classes.HotelTab}>
             <h2>The Warehouse Hotel</h2>
-            <a className='bookNowButton hvr-grow-shadow'
+            <a className='venueButton hvr-grow-shadow'
                 target='_blank'
                 rel='noopener noreferrer'
                 href='https://book.b4checkin.com/chameleon/warehousehotel?groupCode=7489&ArrivalDate=10/26/2019&DepartureDate=10/27/2019'>
                 Book Your Room <i className='fas fa-hotel' />
             </a>
-            <a className='hotelLink hvr-icon-drop'
+            <a className='venueLink hvr-icon-drop'
                 target='_blank'
                 rel='noopener noreferrer'
                 href={hotelMap} >
@@ -29,7 +29,7 @@ export const HotelTab: THotelTab = (props: ITabProps): JSX.Element => {
                 <span>75 Champ Boulevard<br />Manheim, PA 17545</span>
             </a>
             <br />
-            <a className='hotelLink hvr-icon-grow'
+            <a className='venueLink hvr-icon-grow'
                 target='_blank'
                 rel='noopener noreferrer'
                 href='https://www.warehousehotel.com/get-directions/' >

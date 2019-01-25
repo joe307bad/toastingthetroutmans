@@ -8,6 +8,8 @@ import { Photos } from '../../assets/photos/Photos';
 import { ScheduleTab } from './tabs/ScheduleTab';
 import { VenueClasses, VenueStyles } from './VenueStyles';
 import { HotelTab } from './tabs/HotelTab';
+import { ChurchTab } from './tabs/ChurchTab';
+import { ReceptionTab } from './tabs/ReceptionTab';
 
 export interface IVenueProps {
     classes: Record<VenueClasses, string>;
@@ -54,7 +56,7 @@ export class VenueComponent extends React.Component<IVenueProps, IVenueState> {
             .map((tabName: string, key: number) => ({ name: tabName, key: key }))
     };
 
-    public state: IVenueState = { activeTab: Tab.Hotel };
+    public state: IVenueState = { activeTab: Tab.Schedule };
 
     public switchTab = (tab: Tab): void => {
         this.setState({
@@ -123,6 +125,10 @@ export class VenueComponent extends React.Component<IVenueProps, IVenueState> {
                                                 return <ScheduleTab {...props} />;
                                             case Tab.Hotel:
                                                 return <HotelTab {...props} />;
+                                            case Tab.Church:
+                                                return <ChurchTab {...props} />;
+                                            case Tab.Reception:
+                                                return <ReceptionTab {...props} />;
                                             default:
                                                 return null;
                                         }
