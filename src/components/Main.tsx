@@ -6,6 +6,7 @@ import { Parallax } from 'react-spring';
 import { Base, MainClasses, primary } from '../theme';
 import { Bridesmaids } from './bridesmaids/Bridesmaids';
 import { Countdown } from './countdown/Countdown';
+import { Credits } from './credits/Credits';
 import { Groomsmen } from './groomsmen/Groomsmen';
 import { Home } from './home/Home';
 import { TParallaxElement } from './home/TParallaxElement';
@@ -25,6 +26,7 @@ interface IMainState {
     activePage: number;
     countdownButtonHovered: boolean;
     countdownExpanded: boolean;
+    creditsOpen: boolean;
 }
 
 export const numberOfPages: number = NavItems.length;
@@ -44,7 +46,8 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
         menuOpen: false,
         activePage: 0,
         countdownButtonHovered: false,
-        countdownExpanded: false
+        countdownExpanded: false,
+        creditsOpen: false
     };
 
     public onScroll = (): void => {
@@ -55,6 +58,13 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
             currentPageMarkerPosition: `${(position * (this.navConstant * 100))}%`,
             activePage: this.currentPage(position)
         });
+
+        // shut the credits tray if its above the regitries page
+        if (this.state.activePage <= 4.7 && this.state.creditsOpen) {
+            this.setState({
+                creditsOpen: false
+            });
+        }
     }
 
     public currentPage = (position: number): number =>
@@ -78,6 +88,12 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
         });
     }
 
+    public toggleCredits = (): void => {
+        this.setState((state: IMainState) => ({
+            creditsOpen: !state.creditsOpen
+        }));
+    }
+
     public render(): JSX.Element {
         const classes: Record<MainClasses, string> = this.props.classes;
 
@@ -87,12 +103,15 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                     {...{
                         currentPageMarkerPosition: this.state.currentPageMarkerPosition,
                         scrollTo: this.scrollTo,
-                        toggleMenu: this.toggleMenu
+                        toggleMenu: this.toggleMenu,
+                        creditsOpen: this.state.creditsOpen
                     }}
                 />
                 <Parallax
                     {...{
-                        className: classes.main,
+                        className: cx(classes.main, {
+                            [classes.creditsOpen]: this.state.creditsOpen
+                        }),
                         ref: this.bindRef,
                         pages: numberOfPages
                     }}>
@@ -111,11 +130,13 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                         }} />
                         <Venue />
                         <Registries {...{
+                            creditsOpen: this.state.creditsOpen && this.state.activePage >= 4.7,
+                            toggleCredits: this.toggleCredits,
                             active: this.state.activePage >= 4.7
                         }} />
                     </div>
                 </Parallax>
-                <Countdown />
+                <Countdown {...{ disableCountdownButton: this.state.activePage >= 4.7 }} />
             </div>);
     }
 }

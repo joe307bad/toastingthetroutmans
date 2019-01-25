@@ -22,7 +22,8 @@ export type MainClasses =
     'currentPageMarker' |
     'currentPageMarkerAccent' |
     'navButton' |
-    'CountdownButton';
+    'CountdownButton' |
+    'creditsOpen';
 
 /**
  * Base theme styles
@@ -35,10 +36,12 @@ export const Base: Styles<MainClasses> = {
         height: '100%',
         top: 0,
         left: 0,
-        zIndex: 1
+        zIndex: 1,
+        transition: '.5s all',
+        boxShadow: '-3px 9px 5px -3px rgba(0,0,0,0.22)'
     },
     moveMainContainerForNavMenu: {
-        left: '200px !important'
+        left: '250px !important'
     },
     moveNavMenu: {
         left: '0px !important'
@@ -54,9 +57,9 @@ export const Base: Styles<MainClasses> = {
         backgroundColor: 'white',
         height: '100%',
         paddingBottom: 20,
-        left: -200,
+        left: -250,
         transition: 'left .5s ease',
-        WebkitBoxShadow: 'inset -33px 2px 40px -38px rgba(0,0,0,0.75)',
+        boxShadow: 'inset -33px 2px 40px -38px rgba(0,0,0,0.75)',
         [MediaQuery.desktop]: {
             padding: '20px 0 20px 0',
             backgroundImage: backgroundImage,
@@ -86,7 +89,7 @@ export const Base: Styles<MainClasses> = {
     navItem: {
         cursor: 'pointer',
         paddingBottom: 30,
-        width: 200,
+        width: 250,
         ['&:first-child']: {
             paddingTop: 50
         },
@@ -124,11 +127,16 @@ export const Base: Styles<MainClasses> = {
     navButton: {
         position: 'absolute',
         top: 11,
-        right: -78,
+        right: -67,
         WebkitTapHighlightColor: 'rgba(255, 255, 255, 0)',
         opacity: 0.5,
         [MediaQuery.desktop]: {
             display: 'none'
+        }
+    },
+    creditsOpen: {
+        [MediaQuery.tablet]: {
+            top: '-150px !important'
         }
     }
 };

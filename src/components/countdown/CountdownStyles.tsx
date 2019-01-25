@@ -1,13 +1,11 @@
 import { Styles } from 'react-jss';
-
-import { primary } from '../../theme';
-import { MediaQuery } from '../../theme/Breakpoints';
-import { Countdown } from './Countdown';
+import { MediaQuery } from '../../theme';
 
 export type CountdownClasses =
     'CountdownContainer' |
     'CountdownButton' |
-    'Countdown';
+    'Countdown' |
+    'DisableCountdown';
 
 /**
  * The Styles for the Groomsmen Component
@@ -39,6 +37,12 @@ export const CountdownStyles: Styles<CountdownClasses> = {
             opacity: 0.5
         }
     },
+    DisableCountdown: {
+        [MediaQuery.tablet]: {
+            bottom: '-40px !important',
+            opacity: 0
+        }
+    },
     Countdown: {
         top: '50%',
         position: 'absolute',
@@ -48,6 +52,5 @@ export const CountdownStyles: Styles<CountdownClasses> = {
         marginTop: -55,
         whiteSpace: 'nowrap',
         transition: '2s all'
-        // opacity: 0
     }
 };

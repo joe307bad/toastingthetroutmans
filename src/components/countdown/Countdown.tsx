@@ -11,6 +11,7 @@ import { CountdownClasses, CountdownStyles } from './CountdownStyles';
 
 interface ICountownProps {
     classes: Record<CountdownClasses, string>;
+    disableCountdownButton: boolean;
 }
 
 interface ICountdownState {
@@ -115,7 +116,8 @@ export class CountdownComponent extends React.Component<ICountownProps, ICountdo
                     className={cx(`${classes.CountdownButton} fas fa-hourglass-half`, {
                         ['animated tada']: this.state.countdownButtonHovered,
                         ['shadowed base']: this.state.items.length === 0,
-                        ['raised']: this.state.items.length
+                        ['raised']: this.state.items.length,
+                        [classes.DisableCountdown]: this.props.disableCountdownButton
                     })} />
                 <i
                     role='button'
@@ -123,7 +125,8 @@ export class CountdownComponent extends React.Component<ICountownProps, ICountdo
                     onMouseEnter={this.countdownButtonHover}
                     className={cx(`${classes.CountdownButton} fas fa-compress-arrows-alt`, {
                         ['shadowed']: this.state.items.length,
-                        ['raised']: this.state.items.length
+                        ['raised']: this.state.items.length,
+                        [classes.DisableCountdown]: this.props.disableCountdownButton
                     })} />
                 {
                     // @ts-ignore
@@ -135,7 +138,11 @@ export class CountdownComponent extends React.Component<ICountownProps, ICountdo
                         leave={{ height: 25, width: 25, marginLeft: -17.5, bottom: 12, borderRadius: '50%' }}>
                         {this.state.items.length !== 0 ? this.state.items.map((item: JSX.Element) =>
                             (styles: React.CSSProperties): JSX.Element => (
-                                <animated.div style={{ ...CountdownContent, ...styles }}>
+                                <animated.div
+                                    className={cx({
+                                        [classes.DisableCountdown]: this.props.disableCountdownButton
+                                    })}
+                                    style={{ ...CountdownContent, ...styles }}>
                                     {item}
                                 </animated.div>
                             )) : [<span key={1} />]}

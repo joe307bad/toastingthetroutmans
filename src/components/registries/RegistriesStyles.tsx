@@ -8,7 +8,8 @@ export type RegistriesClasses =
     'SamAndShawn_2_Portrait' |
     'SamAndShawn_1_Landscape' |
     'FlowerPic10' |
-    'FlowerPic9';
+    'FlowerPic9' |
+    'CreditsButton';
 
 /**
  * The Styles for the Registries Component
@@ -98,6 +99,33 @@ export const RegistriesStyles: Styles<RegistriesClasses> = {
         position: 'absolute',
         right: -20,
         top: 350,
+        [MediaQuery.tablet]: {
+            display: 'block'
+        }
+    },
+    CreditsButton: {
+        display: 'none',
+        cursor: 'pointer',
+        marginTop: 20,
+        marginBottom: 10,
+        border: `2px solid ${primary}`,
+        padding: 20,
+        color: primary,
+        fontFamily: 'Imperator',
+        fontSize: 20,
+        textDecoration: 'none',
+        width: 100,
+        margin: '0 auto 25px',
+        height: 20,
+        position: 'absolute',
+        bottom: -15,
+        marginLeft: -65,
+        left: '50%',
+        textAlign: 'center',
+        backgroundColor: 'white',
+        '& i': {
+            paddingLeft: 20
+        },
         [MediaQuery.tablet]: {
             display: 'block'
         }

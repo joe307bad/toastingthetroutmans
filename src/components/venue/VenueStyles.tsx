@@ -1,5 +1,5 @@
 import { Styles } from 'react-jss';
-import { primary, MediaQuery } from '../../theme';
+import { MediaQuery, primary } from '../../theme';
 import { IVenueProps, numberOfTabs } from './Venue';
 
 export type VenueClasses =
@@ -60,7 +60,7 @@ export const VenueStyles: Styles<VenueClasses> = {
             margin: 0,
             [MediaQuery.tablet]: {
                 fontSize: 20,
-                padding: 20,
+                padding: 20
             }
         },
         '& .tabContent': {
@@ -137,7 +137,8 @@ export const VenueStyles: Styles<VenueClasses> = {
         borderRight: `2px solid ${primary} !important`
     },
     ScheduleTab: {
-        padding: 20,
+        padding: '10px 20px 0px 20px',
+        marginBottom: -10,
         '& ul': {
             margin: 0
         },

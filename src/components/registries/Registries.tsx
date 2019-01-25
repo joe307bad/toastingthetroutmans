@@ -3,12 +3,15 @@ import * as React from 'react';
 import injectSheet, { StyledComponentProps } from 'react-jss';
 import { animated, ParallaxLayer, Trail } from 'react-spring';
 
+import * as cx from 'classnames';
 import { Photos } from '../../assets/photos/Photos';
 import { RegistriesClasses, RegistriesStyles } from './RegistriesStyles';
 
 interface IRegistriesProps {
     classes: Record<RegistriesClasses, string>;
     active: boolean;
+    creditsOpen: boolean;
+    toggleCredits(): void;
 }
 
 interface IRegistriesState {
@@ -49,6 +52,7 @@ export class RegistriesComponent extends React.Component<IRegistriesProps, IRegi
     public toggle = (): void => {
         this.setState((state: IRegistriesState) => ({ toggle: !state.toggle }));
     }
+
     public componentWillReceiveProps = (nextProps: IRegistriesProps): void => {
 
         this.setState({
@@ -105,6 +109,18 @@ export class RegistriesComponent extends React.Component<IRegistriesProps, IRegi
                                 </animated.div>
                             ))}
                         </Trail>
+                    </div>
+                    <div role='button'
+                        onClick={this.props.toggleCredits}
+                        className={cx(`${classes.CreditsButton}`, {
+                            ['hvr-icon-float']: !this.props.creditsOpen,
+                            ['hvr-icon-sink']: this.props.creditsOpen
+                        })}>
+                        Credits
+                        <i className={cx(`fas hvr-icon`, {
+                            ['fa-angle-up']: !this.props.creditsOpen,
+                            ['fa-angle-down']: this.props.creditsOpen
+                        })} />
                     </div>
                 </ParallaxLayer>
             </div>

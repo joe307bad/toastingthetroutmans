@@ -4,11 +4,13 @@ import * as hamburger from 'react-animated-burgers';
 import injectSheet from 'react-jss';
 
 import { Base, MainClasses } from '../../theme';
+import { Credits } from '../credits/Credits';
 import { INavItem, NavItems } from './NavItems';
 
 export interface INavProps {
     classes: Record<MainClasses, string>;
     currentPageMarkerPosition: string;
+    creditsOpen: boolean;
     scrollTo(event: React.SyntheticEvent<HTMLDivElement>): void;
     toggleMenu(newMenuState: boolean): void;
 }
@@ -28,32 +30,35 @@ export class NavComponent extends React.Component<INavProps, INavState> {
         const classes: Record<MainClasses, string> = this.props.classes;
 
         return (
-            <nav className={cx(this.props.classes.nav, {
-                [this.props.classes.moveNavMenu]: this.state.menuOpen
-            })}>
-                <div
-                    role='button'
-                    className={classes.navButton}
-                    onClick={this.toggleMenu}>
-                    <hamburger.HamburgerSpin isActive={this.state.menuOpen} />
-                </div>
-                <div className={classes.navItemsContainer}>
-                    {NavItems.map((navItem: INavItem, index: number) =>
-                        <div
-                            key={index}
-                            role='button'
-                            className={classes.navItem}
-                            data-position={navItem.position}
-                            onClick={this.props.scrollTo}>
-                            {navItem.title}
-                        </div>
-                    )}
-                </div>
-                <div style={{ width: '100%' }} />
-                <div className={this.props.classes.currentPageMarker}>
-                    <div className={this.props.classes.currentPageMarkerAccent} />
-                </div>
-            </nav>
+            <div>
+                <nav className={cx(this.props.classes.nav, {
+                    [this.props.classes.moveNavMenu]: this.state.menuOpen
+                })}>
+                    <div
+                        role='button'
+                        className={classes.navButton}
+                        onClick={this.toggleMenu}>
+                        <hamburger.HamburgerSpin isActive={this.state.menuOpen} />
+                    </div>
+                    <div className={classes.navItemsContainer}>
+                        {NavItems.map((navItem: INavItem, index: number) =>
+                            <div
+                                key={index}
+                                role='button'
+                                className={classes.navItem}
+                                data-position={navItem.position}
+                                onClick={this.props.scrollTo}>
+                                {navItem.title}
+                            </div>
+                        )}
+                        <Credits {...{creditsOpen: this.props.creditsOpen}} />
+                    </div>
+                    <div style={{ width: '100%' }} />
+                    <div className={this.props.classes.currentPageMarker}>
+                        <div className={this.props.classes.currentPageMarkerAccent} />
+                    </div>
+                </nav>
+            </div>
         );
     }
 

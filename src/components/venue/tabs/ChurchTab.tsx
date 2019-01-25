@@ -4,6 +4,7 @@ import { ITabProps, Tab } from '../Venue';
 
 type TChurchTab = (props: ITabProps) => JSX.Element;
 
+// tslint:disable-next-line:max-line-length
 const churchLink: string = 'https://www.google.com/maps/place/St+Margaret+Mary+Church+Rectory/@40.3203009,-76.8448431,15z/data=!4m5!3m4!1s0x0:0xe801f10564382fd!8m2!3d40.3203009!4d-76.8448431';
 
 /**
