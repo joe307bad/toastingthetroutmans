@@ -68,7 +68,7 @@ export const Base: Styles<MainClasses> = {
             left: '50%',
             marginLeft: -514,
             flexFlow: 'row wrap',
-            WebkitBoxShadow: 'none',
+            boxShadow: 'none',
             height: 'auto'
         }
     },

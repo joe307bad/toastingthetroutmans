@@ -5,11 +5,11 @@ import injectSheet, { StyledComponentProps } from 'react-jss';
 import * as cx from 'classnames';
 import { ParallaxLayer } from 'react-spring';
 import { Photos } from '../../assets/photos/Photos';
-import { ChurchTab } from './tabs/ChurchTab';
-import { HotelTab } from './tabs/HotelTab';
-import { ReceptionTab } from './tabs/ReceptionTab';
 import { ScheduleTab } from './tabs/ScheduleTab';
 import { VenueClasses, VenueStyles } from './VenueStyles';
+import { HotelTab } from './tabs/HotelTab';
+import { ChurchTab } from './tabs/ChurchTab';
+import { ReceptionTab } from './tabs/ReceptionTab';
 
 export interface IVenueProps {
     classes: Record<VenueClasses, string>;
@@ -39,9 +39,6 @@ export interface ITabProps {
     classes: Record<VenueClasses, string>;
     switchTab(tab: Tab): void;
 }
-
-// tslint:disable-next-line:max-line-length
-const googleMapUrl: string = 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12167.97416253859!2d-76.8448431!3d40.3203009!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe801f10564382fd!2sSt+Margaret+Mary+Church+Rectory!5e0!3m2!1sen!2sus!4v1547065084355';
 
 /**
  * Venue Component

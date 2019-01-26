@@ -49,6 +49,7 @@ export class CreditsComponent extends React.Component<ICreditsProps, {}> {
             <div className={cx(classes.CreditsContainer, {
                 ['creditsOpen']: this.props.creditsOpen
             })}>
+                <h2 className='specialThanks'>Special Thanks To:</h2>
                 <ul>
                     {credits.map((credit: ICredit, key: number) => (
                         <li key={key}>
@@ -56,7 +57,9 @@ export class CreditsComponent extends React.Component<ICreditsProps, {}> {
                             <p>{credit.responsiblity}</p>
                             <a target='_blank'
                                 rel='noopener noreferrer'
-                                href={credit.website}>{credit.website}</a>
+                                href={credit.website}>
+                                <i className={'fas fa-external-link-alt'} />
+                                </a>
                         </li>
                     ))}
                 </ul>

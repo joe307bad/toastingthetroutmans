@@ -99,7 +99,7 @@ export class CountdownComponent extends React.Component<ICountownProps, ICountdo
             <span>
                 <cd.default
                     className={props.style}
-                    endDate={new Date(2019, 9, 26, 13)}
+                    endDate={new Date(2019, 9, 26, 14)}
                     children={this.renderCountdown}
                 />
             </span>);
@@ -113,7 +113,7 @@ export class CountdownComponent extends React.Component<ICountownProps, ICountdo
 
                 <i
                     onMouseEnter={this.countdownButtonHover}
-                    className={cx(`${classes.CountdownButton} fas fa-hourglass-half`, {
+                    className={cx(`${classes.CountdownButton} fas fa-calendar-check`, {
                         ['animated tada']: this.state.countdownButtonHovered,
                         ['shadowed base']: this.state.items.length === 0,
                         ['raised']: this.state.items.length,

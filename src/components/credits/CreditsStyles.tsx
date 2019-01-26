@@ -27,6 +27,13 @@ export const CreditStyles: Styles<CreditClasses> = {
                 bottom: 0
             }
         },
+        '& .specialThanks': {
+            paddingBottom: 20,
+            paddingTop: 50,
+            [MediaQuery.tablet]: {
+                display: 'none'
+            }
+        },
         '& h2': {
             fontSize: 20,
             margin: 0,
@@ -44,6 +51,7 @@ export const CreditStyles: Styles<CreditClasses> = {
         '& a': {
             fontFamily: 'serif',
             fontSize: 15,
+            color: primary,
             [MediaQuery.tablet]: {
                 fontSize: 20
             }
@@ -52,8 +60,6 @@ export const CreditStyles: Styles<CreditClasses> = {
             padding: 0,
             margin: '0px 0px 50px 0px',
             [MediaQuery.tablet]: {
-                display: 'flex',
-                justifyContent: 'space-evenly',
                 marginBottom: 0
             }
         },
@@ -62,6 +68,7 @@ export const CreditStyles: Styles<CreditClasses> = {
             marginBottom: 30,
             [MediaQuery.tablet]: {
                 marginBottom: 0,
+                width: '25%',
                 display: 'inline-block'
             }
         }

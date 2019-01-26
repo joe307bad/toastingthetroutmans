@@ -19,7 +19,7 @@ export const ReceptionTab: TReceptionTab = (props: ITabProps): JSX.Element => {
                 target='_blank'
                 rel='noopener noreferrer'
                 href='https://historicacres.com/'>
-                Reception Website <i className='fas fa-utensils' />
+                Reception Website <i className='fas fa-cocktail' />
             </a>
             <a className='venueLink hvr-icon-drop'
                 target='_blank'

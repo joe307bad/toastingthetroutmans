@@ -13,7 +13,7 @@ export const ScheduleTab: TScheduleTab = (props: ITabProps): JSX.Element => {
         <div className={props.classes.ScheduleTab}>
             <ul>
                 <li><span>2:00pm - 3:00pm</span>
-                    <div>Exchanging of vows at&nbsp;
+                    <div>Ceremony begins at&nbsp;
                         <i role='button'
                             onClick={props.switchTab.bind({}, Tab.Church)}>
                             St. Margaret Mary Alacoquoe Church
