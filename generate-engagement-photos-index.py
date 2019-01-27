@@ -2,7 +2,7 @@ import os
 from os.path import isfile, join
 from PIL import Image
 
-srcDir = "C:/Projects/ttt/src/assets/photos/engagement/"
+srcDir = "C:/Users/Joseph/Source/ttt/src/assets/photos/engagement/"
 engagementPhotos = [f for f in
                     os.listdir(srcDir)
                     if os.path.isfile(os.path.join(srcDir, f))
@@ -17,7 +17,12 @@ photosObject = """
 
 for photo in engagementPhotos:
     importStatements += """import * as {photoVar} from '{photoPath}';
-    """.format(photoVar=photo.replace(' ', '').replace('+', '').replace('-', '').replace('.', ''), photoPath="./" + photo)
+    """.format(photoVar=photo
+               .replace('_', '')
+               .replace(' ', '')
+               .replace('+', '')
+               .replace('-', '')
+               .replace('.', ''), photoPath="./" + photo)
 
 numOfPhotos = len(engagementPhotos)
 count = 0
@@ -30,7 +35,12 @@ for photo in engagementPhotos:
         tn_image = img.thumbnail(maxsize, Image.ANTIALIAS)
         width, height = img.size
     photosObject += """
-        {photoVar}: {{ src: {photoVar}, height: {height}, width: {width} }}{comma}""".format(photoVar=photo.replace(' ', '').replace('+', '').replace('-', '').replace('.', ''), comma='' if count == numOfPhotos else ',', height = height, width = width)
+        {photoVar}: {{ src: {photoVar}, height: {height}, width: {width} }}{comma}""".format(photoVar=photo
+        .replace(' ', '')
+        .replace('_', '')
+        .replace('+', '')
+        .replace('-', '')
+        .replace('.', ''), comma='' if count == numOfPhotos else ',', height=height, width=width)
 
 photosObject += """
 };
