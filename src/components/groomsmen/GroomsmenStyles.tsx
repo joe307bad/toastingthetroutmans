@@ -56,7 +56,7 @@ export const GroomsmenStyles: Styles<GroomsmenClasses> = {
             width: '100px !important'
         },
         [MediaQuery.tablet]: {
-            width: 250,
+            width: 250
             //height: 250
         },
         [MediaQuery.landscape]: {

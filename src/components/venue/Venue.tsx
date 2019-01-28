@@ -5,11 +5,11 @@ import injectSheet, { StyledComponentProps } from 'react-jss';
 import * as cx from 'classnames';
 import { ParallaxLayer } from 'react-spring';
 import { Photos } from '../../assets/photos/Photos';
+import { ChurchTab } from './tabs/ChurchTab';
+import { HotelTab } from './tabs/HotelTab';
+import { ReceptionTab } from './tabs/ReceptionTab';
 import { ScheduleTab } from './tabs/ScheduleTab';
 import { VenueClasses, VenueStyles } from './VenueStyles';
-import { HotelTab } from './tabs/HotelTab';
-import { ChurchTab } from './tabs/ChurchTab';
-import { ReceptionTab } from './tabs/ReceptionTab';
 
 export interface IVenueProps {
     classes: Record<VenueClasses, string>;

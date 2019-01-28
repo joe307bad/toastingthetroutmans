@@ -65,31 +65,31 @@ export class RegistriesComponent extends React.Component<IRegistriesProps, IRegi
 
         return (
             <div>
-                <ParallaxLayer offset={5} speed={0.5}>
+                <ParallaxLayer offset={6} speed={0.5}>
                     <img
                         alt='Flowers'
                         src={Photos.FlowerPic9}
                         className={classes.FlowerPic9} />
                 </ParallaxLayer>
-                <ParallaxLayer offset={5} speed={0.25}>
+                <ParallaxLayer offset={6} speed={0.25}>
                     <img
                         alt='Sam and Shawn'
                         src={Photos.SamAndShawn_2_Portrait}
                         className={classes.SamAndShawn_2_Portrait} />
                 </ParallaxLayer>
-                <ParallaxLayer offset={5} speed={0.25}>
+                <ParallaxLayer offset={6} speed={0.25}>
                     <img
                         alt='Flowers'
                         src={Photos.FlowerPic10}
                         className={classes.FlowerPic10} />
                 </ParallaxLayer>
-                <ParallaxLayer offset={5} speed={0.5}>
+                <ParallaxLayer offset={6} speed={0.5}>
                     <img
                         alt='Sam and Shawn'
                         src={Photos.SamAndShawn_1_Landscape}
                         className={classes.SamAndShawn_1_Landscape} />
                 </ParallaxLayer>
-                <ParallaxLayer className={classes.RegistriesContainer} offset={5} speed={1}>
+                <ParallaxLayer className={classes.RegistriesContainer} offset={6} speed={1}>
                     <div className={classes.Registries} onScroll={this.stopScrollPropagation}>
                         <h1>Registries</h1>
                         <Trail

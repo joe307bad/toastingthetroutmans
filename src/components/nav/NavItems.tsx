@@ -3,7 +3,6 @@
  */
 export interface INavItem {
     title: string;
-    position: number;
 }
 
 /**
@@ -11,27 +10,24 @@ export interface INavItem {
  */
 export const NavItems: INavItem[] = [
     {
-        title: 'Announcement',
-        position: 0
+        title: 'Announcement'
     },
     {
-        title: 'Photos',
-        position: 1
+        title: 'Photos'
     },
     {
-        title: 'Bridesmaids',
-        position: 2
+        title: 'Bridesmaids'
     },
     {
-        title: 'Groomsmen',
-        position: 3
+        title: 'Groomsmen'
     },
     {
-        title: 'Details',
-        position: 4
+        title: 'Details'
     },
     {
-        title: 'Registries',
-        position: 5
+        title: 'Bridal Dance'
+    },
+    {
+        title: 'Registries'
     }
 ];

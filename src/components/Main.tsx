@@ -4,9 +4,9 @@ import injectSheet, { StyledComponentProps } from 'react-jss';
 import { Parallax } from 'react-spring';
 
 import { Base, MainClasses, primary } from '../theme';
+import { BridalDance } from './bridal-dance/BridalDance';
 import { Bridesmaids } from './bridesmaids/Bridesmaids';
 import { Countdown } from './countdown/Countdown';
-import { Credits } from './credits/Credits';
 import { Groomsmen } from './groomsmen/Groomsmen';
 import { Home } from './home/Home';
 import { TParallaxElement } from './home/TParallaxElement';
@@ -129,6 +129,7 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                             active: this.state.activePage >= 2.7
                         }} />
                         <Venue />
+                        <BridalDance />
                         <Registries {...{
                             creditsOpen: this.state.creditsOpen && this.state.activePage >= 4.7,
                             toggleCredits: this.toggleCredits,
