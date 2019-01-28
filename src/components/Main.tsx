@@ -3,6 +3,7 @@ import * as React from 'react';
 import injectSheet, { StyledComponentProps } from 'react-jss';
 import { Parallax } from 'react-spring';
 
+import { findIndex } from 'lodash';
 import { Base, MainClasses, primary } from '../theme';
 import { BridalDance } from './bridal-dance/BridalDance';
 import { Bridesmaids } from './bridesmaids/Bridesmaids';
@@ -11,7 +12,7 @@ import { Groomsmen } from './groomsmen/Groomsmen';
 import { Home } from './home/Home';
 import { TParallaxElement } from './home/TParallaxElement';
 import { Nav } from './nav/Nav';
-import { NavItems } from './nav/NavItems';
+import { INavItem, NavItems } from './nav/NavItems';
 import { PhotosSlider } from './photos/Photos';
 import { Registries } from './registries/Registries';
 import { Venue } from './venue/Venue';
@@ -94,6 +95,9 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
         }));
     }
 
+    public pagePosition = (pageName: string): number =>
+        findIndex(NavItems, (navItem: INavItem) => navItem.title === pageName)
+
     public render(): JSX.Element {
         const classes: Record<MainClasses, string> = this.props.classes;
 
@@ -123,21 +127,22 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                         <Home />
                         <PhotosSlider />
                         <Bridesmaids {...{
-                            active: this.state.activePage >= 1.5
+                            active: this.state.activePage >= (this.pagePosition('Photos') + 0.5)
                         }} />
                         <Groomsmen {...{
-                            active: this.state.activePage >= 2.7
+                            active: this.state.activePage >= (this.pagePosition('Bridesmaids') + 0.7)
                         }} />
                         <Venue />
                         <BridalDance />
                         <Registries {...{
-                            creditsOpen: this.state.creditsOpen && this.state.activePage >= 4.7,
+                            creditsOpen: this.state.creditsOpen
+                                && this.state.activePage >= (this.pagePosition('Bridal Dance') + 0.7),
                             toggleCredits: this.toggleCredits,
-                            active: this.state.activePage >= 4.7
+                            active: this.state.activePage >= (this.pagePosition('Bridal Dance') + 0.7)
                         }} />
                     </div>
                 </Parallax>
-                <Countdown {...{ disableCountdownButton: this.state.activePage >= 4.7 }} />
+                <Countdown {...{ disableCountdownButton: this.state.activePage >= 5.7 }} />
             </div>);
     }
 }
