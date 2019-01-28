@@ -61,7 +61,8 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
         });
 
         // shut the credits tray if its above the regitries page
-        if (this.state.activePage <= 4.7 && this.state.creditsOpen) {
+        if (this.state.activePage <= (this.pagePosition('Bridal Dance') + 0.7)
+            && this.state.creditsOpen) {
             this.setState({
                 creditsOpen: false
             });
@@ -142,7 +143,10 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                         }} />
                     </div>
                 </Parallax>
-                <Countdown {...{ disableCountdownButton: this.state.activePage >= 5.7 }} />
+                <Countdown {...{
+                    disableCountdownButton: this.state.activePage >=
+                        (this.pagePosition('Bridal Dance') + 0.7)
+                }} />
             </div>);
     }
 }
