@@ -120,8 +120,7 @@ import * as photo_f9e2a99d4e87f6f6a89526369d7ceb8fxlargejpg from './f9e2a99d4e87
 import * as photo_fe52604c1526a2120d2b321ec1923728xlargejpg from './fe52604c1526a2120d2b321ec1923728-xlarge.jpg';
 import * as photo_ff12c4d570e409399307b47572ad4ef6xlargejpg from './ff12c4d570e409399307b47572ad4ef6-xlarge.jpg';
 import * as photo_ff3125346a43353370d747b0559c1006xlargejpg from './ff3125346a43353370d747b0559c1006-xlarge.jpg';
-import * as photo_imag1png from './imag1.png';
-import * as photo_IMAGE_1jpg from './IMAGE_1.jpg';
+import * as photo_imag1jpg from './imag1.jpg';
 import * as photo_IMG_0017jpg from './IMG_0017.jpg';
 import * as photo_IMG_0371jpg from './IMG_0371.jpg';
 import * as photo_IMG_0664jpg from './IMG_0664.jpg';
@@ -140,6 +139,11 @@ import * as photo_IMG_2200jpg from './IMG_2200.jpg';
 import * as photo_IMG_2210jpg from './IMG_2210.jpg';
 import * as photo_IMG_2248jpg from './IMG_2248.jpg';
 import * as photo_IMG_2294jpg from './IMG_2294.jpg';
+import * as photo_IMG_3120jpg from './IMG_3120.jpg';
+import * as photo_SamanthaShawnEngagement15jpg from './Samantha + Shawn Engagement-15.jpg';
+import * as photo_SamanthaShawnEngagement18jpg from './Samantha + Shawn Engagement-18.jpg';
+import * as photo_SamanthaShawnEngagement34jpg from './Samantha + Shawn Engagement-34.jpg';
+import * as photo_SamanthaShawnEngagement49jpg from './Samantha + Shawn Engagement-49.jpg';
 import * as photo_SamanthaShawnEngagement5jpg from './Samantha + Shawn Engagement-5.jpg';
 import * as photo_SamanthaShawnEngagement50jpg from './Samantha + Shawn Engagement-50.jpg';
 import * as photo_SamanthaShawnEngagement51jpg from './Samantha + Shawn Engagement-51.jpg';
@@ -319,14 +323,13 @@ export const EngagementPhotos: { [key: string]: { src: string; height: number; w
     photo_fe52604c1526a2120d2b321ec1923728xlargejpg: { src: photo_fe52604c1526a2120d2b321ec1923728xlargejpg, height: 499, width: 333 },
     photo_ff12c4d570e409399307b47572ad4ef6xlargejpg: { src: photo_ff12c4d570e409399307b47572ad4ef6xlargejpg, height: 499, width: 333 },
     photo_ff3125346a43353370d747b0559c1006xlargejpg: { src: photo_ff3125346a43353370d747b0559c1006xlargejpg, height: 499, width: 333 },
-    photo_imag1png: { src: photo_imag1png, height: 500, width: 375 },
-    photo_IMAGE_1jpg: { src: photo_IMAGE_1jpg, height: 499, width: 666 },
+    photo_imag1jpg: { src: photo_imag1jpg, height: 500, width: 375 },
     photo_IMG_0017jpg: { src: photo_IMG_0017jpg, height: 500, width: 375 },
     photo_IMG_0371jpg: { src: photo_IMG_0371jpg, height: 500, width: 375 },
     photo_IMG_0664jpg: { src: photo_IMG_0664jpg, height: 499, width: 375 },
-    photo_IMG_0697jpg: { src: photo_IMG_0697jpg, height: 499, width: 666 },
-    photo_IMG_0699jpg: { src: photo_IMG_0699jpg, height: 499, width: 666 },
-    photo_IMG_0702jpg: { src: photo_IMG_0702jpg, height: 499, width: 666 },
+    photo_IMG_0697jpg: { src: photo_IMG_0697jpg, height: 500, width: 375 },
+    photo_IMG_0699jpg: { src: photo_IMG_0699jpg, height: 500, width: 375 },
+    photo_IMG_0702jpg: { src: photo_IMG_0702jpg, height: 500, width: 375 },
     photo_IMG_1112jpg: { src: photo_IMG_1112jpg, height: 499, width: 666 },
     photo_IMG_1114jpg: { src: photo_IMG_1114jpg, height: 499, width: 297 },
     photo_IMG_1281jpg: { src: photo_IMG_1281jpg, height: 500, width: 375 },
@@ -337,10 +340,15 @@ export const EngagementPhotos: { [key: string]: { src: string; height: number; w
     photo_IMG_2199jpg: { src: photo_IMG_2199jpg, height: 499, width: 281 },
     photo_IMG_2200jpg: { src: photo_IMG_2200jpg, height: 499, width: 666 },
     photo_IMG_2210jpg: { src: photo_IMG_2210jpg, height: 500, width: 375 },
-    photo_IMG_2248jpg: { src: photo_IMG_2248jpg, height: 499, width: 666 },
+    photo_IMG_2248jpg: { src: photo_IMG_2248jpg, height: 500, width: 375 },
     photo_IMG_2294jpg: { src: photo_IMG_2294jpg, height: 499, width: 375 },
+    photo_IMG_3120jpg: { src: photo_IMG_3120jpg, height: 500, width: 375 },
+    photo_SamanthaShawnEngagement15jpg: { src: photo_SamanthaShawnEngagement15jpg, height: 499, width: 333 },
+    photo_SamanthaShawnEngagement18jpg: { src: photo_SamanthaShawnEngagement18jpg, height: 499, width: 333 },
+    photo_SamanthaShawnEngagement34jpg: { src: photo_SamanthaShawnEngagement34jpg, height: 499, width: 333 },
+    photo_SamanthaShawnEngagement49jpg: { src: photo_SamanthaShawnEngagement49jpg, height: 500, width: 750 },
     photo_SamanthaShawnEngagement5jpg: { src: photo_SamanthaShawnEngagement5jpg, height: 499, width: 333 },
-    photo_SamanthaShawnEngagement50jpg: { src: photo_SamanthaShawnEngagement50jpg, height: 499, width: 749 },
+    photo_SamanthaShawnEngagement50jpg: { src: photo_SamanthaShawnEngagement50jpg, height: 500, width: 750 },
     photo_SamanthaShawnEngagement51jpg: { src: photo_SamanthaShawnEngagement51jpg, height: 499, width: 749 },
     photo_SamanthaShawnEngagement52jpg: { src: photo_SamanthaShawnEngagement52jpg, height: 499, width: 749 },
     photo_SamanthaShawnEngagement53jpg: { src: photo_SamanthaShawnEngagement53jpg, height: 499, width: 749 },

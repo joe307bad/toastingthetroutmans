@@ -40,7 +40,7 @@ const credits: ICredit[] = [
 /**
  * Component for Crediting contributors to the wedding and photography
  */
-export class CreditsComponent extends React.Component<ICreditsProps, {}> {
+export class CreditsComponent extends React.Component<ICreditsProps> {
 
     public render(): JSX.Element {
         const classes: Record<CreditClasses, string> = this.props.classes;
@@ -56,10 +56,11 @@ export class CreditsComponent extends React.Component<ICreditsProps, {}> {
                             <h2>{credit.name}</h2>
                             <p>{credit.responsiblity}</p>
                             <a target='_blank'
+                                role='button'
                                 rel='noopener noreferrer'
                                 href={credit.website}>
                                 <i className={'fas fa-external-link-alt'} />
-                                </a>
+                            </a>
                         </li>
                     ))}
                 </ul>

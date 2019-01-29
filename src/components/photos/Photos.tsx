@@ -3,6 +3,7 @@ import * as React from 'react';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 
+import { shuffle, values } from 'lodash';
 import injectSheet, { StyledComponentProps } from 'react-jss';
 import Slider, { Settings } from 'react-slick';
 import { ParallaxLayer } from 'react-spring';
@@ -25,6 +26,12 @@ interface IPhotoProps {
  */
 export class PhotosComponent extends React.Component<IPhotoProps> {
 
+    private engagementPhotos: IPhoto[] = [];
+
+    public componentWillMount = (): void => {
+        this.engagementPhotos = shuffle(values(EngagementPhotos));
+    }
+
     public render(): JSX.Element {
         const classes: Record<PhotosClasses, string> = this.props.classes;
 
@@ -33,6 +40,9 @@ export class PhotosComponent extends React.Component<IPhotoProps> {
             infinite: true,
             variableWidth: true,
             centerMode: true,
+            autoplay: true,
+            pauseOnHover: true,
+            autoplaySpeed: 1500,
             responsive: [
                 {
                     breakpoint: Breakpoints.mobile,
@@ -64,12 +74,10 @@ export class PhotosComponent extends React.Component<IPhotoProps> {
                 }} speed={1}>
                     <div className={classes.Photos}>
                         <Slider {...settings}>
-                            {Object.keys(EngagementPhotos).map((photo: string, key: number) => {
-                                const photoData: IPhoto = EngagementPhotos[photo];
-
+                            {this.engagementPhotos.map((photo: IPhoto, key: number) => {
                                 return (
-                                    <div key={key} style={{ height: '100%', width: photoData.width }}>
-                                        <img alt='Photo' src={photoData.src} width={photoData.width} />
+                                    <div key={key} style={{ height: '100%', width: photo.width }}>
+                                        <img alt='Photo' src={photo.src} width={photo.width} />
                                     </div>
                                 );
                             })}

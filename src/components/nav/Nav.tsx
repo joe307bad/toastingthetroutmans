@@ -46,7 +46,7 @@ export class NavComponent extends React.Component<INavProps, INavState> {
                                 key={index}
                                 role='button'
                                 className={classes.navItem}
-                                data-position={navItem.position}
+                                data-position={index}
                                 onClick={this.props.scrollTo}>
                                 {navItem.title}
                             </div>
