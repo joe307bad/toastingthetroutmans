@@ -1,5 +1,6 @@
 import os
 from os.path import isfile, join
+import uuid
 from PIL import Image
 
 srcDir = "C:/Users/Joseph/Source/ttt/src/assets/photos/engagement/"
@@ -16,17 +17,14 @@ photosObject = """
     export const EngagementPhotos: { [key: string]: {src: string; height: number; width: number } } = {"""
 
 for photo in engagementPhotos:
+    fileName = 'photo_' + photo.replace('-', '').replace('.', '').replace(' ', '').replace('+', '')
     importStatements += """import * as {photoVar} from '{photoPath}';
-    """.format(photoVar=photo
-               .replace('_', '')
-               .replace(' ', '')
-               .replace('+', '')
-               .replace('-', '')
-               .replace('.', ''), photoPath="./" + photo)
+    """.format(photoVar=fileName, photoPath="./" + photo)
 
 numOfPhotos = len(engagementPhotos)
 count = 0
 for photo in engagementPhotos:
+    fileName = 'photo_' + photo.replace('-', '').replace('.', '').replace(' ', '').replace('+', '')
     count += 1
     filePath = srcDir + photo
     with Image.open(filePath) as img:
@@ -35,12 +33,7 @@ for photo in engagementPhotos:
         tn_image = img.thumbnail(maxsize, Image.ANTIALIAS)
         width, height = img.size
     photosObject += """
-        {photoVar}: {{ src: {photoVar}, height: {height}, width: {width} }}{comma}""".format(photoVar=photo
-        .replace(' ', '')
-        .replace('_', '')
-        .replace('+', '')
-        .replace('-', '')
-        .replace('.', ''), comma='' if count == numOfPhotos else ',', height=height, width=width)
+        {photoVar}: {{ src: {photoVar}, height: {height}, width: {width} }}{comma}""".format(photoVar=fileName, comma='' if count == numOfPhotos else ',', height=height, width=width)
 
 photosObject += """
 };
