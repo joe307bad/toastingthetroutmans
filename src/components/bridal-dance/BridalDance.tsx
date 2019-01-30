@@ -1,7 +1,7 @@
 import * as React from 'react';
 import injectSheet, { StyledComponentProps } from 'react-jss';
 import { ParallaxLayer } from 'react-spring';
-import { Photos } from '../../assets/photos/Photos';
+import { MomAndDadPhotos, Photos } from '../../assets/photos/Photos';
 import { BridalDanceClasses, BridalDanceStyles } from './BridalDanceStyles';
 
 interface IBridalDanceProps {
@@ -17,19 +17,37 @@ export class BridalDanceComponent extends React.Component<IBridalDanceProps> {
 
         return (
             <div>
-            <ParallaxLayer offset={5} speed={1.5}>
-                <img
-                    alt='FlowerPic5'
-                    src={Photos.FlowerPic11}
-                    className={classes.FlowerPic11} />
-            </ParallaxLayer>
-            <ParallaxLayer offset={5} speed={1.5}>
-                <img
-                    alt='FlowerPic5'
-                    src={Photos.FlowerPic12}
-                    className={classes.FlowerPic12} />
-            </ParallaxLayer>
-                <ParallaxLayer offset={5} speed={0.25}>
+                <ParallaxLayer offset={5} speed={1.5}>
+                    <img
+                        alt='FlowerPic5'
+                        src={Photos.FlowerPic11}
+                        className={classes.FlowerPic11} />
+                </ParallaxLayer>
+                <ParallaxLayer offset={5} speed={1.5}>
+                    <img
+                        alt='FlowerPic5'
+                        src={Photos.FlowerPic12}
+                        className={classes.FlowerPic12} />
+                </ParallaxLayer>
+                <ParallaxLayer offset={5} speed={1.5}>
+                    <img
+                        alt='FlowerPic5'
+                        src={MomAndDadPhotos.MomAndDad}
+                        className={classes.MomAndDad} />
+                </ParallaxLayer>
+                <ParallaxLayer offset={5} speed={1.5}>
+                    <img
+                        alt='FlowerPic5'
+                        src={MomAndDadPhotos.MomAndDad1}
+                        className={classes.MomAndDad1} />
+                </ParallaxLayer>
+                <ParallaxLayer offset={5} speed={1.5}>
+                    <img
+                        alt='FlowerPic5'
+                        src={MomAndDadPhotos.MomWithBojo}
+                        className={classes.MomWithBojo} />
+                </ParallaxLayer>
+                <ParallaxLayer offset={5} speed={1.5}>
                     <div className={classes.BridalDanceContainer}>
                         <div className={classes.BridalDance}>
                             <h1>Bridal Dance</h1>
@@ -50,7 +68,12 @@ export class BridalDanceComponent extends React.Component<IBridalDanceProps> {
                                     <li>It may go overboard from here …</li>
                                     <li>Eventually, the Groom is able to meet his Bride and carry her away!</li>
                                 </ol>
-                                Please click here to watch video of Samantha’s parents, Jim and Angela, completing their bridal dance during their wedding.
+                                <p>Click play below to watch video of Samantha’s parents, Jim and Angela, completing their bridal dance during their wedding.</p>
+                                <iframe
+                                    {...{
+                                        src: 'https://drive.google.com/file/d/1To__dUx1CPT1X3BNtymLgN2u71U0n8Mz/preview',
+                                        allowFullScreen: true
+                                    }} />
                             </div>
                         </div>
                     </div>

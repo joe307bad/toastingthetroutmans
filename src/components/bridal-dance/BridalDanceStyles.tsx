@@ -7,7 +7,10 @@ export type BridalDanceClasses =
     'BridalDanceContainer' |
     'BridalDance' |
     'FlowerPic11' |
-    'FlowerPic12';
+    'FlowerPic12' |
+    'MomAndDad' |
+    'MomAndDad1' |
+    'MomWithBojo';
 
 /**
  * The Styles for the Bridal Dance Component
@@ -18,7 +21,9 @@ export const BridalDanceStyles: Styles<BridalDanceClasses> = {
         width: '100%',
         height: '100%',
         justifyContent: 'center',
-        marginTop: 60
+        [MediaQuery.tablet]: {
+            marginTop: 60
+        }
     },
     BridalDance: {
         width: '100%',
@@ -31,7 +36,16 @@ export const BridalDanceStyles: Styles<BridalDanceClasses> = {
         '& > div': {
             backgroundColor: 'white',
             border: `2px solid ${primary}`,
-            padding: '10px 20px 20px 20px'
+            padding: '10px 20px 20px 20px',
+            boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)'
+        },
+        '& iframe': {
+            width: 300,
+            height: 200,
+            minHeight: 200,
+            border: 0,
+            display: 'block',
+            margin: '0 auto'
         }
     },
     FlowerPic11: {
@@ -52,6 +66,51 @@ export const BridalDanceStyles: Styles<BridalDanceClasses> = {
         top: -100,
         [MediaQuery.tablet]: {
             opacity: 1
+        }
+    },
+    MomAndDad: {
+        display: 'none',
+        border: '5px solid white',
+        boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
+        width: 250,
+        bottom: 400,
+        position: 'relative',
+        margin: '0 auto',
+        right: 400,
+        top: 100,
+        transform: 'rotate(-15deg)',
+        [MediaQuery.tablet]: {
+            display: 'block'
+        }
+    },
+    MomAndDad1: {
+        display: 'none',
+        border: '5px solid white',
+        boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
+        width: 300,
+        bottom: 400,
+        position: 'relative',
+        margin: '0 auto',
+        right: 400,
+        top: 500,
+        transform: 'rotate(-10deg)',
+        [MediaQuery.tablet]: {
+            display: 'block'
+        }
+    },
+    MomWithBojo: {
+        display: 'none',
+        border: '5px solid white',
+        boxShadow: '9px 9px 5px -3px rgba(0,0,0,0.22)',
+        width: 400,
+        bottom: 100,
+        position: 'relative',
+        margin: '0 auto',
+        left: 450,
+        top: 300,
+        transform: 'rotate(15deg)',
+        [MediaQuery.tablet]: {
+            display: 'block'
         }
     }
 };

@@ -3,7 +3,7 @@ from os.path import isfile, join
 import uuid
 from PIL import Image
 
-srcDir = "C:/Users/Joseph/Source/ttt/src/assets/photos/engagement/"
+srcDir = "C:/Projects/ttt/src/assets/photos/engagement/"
 engagementPhotos = [f for f in
                     os.listdir(srcDir)
                     if os.path.isfile(os.path.join(srcDir, f))

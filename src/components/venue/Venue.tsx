@@ -30,7 +30,8 @@ export enum Tab {
     Schedule,
     Hotel,
     Church,
-    Reception
+    Reception,
+    Music
 }
 
 export const numberOfTabs: number = Number(Object.keys(Tab).length / 2);
@@ -126,6 +127,8 @@ export class VenueComponent extends React.Component<IVenueProps, IVenueState> {
                                                 return <ChurchTab {...props} />;
                                             case Tab.Reception:
                                                 return <ReceptionTab {...props} />;
+                                            case Tab.Music:
+                                                return <Music />;
                                             default:
                                                 return null;
                                         }
@@ -138,6 +141,21 @@ export class VenueComponent extends React.Component<IVenueProps, IVenueState> {
         );
     }
 }
+
+type TMusic = () => JSX.Element;
+const Music: TMusic = (): JSX.Element => {
+    return (
+        <div style={{ width: '100%' }}>
+            <h2>Want to hear something at the wedding?</h2>
+            <a className='venueButton hvr-grow-shadow'
+                target='_blank'
+                rel='noopener noreferrer'
+                href='https://docs.google.com/forms/d/e/1FAIpQLSdOKFTopwWsCa5B5qtzmpcEUapxYkQ4X4sqK7AjiUJzAld2kw/viewform?usp=sf_link'>
+                Request Music <i className='fas fa-music' />
+            </a>
+        </div>
+    );
+};
 
 export const Venue: React.ComponentType<Pick<IVenueProps, never> & StyledComponentProps>
     = injectSheet(VenueStyles)(VenueComponent);

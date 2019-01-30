@@ -41,6 +41,9 @@ import * as Joe from './groomsmen/joe.png';
 import * as Joe_alt from './groomsmen/joe_alt.png';
 import * as Luke from './groomsmen/luke.png';
 import * as Luke_alt from './groomsmen/luke_alt.png';
+import * as MomAndDad from './mom-and-dad/mom-and-dad.jpg';
+import * as MomAndDad1 from './mom-and-dad/mom-and-dad1.jpg';
+import * as MomWithBojo from './mom-and-dad/mom-with-bojo.jpg';
 import * as Amazon from './registries/amazon.png';
 import * as CrateAndBarrel from './registries/crate-and-barrel.png';
 import * as Target from './registries/target.png';
@@ -80,6 +83,12 @@ export const Photos: { [key: string]: string } = {
     CrateAndBarrel: CrateAndBarrel,
     Target: Target,
     Amazon: Amazon
+};
+
+export const MomAndDadPhotos: { [key: string]: string } = {
+    MomAndDad: MomAndDad,
+    MomAndDad1: MomAndDad1,
+    MomWithBojo: MomWithBojo
 };
 
 export const GroomsmenPhotos: { [key: string]: string } = {

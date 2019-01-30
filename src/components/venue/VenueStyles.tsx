@@ -54,16 +54,18 @@ export const VenueStyles: Styles<VenueClasses> = {
         },
         '& .tab p': {
             fontSize: 15,
+            color: primary,
             backgroundColor: 'white',
             padding: '15px 0px 7px 0px',
             height: 20,
             margin: 0,
             [MediaQuery.tablet]: {
-                fontSize: 20,
-                padding: 20
+                padding: '20px 20px 17px 20px',
+                fontSize: 17
             }
         },
         '& .tabContent': {
+            textAlign: 'center',
             float: 'left',
             width: 'calc(100% - 4px)',
             display: 'none',
@@ -122,7 +124,7 @@ export const VenueStyles: Styles<VenueClasses> = {
     },
     // @ts-ignore
     VenueTab: (props: IVenueProps): CSSProperties => ({
-        width: `calc(${100 / props.numberOfTabs}% - 2.5px)`,
+        width: `calc(${100 / props.numberOfTabs}% - 2px)`,
         display: 'inline-block',
         fontFamily: 'Imperator',
         fontSize: 20,
@@ -133,9 +135,11 @@ export const VenueStyles: Styles<VenueClasses> = {
         borderStyle: 'solid',
         float: 'left'
     }),
-    LastVenueTab: {
-        borderRight: `2px solid ${primary} !important`
-    },
+    // @ts-ignore
+    LastVenueTab: (props: IVenueProps): CSSProperties => ({
+        borderRight: `2px solid ${primary} !important`,
+        width: `calc(${100 / props.numberOfTabs}% - 4px)`
+    }),
     ScheduleTab: {
         padding: '10px 20px 0px 20px',
         marginBottom: -10,
@@ -160,7 +164,6 @@ export const VenueStyles: Styles<VenueClasses> = {
         }
     },
     HotelTab: {
-        textAlign: 'center',
         width: '100%',
         '& .hotelWarning': {
             color: primary,
