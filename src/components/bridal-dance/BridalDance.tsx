@@ -17,31 +17,31 @@ export class BridalDanceComponent extends React.Component<IBridalDanceProps> {
 
         return (
             <div>
-                <ParallaxLayer offset={5} speed={1.5}>
+                <ParallaxLayer offset={5} speed={1}>
                     <img
                         alt='FlowerPic5'
                         src={Photos.FlowerPic11}
                         className={classes.FlowerPic11} />
                 </ParallaxLayer>
-                <ParallaxLayer offset={5} speed={1.5}>
+                <ParallaxLayer offset={5} speed={1}>
                     <img
                         alt='FlowerPic5'
                         src={Photos.FlowerPic12}
                         className={classes.FlowerPic12} />
                 </ParallaxLayer>
-                <ParallaxLayer offset={5} speed={1.5}>
+                <ParallaxLayer offset={5} speed={0.75}>
                     <img
                         alt='FlowerPic5'
                         src={MomAndDadPhotos.MomAndDad}
                         className={classes.MomAndDad} />
                 </ParallaxLayer>
-                <ParallaxLayer offset={5} speed={1.5}>
+                <ParallaxLayer offset={5} speed={1.25}>
                     <img
                         alt='FlowerPic5'
                         src={MomAndDadPhotos.MomAndDad1}
                         className={classes.MomAndDad1} />
                 </ParallaxLayer>
-                <ParallaxLayer offset={5} speed={1.5}>
+                <ParallaxLayer offset={5} speed={1.3}>
                     <img
                         alt='FlowerPic5'
                         src={MomAndDadPhotos.MomWithBojo}
