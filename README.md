@@ -10,11 +10,3 @@
 
 ##### Other Credits:
 * [akiran/react-slick](https://github.com/akiran/react-slick)
-
-#### ToDos:
-* Add the videos of moms bridal dance
-* Add more engagement photos across the site
-    * https://amyrechphotography.pixieset.com/g/samandshawn/ 
-    * https://sarahbrookhart.passgallery.com/-samanthashawn/gallery 
-* Look at other wedding websites and determine other page ideas
-* Maybe add loading icon that display until all images are loaded
