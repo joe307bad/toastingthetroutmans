@@ -15,6 +15,7 @@ export interface IVenueProps {
     classes: Record<VenueClasses, string>;
     numberOfTabs?: number;
     tabs?: ITab[];
+    scrollToBridalDance(): void;
 }
 
 interface IVenueState {
@@ -39,6 +40,7 @@ export const numberOfTabs: number = Number(Object.keys(Tab).length / 2);
 export interface ITabProps {
     classes: Record<VenueClasses, string>;
     switchTab(tab: Tab): void;
+    scrollToBridalDance(): void;
 }
 
 /**
@@ -47,6 +49,7 @@ export interface ITabProps {
 export class VenueComponent extends React.Component<IVenueProps, IVenueState> {
 
     public static defaultProps: IVenueProps = {
+        scrollToBridalDance: null,
         classes: null,
         numberOfTabs: numberOfTabs,
         tabs: Object.keys(Tab)
@@ -116,7 +119,8 @@ export class VenueComponent extends React.Component<IVenueProps, IVenueState> {
                                     ((): JSX.Element => {
                                         const props: ITabProps = {
                                             classes: classes,
-                                            switchTab: this.switchTab
+                                            switchTab: this.switchTab,
+                                            scrollToBridalDance: this.props.scrollToBridalDance
                                         };
                                         switch (tab.key) {
                                             case Tab.Schedule:

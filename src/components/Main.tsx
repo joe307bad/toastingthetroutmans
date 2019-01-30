@@ -133,7 +133,16 @@ class MainComponent extends React.Component<IMainProps, IMainState> {
                         <Groomsmen {...{
                             active: this.state.activePage >= (this.pagePosition('Bridesmaids') + 0.7)
                         }} />
-                        <Venue />
+                        <Venue {...{
+                            scrollToBridalDance:
+                                this.scrollTo.bind(this, {
+                                    currentTarget: {
+                                        dataset: {
+                                            position: this.pagePosition('Bridal Dance')
+                                        }
+                                    }
+                                })
+                        }} />
                         <BridalDance />
                         <Registries {...{
                             creditsOpen: this.state.creditsOpen

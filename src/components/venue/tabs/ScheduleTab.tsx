@@ -46,6 +46,14 @@ export const ScheduleTab: TScheduleTab = (props: ITabProps): JSX.Element => {
                         Dinner begins at Historic Acres
                      </div>
                 </li>
+                <li><span>8:30pm</span>
+                    <div>
+                        <i role='button'
+                            onClick={props.scrollToBridalDance}>
+                            Bridal Dance!
+                            </i>
+                    </div>
+                </li>
                 <li><span>10:45pm</span>
                     <div>
                         First shuttle departs from the reception to travel back to the hotel
