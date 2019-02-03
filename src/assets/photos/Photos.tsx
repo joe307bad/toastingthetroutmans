@@ -37,6 +37,7 @@ import * as Andrew_alt from './groomsmen/andrew_alt.png';
 import * as Drew from './groomsmen/drew.png';
 import * as Drew_alt from './groomsmen/drew_alt.png';
 import * as Everett from './groomsmen/everett.png';
+import * as Everett_alt from './groomsmen/everett_alt.png';
 import * as Joe from './groomsmen/joe.png';
 import * as Joe_alt from './groomsmen/joe_alt.png';
 import * as Luke from './groomsmen/luke.png';
@@ -93,6 +94,7 @@ export const MomAndDadPhotos: { [key: string]: string } = {
 
 export const GroomsmenPhotos: { [key: string]: string } = {
     Everett: Everett,
+    Everett_alt: Everett_alt,
     Andrew: Andrew,
     Andrew_alt: Andrew_alt,
     Joe: Joe,

@@ -53,13 +53,13 @@ export class CreditsComponent extends React.Component<ICreditsProps> {
                 <ul>
                     {credits.map((credit: ICredit, key: number) => (
                         <li key={key}>
-                            <h2>{credit.name}</h2>
-                            <p>{credit.responsiblity}</p>
                             <a target='_blank'
                                 role='button'
                                 rel='noopener noreferrer'
                                 href={credit.website}>
-                                <i className={'fas fa-external-link-alt'} />
+                                <h2>{credit.name}</h2>
+                                <br />
+                                <p>{credit.responsiblity}</p>
                             </a>
                         </li>
                     ))}

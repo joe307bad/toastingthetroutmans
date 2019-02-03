@@ -142,6 +142,7 @@ export const VenueStyles: Styles<VenueClasses> = {
     }),
     ScheduleTab: {
         padding: '10px 20px 0px 20px',
+        fontFamily: 'Imperator',
         marginBottom: -10,
         '& ul': {
             margin: 0

@@ -28,6 +28,7 @@ export const BridalDanceStyles: Styles<BridalDanceClasses> = {
     BridalDance: {
         width: '100%',
         maxWidth: 600,
+        fontFamily: 'Imperator',
         '& h1': {
             fontFamily: 'Imperator',
             color: primary,

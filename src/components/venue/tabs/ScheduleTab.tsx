@@ -21,7 +21,7 @@ export const ScheduleTab: TScheduleTab = (props: ITabProps): JSX.Element => {
                     </div>
                 </li>
                 <li><span>4:15pm</span>
-                    <div>First shuttle leaves fromt&nbsp;
+                    <div>First shuttle leaves from&nbsp;
                         <i role='button'
                             onClick={props.switchTab.bind({}, Tab.Hotel)}>
                             The Warehouse Hotel

@@ -71,7 +71,7 @@ const bridesmaids: IPerson[] = [
         altPhoto: BridesmaidsPhotos.Anniston_alt,
         name: 'Anniston Cerjanic',
         role: `Flower Girl`,
-        description: `Neice of the Bride`
+        description: `Niece of the Bride`
     }
 ];
 

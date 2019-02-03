@@ -44,6 +44,7 @@ const groomsmen: IPerson[] = [
     {
         photo: GroomsmenPhotos.Everett,
         name: 'Everett Cerjanic',
+        altPhoto: GroomsmenPhotos.Everett_alt,
         role: `Ring Bearer`,
         description: `Nephew of the Bride`
     }
