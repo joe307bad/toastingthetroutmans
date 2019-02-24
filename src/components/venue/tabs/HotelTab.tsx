@@ -36,6 +36,14 @@ export const HotelTab: THotelTab = (props: ITabProps): JSX.Element => {
                 <i className='fas fa-map-marked-alt hvr-icon' /><br />
                 <span>Directions Information</span>
             </a>
+            <br />
+            <a className='venueLink hvr-icon-grow'
+                target='_blank'
+                rel='noopener noreferrer'
+                href='https://www.spookynooksports.com/hubfs/parking_Map.jpg' >
+                <i className='fas fa-parking hvr-icon' /><br />
+                <span>Parking Information</span>
+            </a>
             <div className='hotelWarning'>
                 <p>
                     <i className='fas fa-exclamation-circle' />

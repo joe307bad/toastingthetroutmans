@@ -24,7 +24,7 @@ export const ChurchTab: TChurchTab = (props: ITabProps): JSX.Element => {
             <a className='venueLink hvr-icon-drop'
                 target='_blank'
                 rel='noopener noreferrer'
-                href={''} >
+                href={churchLink} >
                 <i className='fas fa-map-marker-alt hvr-icon' /><br />
                 <span>2800 Paxton Church Road<br />Harrisburg, PA 17110</span>
             </a>
